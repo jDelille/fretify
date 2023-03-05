@@ -6,7 +6,8 @@ interface ITheme extends DefaultTheme {
 }
 
 export const GlobalStyles = createGlobalStyle`
-  body {
+  .page,
+  .navbar {
     background: ${({ theme }: { theme: ITheme }) => theme.body};
     color: ${({ theme }: { theme: ITheme }) => theme.text};
     transition: background 0.2s ease-in, color 0.2s ease-in;
@@ -19,6 +20,6 @@ export const lightTheme: ITheme = {
 };
 
 export const darkTheme: ITheme = {
-  body: '#121620',
+  body: '#262626',
   text: '#f1f1f1',
 };

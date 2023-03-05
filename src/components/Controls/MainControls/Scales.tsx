@@ -1,7 +1,11 @@
 import '../Controls.scss';
 
 function Scales() {
-  return <div>Scales</div>;
+  return (
+    <div className="option">
+      <p>Major Pentatonic Scale</p>
+    </div>
+  );
 }
 
 export default Scales;

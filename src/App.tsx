@@ -1,4 +1,5 @@
 import Home from './pages/Home';
+import './scss/global.scss';
 
 function App() {
   return (

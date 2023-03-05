@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap');
+@import './variables';
+
+* {
+ margin: 0;
+ padding: 0;
+ box-sizing: 0;
+ font-family: 'Inter', sans-serif;
+}
+
+.page {
+ max-width: 100%;
+ height: calc(100vh);
+}

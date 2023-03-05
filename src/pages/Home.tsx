@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { ThemeProvider } from 'styled-components';
 import { lightTheme, darkTheme, GlobalStyles } from '../scss/theme';
 import Navbar from '../components/Navbar/Navbar';
+import MainControls from '../components/Controls/MainControls/MainControls';
 
 function Home() {
   const [theme, setTheme] = useState('light');
@@ -14,6 +15,7 @@ function Home() {
         <GlobalStyles />
         <div className="page">
           <Navbar toggleTheme={toggleTheme} />
+          <MainControls />
           <h1>Home</h1>
         </div>
       </>

@@ -1,0 +1,72 @@
+// Default breakpoint for mobile devices
+$breakpoint-mobile: 850px;
+
+// Mixin for targeting mobile devices and up
+@mixin mobile {
+   @media (max-width: #{$breakpoint-mobile}) {
+      @content;
+   }
+}
+
+// Breakpoint for tablets
+$breakpoint-tablet: 968px;
+
+// Mixin for targeting tablets and up
+@mixin tablet {
+   @media (max-width: #{$breakpoint-tablet}) {
+      @content;
+   }
+}
+
+// Breakpoint for laptops and desktops
+$breakpoint-laptop: 1370px;
+
+// Mixin for targeting laptops and desktops and up
+@mixin laptop {
+   @media (min-width: #{$breakpoint-laptop}) {
+      @content;
+   }
+}
+
+// Breakpoint for smaller laptops
+$breakpoint-laptop: 1350px;
+
+// Mixin for targeting laptops and desktops and up
+@mixin smallLaptop {
+   @media (max-width: #{$breakpoint-laptop}) {
+      @content;
+   }
+}
+
+// testing
+$breakpoint1: 1770px;
+$breakpoint2: 1700px;
+$breakpoint3: 1570px;
+$breakpoint4: 1524px;
+$breakpoint5: 1454px;
+
+@mixin breakpoint1 {
+   @media (max-width: #{$breakpoint1}) {
+      @content;
+   }
+}
+@mixin breakpoint2 {
+   @media (max-width: #{$breakpoint1}) {
+      @content;
+   }
+}
+@mixin breakpoint3 {
+   @media (max-width: #{$breakpoint1}) {
+      @content;
+   }
+}
+@mixin breakpoint4 {
+   @media (max-width: #{$breakpoint1}) {
+      @content;
+   }
+}
+@mixin breakpoint5 {
+   @media (max-width: #{$breakpoint1}) {
+      @content;
+   }
+}

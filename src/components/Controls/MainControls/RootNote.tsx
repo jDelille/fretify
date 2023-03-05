@@ -1,7 +1,11 @@
 import '../Controls.scss';
 
 function RootNote() {
-  return <div>RootNote</div>;
+  return (
+    <div className="option">
+      <p>Ab</p>
+    </div>
+  );
 }
 
 export default RootNote;
