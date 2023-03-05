@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import '../Controls.scss';
-import Modal from './Modal';
+import Modal, { TuningProps } from './Modal';
 
 const tunings = [
   {
@@ -9,19 +9,19 @@ const tunings = [
   },
   {
     name: 'E Flat Tuning',
-    notes: ['e', 'a', 'd', 'g', 'b', 'a'],
+    notes: ['f', 'a', 'd', 'g', 'b', 'a'],
   },
   {
     name: 'Open E Tuning',
-    notes: ['e', 'a', 'd', 'g', 'b', 'a'],
+    notes: ['g', 'a', 'd', 'g', 'b', 'a'],
   },
   {
     name: 'Open D Tuning',
-    notes: ['e', 'a', 'd', 'g', 'b', 'a'],
+    notes: ['h', 'a', 'd', 'g', 'b', 'a'],
   },
   {
     name: 'E Flat Tuning',
-    notes: ['e', 'a', 'd', 'g', 'b', 'a'],
+    notes: ['i', 'a', 'd', 'g', 'b', 'a'],
   },
 ];
 

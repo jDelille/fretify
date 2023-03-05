@@ -1,31 +1,60 @@
-import '../controls.scss';
+/* eslint-disable react/require-default-props */
+import '../Controls.scss';
 
-export type Tuning = {
+export type TuningProps = {
   name: string;
   notes: string[];
 };
 
-type Props = {
-  tunings: Tuning[];
+export type Scales = {
+  name: string[];
 };
 
-function Modal({ tunings }: Props) {
+export type RootNotes = string;
+
+type Props = {
+  tunings?: TuningProps[];
+  scales?: Scales;
+  rootNotes?: RootNotes[];
+};
+
+function Modal({ tunings, scales, rootNotes }: Props) {
   return (
-    <div className="modal">
-      {tunings?.map((tuning) => {
-        return (
-          <p key={tuning.name} className="tuning">
-            <span className="name">{tuning.name}</span>
-            {tuning.notes.map((note: string) => {
-              return (
-                <span key={note} className="note">
-                  {note}
-                </span>
-              );
-            })}
-          </p>
-        );
-      })}
+    <div className={rootNotes ? 'rootNoteModal' : 'modal'}>
+      {tunings &&
+        tunings.length > 0 &&
+        tunings?.map((tuning) => {
+          return (
+            <p key={tuning.name} className="tuning">
+              <span className="name">{tuning.name}</span>
+              <div className="notes">
+                {tuning.notes.map((note: string) => {
+                  return (
+                    <span key={note} className="note">
+                      {note}
+                    </span>
+                  );
+                })}
+              </div>
+            </p>
+          );
+        })}
+      {scales &&
+        scales?.name.map((scale) => {
+          return (
+            <p key={scale} className="scale">
+              <span className="name">{scale}</span>
+            </p>
+          );
+        })}
+      {rootNotes &&
+        rootNotes?.map((note) => {
+          return (
+            <p key={note} className="rootNote">
+              <span className="note">{note}</span>
+            </p>
+          );
+        })}
     </div>
   );
 }
