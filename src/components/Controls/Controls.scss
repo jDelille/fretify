@@ -2,7 +2,6 @@
 
 .controlContainerPill {
  width: 530px;
- // border: 1px solid #454545;
  padding: 10px;
  border-radius: 50px;
  height: 50px;
@@ -11,16 +10,19 @@
  display: flex;
  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
  position: relative;
- overflow: hidden;
  .option {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 50%;
   cursor: pointer;
+  position: relative;
+  .optionButton {
+   all: unset;
+  }
   &:first-child {
-   width: 25%;
-   padding-left: 28px;
+   width: 30%;
+   // padding-left: 28px;
   }
   &:last-child {
    background-color: #454545;
@@ -31,6 +33,45 @@
    &:hover {
     box-shadow: unset;
    }
+  }
+ }
+}
+
+.modal {
+ box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+ min-width: fit-content;
+ padding: 10px;
+ position: absolute;
+ z-index: 9999;
+ height: 200px;
+ border-radius: 10px;
+ .tuning {
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  gap: 5px;
+  cursor: pointer;
+  &:hover {
+   color: aqua;
+   .note {
+    color: aqua;
+
+   }
+  }
+  .name {
+   width: 140px;
+   display: flex;
+   align-items: center;
+   margin-right: 1rem;
+  }
+  .note {
+   color: #B1B6B8;
+   text-transform: uppercase;
+   font-size: 12px;
+   font-weight: 600;
+   display: flex;
+   align-items: center;
+   
   }
  }
 }
