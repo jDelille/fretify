@@ -10,31 +10,19 @@ function MainControls() {
   const [isScaleModal, setIsScaleModal] = useState(false);
 
   const toggleTuning = () => {
-    if (isTuningModal) {
-      setIsTuningModal(false);
-    } else {
-      setIsRootNoteModal(false);
-      setIsScaleModal(false);
-      setIsTuningModal(true);
-    }
+    setIsTuningModal((prevState) => !prevState);
+    setIsScaleModal(false);
+    setIsRootNoteModal(false);
   };
   const toggleScales = () => {
-    if (isScaleModal) {
-      setIsScaleModal(false);
-    } else {
-      setIsRootNoteModal(false);
-      setIsScaleModal(true);
-      setIsTuningModal(false);
-    }
+    setIsScaleModal((prevState) => !prevState);
+    setIsRootNoteModal(false);
+    setIsTuningModal(false);
   };
   const toggleRootNote = () => {
-    if (isRootNoteModal) {
-      setIsRootNoteModal(false);
-    } else {
-      setIsRootNoteModal(true);
-      setIsScaleModal(false);
-      setIsTuningModal(false);
-    }
+    setIsRootNoteModal((prevState) => !prevState);
+    setIsScaleModal(false);
+    setIsTuningModal(false);
   };
 
   return (
