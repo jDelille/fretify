@@ -1,6 +1,5 @@
-import { useState } from 'react';
+import Modal from './Modal';
 import '../Controls.scss';
-import Modal, { TuningProps } from './Modal';
 
 const tunings = [
   {
@@ -25,21 +24,20 @@ const tunings = [
   },
 ];
 
-function Tuning() {
-  const [toggle, setToggle] = useState(false);
+export type TuningProps = {
+  isTuningModal: boolean;
+  toggleTuning: () => void;
+};
 
+function Tuning({ isTuningModal, toggleTuning }: TuningProps) {
   return (
     <>
       <div className="option">
-        <button
-          type="button"
-          className="optionButton"
-          onClick={() => setToggle(!toggle)}
-        >
+        <button type="button" className="optionButton" onClick={toggleTuning}>
           Standard Tuning
         </button>
       </div>
-      {toggle && <Modal tunings={tunings} />}
+      {isTuningModal && <Modal tunings={tunings} />}
     </>
   );
 }

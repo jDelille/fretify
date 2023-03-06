@@ -19,6 +19,11 @@ export const GlobalStyles = createGlobalStyle`
     color: ${({ theme }: { theme: ITheme }) => theme.text};
     transition: background 0.2s ease-in, color 0.2s ease-in;
   }
+  .rootNoteModal {
+    background: ${({ theme }: { theme: ITheme }) => theme.button};
+    color: ${({ theme }: { theme: ITheme }) => theme.text};
+    transition: background 0.2s ease-in, color 0.2s ease-in;
+  }
 `;
 
 export const lightTheme: ITheme = {

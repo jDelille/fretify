@@ -1,25 +1,23 @@
-import { useState } from 'react';
 import { Scale } from 'tonal';
-import '../Controls.scss';
 import Modal from './Modal';
+import '../Controls.scss';
 
-function Scales() {
-  const [toggle, setToggle] = useState(false);
+export type ScaleProps = {
+  isScaleModal: boolean;
+  toggleScales: () => void;
+};
 
+function Scales({ isScaleModal, toggleScales }: ScaleProps) {
   const scaleNames: string[] = Scale.names();
 
   return (
     <>
       <div className="option">
-        <button
-          type="button"
-          className="optionButton"
-          onClick={() => setToggle(!toggle)}
-        >
+        <button type="button" className="optionButton" onClick={toggleScales}>
           Major Pentatonic Scale
         </button>
       </div>
-      {toggle && <Modal scales={{ name: scaleNames }} />}
+      {isScaleModal && <Modal scales={{ name: scaleNames }} />}
     </>
   );
 }

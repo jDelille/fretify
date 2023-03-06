@@ -1,6 +1,5 @@
-import { useState } from 'react';
-import '../Controls.scss';
 import Modal from './Modal';
+import '../Controls.scss';
 
 const rootNotes: string[] = [
   'A',
@@ -18,19 +17,18 @@ const rootNotes: string[] = [
   'Gb',
 ];
 
-function RootNote() {
-  const [toggle, setToggle] = useState(false);
+export type RootNoteProps = {
+  isRootNoteModal: boolean;
+  toggleRootNote: () => void;
+};
 
+function RootNote({ isRootNoteModal, toggleRootNote }: RootNoteProps) {
   return (
     <>
-      <button
-        type="button"
-        className="option button"
-        onClick={() => setToggle(!toggle)}
-      >
+      <button type="button" className="option button" onClick={toggleRootNote}>
         <p className="optionButton">Ab</p>
       </button>
-      {toggle && <Modal rootNotes={rootNotes} />}
+      {isRootNoteModal && <Modal rootNotes={rootNotes} />}
     </>
   );
 }
