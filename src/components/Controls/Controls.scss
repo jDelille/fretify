@@ -111,31 +111,50 @@
  right: 4px;
  width: 20%;
  height: 400px;
- .rootNote {
- 
-  
- }
 }
+
 
 .secondaryControls {
  height: 125px;
  display: flex;
  align-items: center;
- gap: 28px;
  padding: 0 5%;
- .infoBox {
+ justify-content: space-between;
+ .left,
+ .right {
   display: flex;
-  flex-direction: column;
-  gap: 10px;
-  .label {
-   color: #B1B6B8;
-   font-weight: 500;
-   font-size: 14px;
+  gap: 28px;
+  .infoBox {
+   display: flex;
+   flex-direction: column;
+   gap: 10px;
+   .label {
+    color: #B1B6B8;
+    font-weight: 500;
+    font-size: 14px;
+   }
+   .info {
+    font-size: 18px;
+    font-weight: 500;
+   }
   }
-  .info {
-   font-size: 18px;
-   font-weight: 500;
+  .checkbox {
+   display: flex;
+   gap: 10px;
+   align-items: center;
+   .info {
+    font-size: 15px;
+    font-weight: 500;
+    color: #B1B6B8;
+
+   }
+   svg {
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+   }
   }
  }
+
 
 }

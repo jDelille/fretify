@@ -1,13 +1,13 @@
 import Checkbox from '../../../assets/Checkbox';
 import '../Controls.scss';
 
-function RootNote() {
+function FlipStrings() {
   return (
     <div className="checkbox">
       <Checkbox />
-      <h1 className="info">Root note</h1>
+      <h1 className="info">Flip strings</h1>
     </div>
   );
 }
 
-export default RootNote;
+export default FlipStrings;
