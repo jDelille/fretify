@@ -27,7 +27,6 @@ function Fretboard() {
           { length: numberOfFrets },
           (f, fret) => {
             const noteIndex = (fret + tuning[string]) % 12;
-
             const note = notes[noteIndex];
             const isNoteInScale = Scale.get(`a major`).notes.includes(note);
             return (
