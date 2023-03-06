@@ -1,0 +1,92 @@
+@import '../../scss/variables';
+@import '../../scss/mixins';
+
+.fretboard {
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  display: flex;
+  flex-direction: column;
+  background-color: #262626;
+  border-radius: 4px;
+  border: 1px solid #454545;
+  border-right: 0;
+  border-left: 0;
+  .string {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    position: relative;
+    &:before {
+      content: '';
+      width: 100%;
+      background-color: #e0e4eb;
+      position: absolute;
+      z-index: 1;
+      top: 15px;
+      height: 1px;
+    }
+    &:nth-of-type(1):before {
+      background-color: $high-strings-color;
+      height: 1.5px;
+    }
+    &:nth-of-type(2):before {
+      background-color: $high-strings-color;
+      height: 2.4px;
+    }
+    &:nth-of-type(3):before {
+      background-color: $high-strings-color;
+      height: 2.5px;
+    }
+    &:nth-of-type(4):before {
+      background-color: $low-strings-color;
+      height: 2.75px;
+    }
+    &:nth-of-type(5):before {
+      background-color: $low-strings-color;
+      height: 3px;
+    }
+    &:nth-of-type(6):before {
+      background-color: $low-strings-color;
+      height: 3.25px;
+    }
+    .fret {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-right: 2px solid $fret-color;
+      flex: 1;
+      position: relative;
+      color: #343434;
+      z-index: 1;
+      height: 35px;
+      &:nth-child(1) {
+        background-color: $alice-blue;
+        max-width: 75px;
+        min-width: 75px;
+        border-left: 4px solid $fret-color;
+        border-right: 4px solid $fret-color;
+        .NoteBackground {
+          background-color: $alice-blue;
+        }
+      }
+      &:last-child {
+        border-right: none;
+      }
+      .NoteBackground {
+        background-color: $fretboard;
+        padding: 0 5px;
+      }
+
+      .activeNote {
+        @include note();
+        background-color: green;
+      }
+      .inactiveNote {
+        @include note();
+        background-color: $fretboard;
+        color: $high-strings-color;
+      }
+    }
+  }
+}

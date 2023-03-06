@@ -3,6 +3,7 @@ import { ThemeProvider } from 'styled-components';
 import { lightTheme, darkTheme, GlobalStyles } from '../scss/theme';
 import Navbar from '../components/Navbar/Navbar';
 import MainControls from '../components/Controls/MainControls/MainControls';
+import Fretboard from '../components/Fretboard/Fretboard';
 
 function Home() {
   const [theme, setTheme] = useState('light');
@@ -16,7 +17,9 @@ function Home() {
         <div className="page">
           <Navbar toggleTheme={toggleTheme} />
           <MainControls />
-          <h1>Home</h1>
+          <div className="fretboardWrapper">
+            <Fretboard />
+          </div>
         </div>
       </>
     </ThemeProvider>
