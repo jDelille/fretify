@@ -1,6 +1,7 @@
 import { Chord, Scale } from 'tonal';
 
 import './Fretboard.scss';
+import FretNumbers from './FretNumbers';
 
 function Fretboard() {
   const numberOfFrets = 21;
@@ -21,34 +22,37 @@ function Fretboard() {
   ];
 
   return (
-    <div className="fretboard">
-      {Array.from({ length: 6 }, (_, string) => {
-        const fretComponents = Array.from(
-          { length: numberOfFrets },
-          (f, fret) => {
-            const noteIndex = (fret + tuning[string]) % 12;
-            const note = notes[noteIndex];
-            const isNoteInScale = Scale.get(`a major`).notes.includes(note);
-            return (
-              <div className="fret" key={fret}>
-                {isNoteInScale ? (
-                  <div className="noteBackground">
-                    <p className="activeNote">{notes[noteIndex]}</p>
-                  </div>
-                ) : (
-                  <p className="inactiveNote">{notes[noteIndex]}</p>
-                )}
-              </div>
-            );
-          }
-        );
-        return (
-          <div className="string" key={string + 1}>
-            {fretComponents}
-          </div>
-        );
-      })}
-    </div>
+    <>
+      <FretNumbers totalFrets={numberOfFrets} startFret={0} endFret={10} />
+      <div className="fretboard">
+        {Array.from({ length: 6 }, (_, string) => {
+          const fretComponents = Array.from(
+            { length: numberOfFrets },
+            (f, fret) => {
+              const noteIndex = (fret + tuning[string]) % 12;
+              const note = notes[noteIndex];
+              const isNoteInScale = Scale.get(`a major`).notes.includes(note);
+              return (
+                <div className="fret" key={fret}>
+                  {isNoteInScale ? (
+                    <div className="noteBackground">
+                      <p className="activeNote">{notes[noteIndex]}</p>
+                    </div>
+                  ) : (
+                    <p className="inactiveNote">{notes[noteIndex]}</p>
+                  )}
+                </div>
+              );
+            }
+          );
+          return (
+            <div className="string" key={string + 1}>
+              {fretComponents}
+            </div>
+          );
+        })}
+      </div>
+    </>
   );
 }
 

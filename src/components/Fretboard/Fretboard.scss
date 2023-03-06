@@ -59,10 +59,8 @@
       &:nth-child(1) {
         max-width: 75px;
         min-width: 75px;
-       
-     
       }
-     
+
       &:last-child {
         border-right: none;
       }
@@ -78,6 +76,40 @@
         @include note();
         color: $high-strings-color;
       }
+    }
+  }
+}
+
+.fretNumbers {
+  display: flex;
+  align-items: center;
+  height: 50px;
+  width: 98%;
+  margin: 0 auto;
+  .fretNumber {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: $fret-color;
+    font-weight: 600;
+    font-size: 14px;
+    gap: 5px;
+    &:nth-of-type(1) {
+      max-width: 75px;
+      min-width: 75px;
+      
+    }
+    .doubleDot {
+      display: flex;
+      gap: 2px;
+    }
+    .dot {
+      width: 5px;
+      height: 5px;
+      background-color: $fret-color;
+      border-radius: 50%;
     }
   }
 }
