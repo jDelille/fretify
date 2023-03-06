@@ -47,12 +47,16 @@ export const GlobalStyles = createGlobalStyle`
   .noteBackground {
     background: ${({ theme }: { theme: ITheme }) => theme.body};
   }
+
+  .secondaryControls {
+    border-bottom: ${({ theme }: { theme: ITheme }) => theme.borderMedium};
+    }
  
 `;
 
 export const lightTheme: ITheme = {
   body: '#f1f1f1',
-  text: '#121620',
+  text: '#262626',
   button: '#dddddd',
   border: '1px solid #d3d3d3',
   borderMedium: '2px solid #d3d3d3',

@@ -30,7 +30,7 @@
   &:last-child {
    border-radius: 50px;
    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-   transition: $transition;
+   // transition: $transition;
    width: 25%;
    button {
     all: unset
@@ -115,4 +115,27 @@
  
   
  }
+}
+
+.secondaryControls {
+ height: 125px;
+ display: flex;
+ align-items: center;
+ gap: 28px;
+ padding: 0 5%;
+ .infoBox {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  .label {
+   color: #B1B6B8;
+   font-weight: 500;
+   font-size: 14px;
+  }
+  .info {
+   font-size: 18px;
+   font-weight: 500;
+  }
+ }
+
 }

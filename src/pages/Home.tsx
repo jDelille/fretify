@@ -4,6 +4,7 @@ import { lightTheme, darkTheme, GlobalStyles } from '../scss/theme';
 import Navbar from '../components/Navbar/Navbar';
 import MainControls from '../components/Controls/MainControls/MainControls';
 import Fretboard from '../components/Fretboard/Fretboard';
+import SecondaryControls from '../components/Controls/SecondaryControls/SecondaryControls';
 
 function Home() {
   const [theme, setTheme] = useState('light');
@@ -20,6 +21,7 @@ function Home() {
           <div className="fretboardWrapper">
             <Fretboard />
           </div>
+          <SecondaryControls />
         </div>
       </>
     </ThemeProvider>
