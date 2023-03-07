@@ -1,4 +1,5 @@
 /* eslint-disable react/require-default-props */
+import Store from '../../../mobx/Store';
 import '../Controls.scss';
 
 export type TuningProps = {
@@ -19,6 +20,9 @@ type Props = {
 };
 
 function Modal({ tunings, scales, rootNotes }: Props) {
+  const changeRootNote = (note: string) => {
+    Store.setRootNote(note);
+  };
   return (
     <div className={rootNotes ? 'rootNoteModal' : 'modal'}>
       {tunings &&
@@ -51,7 +55,13 @@ function Modal({ tunings, scales, rootNotes }: Props) {
         rootNotes?.map((note) => {
           return (
             <p key={note} className="rootNote">
-              <span className="note">{note}</span>
+              <button
+                type="button"
+                className="note"
+                onClick={() => changeRootNote(note)}
+              >
+                {note}
+              </button>
             </p>
           );
         })}
