@@ -10,6 +10,7 @@ import Triads from './Triads';
 
 const SecondaryControls = observer(() => {
   const activeRootNote = Store.rootNote;
+  const activeScale = Store.scale;
   return (
     <div className="secondaryControls">
       <div className="left">
@@ -19,7 +20,7 @@ const SecondaryControls = observer(() => {
         </div>
         <div className="infoBox">
           <p className="label">Scale / Mode</p>
-          <h1 className="info">Major Pentatonic Scale</h1>
+          <h1 className="info">{activeScale} Scale</h1>
         </div>
         <div className="infoBox">
           <p className="label">Tuning</p>
