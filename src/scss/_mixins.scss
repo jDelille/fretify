@@ -7,11 +7,12 @@
  display: flex;
  align-items: center;
  justify-content: center;
-
  font-weight: 600;
  font-size: 12px;
  position: relative;
  z-index: 999;
  cursor: pointer;
  color: white;
+ position: relative;
+ bottom: 1px;
 }

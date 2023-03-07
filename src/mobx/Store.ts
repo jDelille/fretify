@@ -1,5 +1,6 @@
 import { action, makeAutoObservable, computed } from 'mobx';
 import { Scale } from 'tonal';
+import { GuitarConstants } from '../constants/@GuitarConstants';
 
 class MobxStore {
   rootNote: string;
@@ -8,11 +9,23 @@ class MobxStore {
 
   tuning: string;
 
+  isTriadVisible: boolean;
+
+  isRootNoteVisible: boolean;
+
+  isPowerchordVisible: boolean;
+
+  tuningIndex: number;
+
   constructor() {
     makeAutoObservable(this);
     this.rootNote = 'Ab';
-    this.scale = 'Major Pentatonic';
-    this.tuning = 'Standard Tuning';
+    this.scale = 'major pentatonic';
+    this.tuning = 'Standard';
+    this.isTriadVisible = true;
+    this.isRootNoteVisible = true;
+    this.isPowerchordVisible = false;
+    this.tuningIndex = 0;
   }
 
   get areNotesFlat() {
@@ -32,8 +45,27 @@ class MobxStore {
   };
 
   setTuning = (tuning: string) => {
+    const tuningIndex = GuitarConstants.tuningNames.indexOf(tuning);
+    this.tuningIndex = tuningIndex;
     this.tuning = tuning;
     localStorage.setItem('tuning', tuning);
+  };
+
+  toggleTriadVisibility = (boolean: boolean) => {
+    // this.isPowerchordVisible = false;
+    this.isTriadVisible = !boolean;
+    localStorage.setItem('triads', JSON.stringify(!boolean));
+  };
+
+  toggleRootNoteVisibility = (boolean: boolean) => {
+    this.isRootNoteVisible = !boolean;
+    localStorage.setItem('storedRootNoteVisibility', JSON.stringify(!boolean));
+  };
+
+  togglePowerchordVisibility = (boolean: boolean) => {
+    // this.isTriadVisible = false;
+    this.isPowerchordVisible = !boolean;
+    localStorage.setItem('powerchord', JSON.stringify(!boolean));
   };
 
   getScaleName = (key: string, currentScale?: string) => {

@@ -67,7 +67,18 @@
       .NoteBackground {
         padding: 0 5px;
       }
-
+      .note {
+        @include note();
+        background-color: #2f89fc;
+      }
+      .rootNote {
+        @include note();
+        background-color: #e29734;
+      }
+      .triadNote {
+        @include note();
+        background-color: #e74c3c;
+     }
       .activeNote {
         @include note();
         background-color: #2f89fc;
@@ -75,6 +86,7 @@
       .inactiveNote {
         @include note();
         color: $high-strings-color;
+        
       }
     }
   }

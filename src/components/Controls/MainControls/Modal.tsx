@@ -25,6 +25,7 @@ function Modal({ tunings, scales, rootNotes }: Props) {
   };
 
   const changeScale = (scale: string) => {
+    console.log(scale);
     Store.setScale(scale);
   };
 

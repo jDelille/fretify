@@ -5,23 +5,23 @@ import Store from '../../../mobx/Store';
 
 const tunings = [
   {
-    name: 'Standard Tuning',
+    name: 'Standard',
     notes: ['e', 'a', 'd', 'g', 'b', 'a'],
   },
   {
-    name: 'E Flat Tuning',
+    name: 'E Flat',
     notes: ['f', 'a', 'd', 'g', 'b', 'a'],
   },
   {
-    name: 'Open E Tuning',
+    name: 'Open E',
     notes: ['g', 'a', 'd', 'g', 'b', 'a'],
   },
   {
-    name: 'Open D Tuning',
+    name: 'Open D',
     notes: ['h', 'a', 'd', 'g', 'b', 'a'],
   },
   {
-    name: 'E Flat Tuning',
+    name: 'E Flat',
     notes: ['i', 'a', 'd', 'g', 'b', 'a'],
   },
 ];
@@ -37,7 +37,7 @@ const Tuning = observer(({ isTuningModal, toggleTuning }: TuningProps) => {
     <>
       <div className="option">
         <button type="button" className="optionButton" onClick={toggleTuning}>
-          {activeTuning}
+          {activeTuning} Tuning
         </button>
       </div>
       {isTuningModal && <Modal tunings={tunings} />}

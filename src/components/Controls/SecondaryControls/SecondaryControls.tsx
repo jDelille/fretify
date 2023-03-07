@@ -25,7 +25,7 @@ const SecondaryControls = observer(() => {
         </div>
         <div className="infoBox">
           <p className="label">Tuning</p>
-          <h1 className="info">{activeTuning}</h1>
+          <h1 className="info">{activeTuning} Tuning</h1>
         </div>
       </div>
       <div className="right">

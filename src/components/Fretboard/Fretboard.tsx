@@ -8,8 +8,8 @@ import './Fretboard.scss';
 import FretNumbers from './FretNumbers';
 
 const Fretboard = observer(() => {
-  const numberOfFrets = 21;
-  const tuning = [7, 14, 10, 5, 12, 7];
+  const numberOfFrets = 12;
+  const { tuning } = GuitarConstants;
   const notes = Store.areNotesFlat
     ? GuitarConstants.notesFlat
     : GuitarConstants.notesSharp;
@@ -25,14 +25,39 @@ const Fretboard = observer(() => {
           const fretComponents = Array.from(
             { length: numberOfFrets },
             (f, fret) => {
-              const noteIndex = (fret + tuning[string]) % 12;
+              const noteIndex = (fret + tuning[Store.tuningIndex][string]) % 12;
               const note = notes[noteIndex];
-              const isNoteInScale = Scale.get(`a major`).notes.includes(note);
+              const isNoteInScale = Scale.get(
+                `${Store.rootNote} ${Store.scale}`
+              ).notes.includes(note);
+              const { rootNote } = Store;
+              const scale = `${rootNote} ${Store.scale}`;
+              const isTriad = [1, 3, 5].map(Scale.degrees(scale));
+              const isPowerchord = [1, 5].map(Scale.degrees(scale));
+              const { isRootNoteVisible } = Store;
+              const { isPowerchordVisible } = Store;
+              const { isTriadVisible } = Store;
               return (
                 <div className="fret" key={fret}>
                   {isNoteInScale ? (
                     <div className="noteBackground">
-                      <p className="activeNote">{notes[noteIndex]}</p>
+                      <p
+                        className={(() => {
+                          switch (true) {
+                            case note === rootNote && isRootNoteVisible:
+                              return 'rootNote';
+                            case isTriad.includes(note) && isTriadVisible:
+                              return 'triadNote';
+                            case isPowerchord.includes(note) &&
+                              isPowerchordVisible:
+                              return 'powerchordNote';
+                            default:
+                              return 'note';
+                          }
+                        })()}
+                      >
+                        {notes[noteIndex]}
+                      </p>
                     </div>
                   ) : (
                     <p className="inactiveNote">{notes[noteIndex]}</p>
