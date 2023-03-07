@@ -1,4 +1,5 @@
 import { action, makeAutoObservable, computed } from 'mobx';
+import { Scale } from 'tonal';
 
 class MobxStore {
   rootNote: string;
@@ -14,6 +15,12 @@ class MobxStore {
     this.tuning = 'Standard Tuning';
   }
 
+  get areNotesFlat() {
+    const { notes } = Scale.get(`${this.rootNote} ${this.scale}`);
+    const flatSymbol = 'b';
+    return notes.some((note) => note.includes(flatSymbol));
+  }
+
   setRootNote = (note: string) => {
     this.rootNote = note;
     localStorage.setItem('rootNote', note);
@@ -27,6 +34,23 @@ class MobxStore {
   setTuning = (tuning: string) => {
     this.tuning = tuning;
     localStorage.setItem('tuning', tuning);
+  };
+
+  getScaleName = (key: string, currentScale?: string) => {
+    if (!currentScale) {
+      const scaleName = key
+        .split(' ')
+        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(' ');
+      return scaleName;
+    }
+
+    const { type } = Scale.get(`${key} ${this.scale}`);
+    const capitalizedType = type
+      .split(' ')
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(' ');
+    return capitalizedType;
   };
 }
 

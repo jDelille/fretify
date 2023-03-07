@@ -1,25 +1,21 @@
+import { observer } from 'mobx-react';
 import { Chord, Scale } from 'tonal';
+import { GuitarConstants } from '../../constants/@GuitarConstants';
+import { GuitarScales } from '../../constants/@Scales';
+import Store from '../../mobx/Store';
 
 import './Fretboard.scss';
 import FretNumbers from './FretNumbers';
 
-function Fretboard() {
+const Fretboard = observer(() => {
   const numberOfFrets = 21;
   const tuning = [7, 14, 10, 5, 12, 7];
-  const notes = [
-    'A',
-    'Bb',
-    'B',
-    'C',
-    'Db',
-    'D',
-    'Eb',
-    'E',
-    'F',
-    'Gb',
-    'G',
-    'Ab',
-  ];
+  const notes = Store.areNotesFlat
+    ? GuitarConstants.notesFlat
+    : GuitarConstants.notesSharp;
+  const activeScale = GuitarScales.scales.filter(
+    (scale) => scale.key === Scale.get(`${Store.rootNote} ${Store.scale}`).tonic
+  );
 
   return (
     <>
@@ -54,6 +50,6 @@ function Fretboard() {
       </div>
     </>
   );
-}
+});
 
 export default Fretboard;
