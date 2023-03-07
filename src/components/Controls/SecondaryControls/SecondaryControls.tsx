@@ -21,7 +21,7 @@ const SecondaryControls = observer(() => {
         </div>
         <div className="infoBox">
           <p className="label">Scale / Mode</p>
-          <h1 className="info">{activeScale} Scale</h1>
+          <h1 className="info">{Store.getScaleName(activeScale)} Scale</h1>
         </div>
         <div className="infoBox">
           <p className="label">Tuning</p>

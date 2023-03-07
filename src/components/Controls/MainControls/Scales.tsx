@@ -17,7 +17,7 @@ const Scales = observer(({ isScaleModal, toggleScales }: ScaleProps) => {
     <>
       <div className="option">
         <button type="button" className="optionButton" onClick={toggleScales}>
-          {activeScale}
+          {Store.getScaleName(activeScale)} Scale
         </button>
       </div>
       {isScaleModal && <Modal scales={{ name: scaleNames }} />}

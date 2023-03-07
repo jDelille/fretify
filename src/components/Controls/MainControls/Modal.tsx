@@ -35,7 +35,6 @@ function Modal({ tunings, scales, rootNotes }: Props) {
   return (
     <div className={rootNotes ? 'rootNoteModal' : 'modal'}>
       {tunings &&
-        tunings.length > 0 &&
         tunings?.map((tuning) => {
           return (
             <p key={tuning.name} className="tuning">
