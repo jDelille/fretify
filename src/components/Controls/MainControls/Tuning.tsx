@@ -1,5 +1,7 @@
+import { observer } from 'mobx-react';
 import Modal from './Modal';
 import '../Controls.scss';
+import Store from '../../../mobx/Store';
 
 const tunings = [
   {
@@ -29,17 +31,18 @@ export type TuningProps = {
   toggleTuning: () => void;
 };
 
-function Tuning({ isTuningModal, toggleTuning }: TuningProps) {
+const Tuning = observer(({ isTuningModal, toggleTuning }: TuningProps) => {
+  const activeTuning = Store.tuning;
   return (
     <>
       <div className="option">
         <button type="button" className="optionButton" onClick={toggleTuning}>
-          Standard Tuning
+          {activeTuning}
         </button>
       </div>
       {isTuningModal && <Modal tunings={tunings} />}
     </>
   );
-}
+});
 
 export default Tuning;

@@ -5,10 +5,13 @@ class MobxStore {
 
   scale: string;
 
+  tuning: string;
+
   constructor() {
     makeAutoObservable(this);
     this.rootNote = 'Ab';
     this.scale = 'Major Pentatonic';
+    this.tuning = 'Standard Tuning';
   }
 
   setRootNote = (note: string) => {
@@ -19,6 +22,11 @@ class MobxStore {
   setScale = (scale: string) => {
     this.scale = scale;
     localStorage.setItem('scale', scale);
+  };
+
+  setTuning = (tuning: string) => {
+    this.tuning = tuning;
+    localStorage.setItem('tuning', tuning);
   };
 }
 

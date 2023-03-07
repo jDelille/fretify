@@ -11,6 +11,7 @@ import Triads from './Triads';
 const SecondaryControls = observer(() => {
   const activeRootNote = Store.rootNote;
   const activeScale = Store.scale;
+  const activeTuning = Store.tuning;
   return (
     <div className="secondaryControls">
       <div className="left">
@@ -24,7 +25,7 @@ const SecondaryControls = observer(() => {
         </div>
         <div className="infoBox">
           <p className="label">Tuning</p>
-          <h1 className="info">Standard Tuning</h1>
+          <h1 className="info">{activeTuning}</h1>
         </div>
       </div>
       <div className="right">

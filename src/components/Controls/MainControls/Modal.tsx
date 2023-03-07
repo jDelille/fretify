@@ -27,6 +27,10 @@ function Modal({ tunings, scales, rootNotes }: Props) {
   const changeScale = (scale: string) => {
     Store.setScale(scale);
   };
+
+  const changeTuning = (tuning: string) => {
+    Store.setTuning(tuning);
+  };
   return (
     <div className={rootNotes ? 'rootNoteModal' : 'modal'}>
       {tunings &&
@@ -34,7 +38,13 @@ function Modal({ tunings, scales, rootNotes }: Props) {
         tunings?.map((tuning) => {
           return (
             <p key={tuning.name} className="tuning">
-              <span className="name">{tuning.name}</span>
+              <button
+                type="button"
+                className="name"
+                onClick={() => changeTuning(tuning.name)}
+              >
+                {tuning.name}
+              </button>
               <div className="notes">
                 {tuning.notes.map((note: string) => {
                   return (
