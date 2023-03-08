@@ -26,13 +26,12 @@ function MainControls() {
   };
 
   return (
-    <div className="controlContainerPill">
-      <Tuning isTuningModal={isTuningModal} toggleTuning={toggleTuning} />
-      <Scales isScaleModal={isScaleModal} toggleScales={toggleScales} />
-      <RootNote
-        isRootNoteModal={isRootNoteModal}
-        toggleRootNote={toggleRootNote}
-      />
+    <div className="mainControls">
+      <RootNote toggleRootNote={toggleRootNote} />
+      <div className="bottomRow">
+        <Tuning isTuningModal={isTuningModal} toggleTuning={toggleTuning} />
+        <Scales isScaleModal={isScaleModal} toggleScales={toggleScales} />
+      </div>
     </div>
   );
 }

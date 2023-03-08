@@ -34,14 +34,14 @@ export type TuningProps = {
 const Tuning = observer(({ isTuningModal, toggleTuning }: TuningProps) => {
   const activeTuning = Store.tuning;
   return (
-    <>
+    <div className="tuningContainer">
       <div className="option">
-        <button type="button" className="optionButton" onClick={toggleTuning}>
+        <button type="button" className="button" onClick={toggleTuning}>
           {activeTuning} Tuning
         </button>
       </div>
       {isTuningModal && <Modal tunings={tunings} />}
-    </>
+    </div>
   );
 });
 

@@ -1,5 +1,4 @@
 import { observer } from 'mobx-react';
-import Modal from './Modal';
 import Store from '../../../mobx/Store';
 import '../Controls.scss';
 
@@ -20,27 +19,26 @@ const rootNotes: string[] = [
 ];
 
 export type RootNoteProps = {
-  isRootNoteModal: boolean;
   toggleRootNote: () => void;
 };
 
-const RootNote = observer(
-  ({ isRootNoteModal, toggleRootNote }: RootNoteProps) => {
-    const activeRootNote = Store.rootNote;
-
-    return (
-      <>
-        <button
-          type="button"
-          className="option button"
-          onClick={toggleRootNote}
-        >
-          <p className="optionButton">{activeRootNote}</p>
-        </button>
-        {isRootNoteModal && <Modal rootNotes={rootNotes} />}
-      </>
-    );
-  }
-);
+const RootNote = observer(({ toggleRootNote }: RootNoteProps) => {
+  return (
+    <div className="rootNoteContainer">
+      {rootNotes.map((note) => {
+        return (
+          <button
+            key={note}
+            type="button"
+            className="button"
+            onClick={toggleRootNote}
+          >
+            <p className="optionButton">{note}</p>
+          </button>
+        );
+      })}
+    </div>
+  );
+});
 
 export default RootNote;

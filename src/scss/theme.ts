@@ -20,21 +20,25 @@ export const GlobalStyles = createGlobalStyle`
     background: ${({ theme }: { theme: ITheme }) => theme.body};
     color: ${({ theme }: { theme: ITheme }) => theme.text};
   }
-  .button,
-  .playButton,
-      .pauseButton,
+
+  
   .rootNoteModal {
     background: ${({ theme }: { theme: ITheme }) => theme.button};
     color: ${({ theme }: { theme: ITheme }) => theme.text};
   } 
  
+  .button {
+    background: ${({ theme }: { theme: ITheme }) => theme.body};
+    border: ${({ theme }: { theme: ITheme }) => theme.border};
+    color: ${({ theme }: { theme: ITheme }) => theme.text};
 
+  }
   .fret {
     border-right: ${({ theme }: { theme: ITheme }) => theme.borderMedium};
     color: ${({ theme }: { theme: ITheme }) => theme.text};
   }
 
-  .fret:nth-child(1),
+  .fret:nth-child(1)
     {
     color: ${({ theme }: { theme: ITheme }) => theme.text};
     border-right: ${({ theme }: { theme: ITheme }) => theme.borderLarge};
@@ -54,7 +58,7 @@ export const GlobalStyles = createGlobalStyle`
 export const lightTheme: ITheme = {
   body: '#f1f1f1',
   text: '#262626',
-  button: '#dddddd',
+  button: '#d3d3d3',
   border: '1px solid #d3d3d3',
   borderMedium: '2px solid #d3d3d3',
   borderLarge: '4px solid #d3d3d3',

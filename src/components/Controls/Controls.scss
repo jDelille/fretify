@@ -1,62 +1,61 @@
 @import '../../scss/variables';
 @import '../../scss/breakpoints';
 
-.controlContainerPill {
- width: 530px;
- padding: 10px;
- border-radius: 50px;
- height: 50px;
- margin: 0 auto;
- margin-top: 3rem;
- display: flex;
- box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
- position: relative;
- .option {
+.mainControls {
+  padding: 0 5%;
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
-  width: 50%;
-  border: none;
-  font-size: 16px;
-  cursor: pointer;
-  position: relative;
-  .optionButton {
-   all: unset;
-  }
-  
-  &:first-child {
-   width: 25%;
-   // padding-left: 28px;
-  }
-  &:last-child {
-   border-radius: 50px;
-   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-   // transition: $transition;
-   width: 25%;
-   button {
-    all: unset
-   }
-   &:hover {
-    box-shadow: unset;
-   }
-  }
- }
- .button {
-  width: 25%;
-  border-radius: 50px;
 
- }
+  .rootNoteContainer,
+  .bottomRow {
+    display: flex;
+    gap: 5px;
+    width: 70%;
+    margin: 0 auto;
+    margin-top: 2rem;
+  }
+  .button {
+    flex: 1;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+  }
+  .tuningContainer {
+    .button {
+      width: 195px;
+    }
+  }
+  .scalesContainer {
+    .button {
+      width: 260px;
+    }
+  }
 }
 
+.overlay {
+ background-color: $alice-blue;
+ width: 100vw;
+ height: 100vh;
+ position: fixed;
+ top: 0;
+ left: 0;
+ z-index: 999;
+ opacity: 0.8;
+}
 .modal,
 .rootNoteModal {
  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
  padding: 10px;
- position: absolute;
+ position: fixed; /* use fixed instead of absolute to position the modal relative to the viewport */
  z-index: 9999;
  min-width: fit-content;
  border-radius: 10px;
- top: 100px;
  width: 518px;
  max-height: 400px;
  display: flex;
@@ -64,108 +63,107 @@
  gap: 10px;
  flex-wrap: wrap;
  overflow-x: hidden;
- .tuning,
- .scale,
- .rootNote {
-  width: 100%;
-  padding: 10px;
-  display: flex;
-  gap: 5px;
-  cursor: pointer;
-  &:hover {
-   color: aqua;
-   .notes {
-    .note {
-     color: aqua;
-    }
-
-   }
-  }
-  .name {
-   width: 140px;
-   display: flex;
-   align-items: center;
-   margin-right: 1rem;
-  }
-  .notes {
-   display: flex;
-   gap: 10px;
-   margin-left: auto;
-   padding-right: 28px;
-   .note {
-    color: #B1B6B8;
-    text-transform: uppercase;
-    font-size: 12px;
-    font-weight: 600;
+ top: 50%; /* set the top position to 50% */
+ left: 50%; /* set the left position to 50% */
+ transform: translate(-50%, -50%); /* use translate to center the modal */
+  .tuning,
+  .scale,
+  .rootNote {
+    width: 100%;
+    padding: 10px;
     display: flex;
-    align-items: center;
-   }
+    gap: 5px;
+    cursor: pointer;
+    &:hover {
+      color: aqua;
+      .notes {
+        .note {
+          color: aqua;
+        }
+      }
+    }
+    .name {
+      width: 140px;
+      display: flex;
+      align-items: center;
+      margin-right: 1rem;
+    }
+    .notes {
+      display: flex;
+      gap: 10px;
+      margin-left: auto;
+      padding-right: 28px;
+      .note {
+        color: #b1b6b8;
+        text-transform: uppercase;
+        font-size: 12px;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+      }
+    }
   }
-  
- }
- .rootNote {
-  .note {
-   all: unset;
+  .rootNote {
+    .note {
+      all: unset;
+    }
   }
- }
- .scale {
- }
+  .scale {
+  }
 }
 
 .rootNoteModal {
- position: absolute;
- right: 4px;
- width: 20%;
- height: 400px;
+  position: absolute;
+  right: 4px;
+  width: 20%;
+  height: 400px;
 }
 
-
 .secondaryControls {
- height: 125px;
- display: flex;
- align-items: center;
- padding: 0 5%;
- justify-content: space-between;
- 
- .left,
- .right {
+  height: 125px;
   display: flex;
-  gap: 28px;
-  .infoBox {
-   display: flex;
-   flex-direction: column;
-   gap: 10px;
-   .label {
-    color: #B1B6B8;
-    font-weight: 500;
-    font-size: 14px;
-   }
-   .info {
-    font-size: 16px;
-    font-weight: 500;
-   }
+  align-items: center;
+  padding: 0 5%;
+  .content {
+   width: 70%;
+   margin: 0 auto;
   }
-  .checkbox {
-   display: flex;
-   gap: 10px;
-   align-items: center;
-   .info {
-    font-size: 15px;
-    font-weight: 500;
-    color: #B1B6B8;
-
-   }
-   svg {
-    width: 15px;
-    height: 15px;
-    cursor: pointer;
-   }
+  .left,
+  .right {
+    display: flex;
+    gap: 28px;
+    .infoBox {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      .label {
+        color: #b1b6b8;
+        font-weight: 500;
+        font-size: 14px;
+      }
+      .info {
+        font-size: 16px;
+        font-weight: 500;
+      }
+    }
+    .checkbox {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      .info {
+        font-size: 15px;
+        font-weight: 500;
+        color: #b1b6b8;
+      }
+      svg {
+        width: 15px;
+        height: 15px;
+        cursor: pointer;
+      }
+    }
   }
- }
 
- .right {
-  display: none;
- }
-
-
+  .right {
+    display: none;
+  }
 }
