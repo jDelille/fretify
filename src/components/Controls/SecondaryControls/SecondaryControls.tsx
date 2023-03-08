@@ -16,16 +16,16 @@ const SecondaryControls = observer(() => {
     <div className="secondaryControls">
       <div className="left">
         <div className="infoBox">
-          <p className="label">Root Note</p>
+          <p className="label">Key</p>
           <h1 className="info">{activeRootNote}</h1>
         </div>
         <div className="infoBox">
           <p className="label">Scale / Mode</p>
-          <h1 className="info">{Store.getScaleName(activeScale)} Scale</h1>
+          <h1 className="info">{Store.getScaleName(activeScale)}</h1>
         </div>
         <div className="infoBox">
           <p className="label">Tuning</p>
-          <h1 className="info">{activeTuning} Tuning</h1>
+          <h1 className="info">{activeTuning}</h1>
         </div>
       </div>
       <div className="right">

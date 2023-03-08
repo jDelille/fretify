@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap');
 @import './variables';
+@import './breakpoints';
 
 * {
  margin: 0;
@@ -10,8 +11,13 @@
 
 .page {
  max-width: 100%;
- height: calc(100vh);
  .fretboardWrapper {
-  padding-top: 4rem;
+  
+  padding-top: 3rem;
+  padding-bottom: 15px;
+   @include smallLaptop() {
+      padding-top: 1rem;
+    }
+  
  }
 }

@@ -1,0 +1,85 @@
+@import '../../scss/variables';
+@import '../../scss/breakpoints';
+
+.fretboardData {
+  padding: 3% 5%;
+  display: flex;
+  .leftData {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 50%;
+    @include smallLaptop() {
+      width: 100%;
+    }
+    h1,
+    h2 {
+      font-size: 20px;
+      margin-top: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      svg {
+        max-width: 14px;
+        position: relative;
+        top: 3px;
+      }
+    }
+    .scaleDescription {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      width: 100%;
+      line-height: 25px;
+      font-size: 16px;
+    }
+    .supersets,
+    .subsets {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      .set {
+        display: flex;
+        gap: 1rem;
+        width: 100%;
+        flex-wrap: wrap;
+      }
+    }
+  }
+  .rightData {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 30%;
+    margin-left: auto;
+    justify-content: center;
+    @include smallLaptop() {
+      display: none;
+    }
+    .buttonWrapper {
+      display: flex;
+      gap: 10px;
+      .playButton,
+      .pauseButton {
+        all: unset;
+        max-width: fit-content;
+      }
+    }
+
+    .scaleNotesWrapper {
+      display: flex;
+      gap: 1rem;
+      .note {
+        width: 35px;
+        height: 35px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background-color: #242424;
+        color: white;
+        font-size: 14px;
+      }
+    }
+  }
+}

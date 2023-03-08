@@ -1,4 +1,5 @@
 @import '../../scss/variables';
+@import '../../scss/breakpoints';
 
 .controlContainerPill {
  width: 530px;
@@ -125,6 +126,7 @@
  align-items: center;
  padding: 0 5%;
  justify-content: space-between;
+ 
  .left,
  .right {
   display: flex;
@@ -139,7 +141,7 @@
     font-size: 14px;
    }
    .info {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 500;
    }
   }
@@ -159,6 +161,10 @@
     cursor: pointer;
    }
   }
+ }
+
+ .right {
+  display: none;
  }
 
 

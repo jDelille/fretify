@@ -10,6 +10,7 @@ interface ITheme extends DefaultTheme {
 }
 
 export const GlobalStyles = createGlobalStyle`
+  html,
   .page,
   .navbar,
   .modal,
@@ -19,18 +20,14 @@ export const GlobalStyles = createGlobalStyle`
     background: ${({ theme }: { theme: ITheme }) => theme.body};
     color: ${({ theme }: { theme: ITheme }) => theme.text};
   }
-  .button {
-    background: ${({ theme }: { theme: ITheme }) => theme.button};
-    color: ${({ theme }: { theme: ITheme }) => theme.text};
-  }
+  .button,
+  .playButton,
+      .pauseButton,
   .rootNoteModal {
     background: ${({ theme }: { theme: ITheme }) => theme.button};
     color: ${({ theme }: { theme: ITheme }) => theme.text};
-  }
-  .fretboard
-   {
-    border: ${({ theme }: { theme: ITheme }) => theme.border};
-  }
+  } 
+ 
 
   .fret {
     border-right: ${({ theme }: { theme: ITheme }) => theme.borderMedium};
