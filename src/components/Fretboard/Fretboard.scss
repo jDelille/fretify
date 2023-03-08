@@ -101,8 +101,9 @@
   display: flex;
   align-items: center;
   height: 50px;
-  width: 98%;
+  max-width: 98%;
   margin: 0 auto;
+  position: relative;
   @include smallLaptop() {
     min-width: 1500px;
     margin-left: 1rem;
@@ -117,10 +118,14 @@
     font-weight: 600;
     font-size: 14px;
     gap: 5px;
+    position: relative;
+    left: 7Zpx;
     &:nth-of-type(1) {
       max-width: 75px;
       min-width: 75px;
-      
+      position: relative;
+      left: 4px;
+      margin-right: 7px;
     }
     .doubleDot {
       display: flex;

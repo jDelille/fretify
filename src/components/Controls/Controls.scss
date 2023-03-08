@@ -6,7 +6,6 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-
   .rootNoteContainer,
   .bottomRow {
     display: flex;
@@ -15,7 +14,8 @@
     margin: 0 auto;
     margin-top: 2rem;
   }
-  .button {
+  .button,
+  .selected {
     flex: 1;
     height: 40px;
     display: flex;
@@ -25,6 +25,11 @@
     cursor: pointer;
     font-size: 16px;
     font-weight: 500;
+  }
+  .selected {
+    background-color: #3d5af1;
+    border: 1px solid #3d5af1;
+    color: white;
   }
   .tuningContainer {
     .button {
@@ -39,7 +44,7 @@
 }
 
 .overlay {
- background-color: $alice-blue;
+ background-color: #000;
  width: 100vw;
  height: 100vh;
  position: fixed;
@@ -48,8 +53,7 @@
  z-index: 999;
  opacity: 0.8;
 }
-.modal,
-.rootNoteModal {
+.modal {
  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
  padding: 10px;
  position: fixed; /* use fixed instead of absolute to position the modal relative to the viewport */
@@ -112,12 +116,7 @@
   }
 }
 
-.rootNoteModal {
-  position: absolute;
-  right: 4px;
-  width: 20%;
-  height: 400px;
-}
+
 
 .secondaryControls {
   height: 125px;

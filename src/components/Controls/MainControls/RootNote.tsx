@@ -23,6 +23,10 @@ export type RootNoteProps = {
 };
 
 const RootNote = observer(({ toggleRootNote }: RootNoteProps) => {
+  const changeRootNote = (note: string) => {
+    Store.setRootNote(note);
+  };
+  const currentRootNote = Store.rootNote;
   return (
     <div className="rootNoteContainer">
       {rootNotes.map((note) => {
@@ -30,8 +34,8 @@ const RootNote = observer(({ toggleRootNote }: RootNoteProps) => {
           <button
             key={note}
             type="button"
-            className="button"
-            onClick={toggleRootNote}
+            className={note === currentRootNote ? 'selected' : 'button'}
+            onClick={() => changeRootNote(note)}
           >
             <p className="optionButton">{note}</p>
           </button>

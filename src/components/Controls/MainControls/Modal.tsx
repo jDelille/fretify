@@ -14,23 +14,15 @@ export type Scales = {
   name: string[];
 };
 
-export type RootNotes = string;
-
 type Props = {
   tunings?: TuningProps[];
   scales?: Scales;
-  rootNotes?: RootNotes[];
 };
 
-function Modal({ tunings, scales, rootNotes }: Props) {
+function Modal({ tunings, scales }: Props) {
   const [isModalHidden, setIsModalHidden] = useState(false);
 
-  const changeRootNote = (note: string) => {
-    Store.setRootNote(note);
-  };
-
   const changeScale = (scale: string) => {
-    console.log(scale);
     Store.setScale(scale);
   };
 
@@ -44,7 +36,7 @@ function Modal({ tunings, scales, rootNotes }: Props) {
       )}
 
       {!isModalHidden && (
-        <div className={rootNotes ? 'rootNoteModal' : 'modal'}>
+        <div className="modal">
           {tunings &&
             tunings?.map((tuning) => {
               return (
@@ -78,20 +70,6 @@ function Modal({ tunings, scales, rootNotes }: Props) {
                     onClick={() => changeScale(scale)}
                   >
                     {scale}
-                  </button>
-                </p>
-              );
-            })}
-          {rootNotes &&
-            rootNotes?.map((note) => {
-              return (
-                <p key={note} className="rootNote">
-                  <button
-                    type="button"
-                    className="note"
-                    onClick={() => changeRootNote(note)}
-                  >
-                    {note}
                   </button>
                 </p>
               );

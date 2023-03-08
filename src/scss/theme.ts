@@ -7,17 +7,22 @@ interface ITheme extends DefaultTheme {
   border: string;
   borderMedium: string;
   borderLarge: string;
+  modal: string;
 }
 
 export const GlobalStyles = createGlobalStyle`
   html,
   .page,
   .navbar,
-  .modal,
   .fretboard,
   .noteBackground,
   .inactiveNote {
     background: ${({ theme }: { theme: ITheme }) => theme.body};
+    color: ${({ theme }: { theme: ITheme }) => theme.text};
+  }
+
+  .modal {
+    background: ${({ theme }: { theme: ITheme }) => theme.modal};
     color: ${({ theme }: { theme: ITheme }) => theme.text};
   }
 
@@ -62,6 +67,7 @@ export const lightTheme: ITheme = {
   border: '1px solid #d3d3d3',
   borderMedium: '2px solid #d3d3d3',
   borderLarge: '4px solid #d3d3d3',
+  modal: '#E8E8E8',
 };
 
 export const darkTheme: ITheme = {
@@ -71,4 +77,5 @@ export const darkTheme: ITheme = {
   border: '1px solid #5e5e5e',
   borderMedium: '2px solid #5e5e5e',
   borderLarge: '4px solid #5e5e5e',
+  modal: '#262626',
 };
