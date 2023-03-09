@@ -27,8 +27,8 @@
     font-weight: 500;
   }
   .selected {
-    background-color: #3d5af1;
-    border: 1px solid #3d5af1;
+    background-color: $accent;
+    border: 1px solid $accent;
     color: white;
   }
   .tuningContainer {
@@ -39,6 +39,10 @@
   .scalesContainer {
     .button {
       width: 260px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
     }
   }
 }
@@ -56,37 +60,42 @@
 .modal {
  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
  padding: 10px;
- position: fixed; /* use fixed instead of absolute to position the modal relative to the viewport */
+ position: fixed; 
  z-index: 9999;
  min-width: fit-content;
  border-radius: 10px;
  width: 518px;
- max-height: 400px;
  display: flex;
  flex-direction: column;
  gap: 10px;
  flex-wrap: wrap;
  overflow-x: hidden;
- top: 50%; /* set the top position to 50% */
- left: 50%; /* set the left position to 50% */
- transform: translate(-50%, -50%); /* use translate to center the modal */
+ top: 50%; 
+ left: 50%; 
+ transform: translate(-50%, -50%); 
+ padding: 20px;
+ max-height: 500px;
   .tuning,
   .scale,
   .rootNote {
-    width: 100%;
-    padding: 10px;
+    max-width: 100%;
     display: flex;
     gap: 5px;
+    height: 40px;
+    padding: 10px;
     cursor: pointer;
+    border-radius: 8px;
+    
     &:hover {
-      color: aqua;
+      background-color: #333333;
+
       .notes {
         .note {
-          color: aqua;
         }
       }
     }
     .name {
+      all: unset;
       width: 140px;
       display: flex;
       align-items: center;
@@ -107,12 +116,10 @@
       }
     }
   }
-  .rootNote {
-    .note {
-      all: unset;
-    }
-  }
   .scale {
+    .name {
+      width: 100%;
+    }
   }
 }
 

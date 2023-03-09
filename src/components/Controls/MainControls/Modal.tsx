@@ -1,7 +1,9 @@
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable react/require-default-props */
 import { useState } from 'react';
+import SimpleBar from 'simplebar-react';
 import Store from '../../../mobx/Store';
 import '../Controls.scss';
 
@@ -36,15 +38,25 @@ function Modal({ tunings, scales }: Props) {
       )}
 
       {!isModalHidden && (
-        <div className="modal">
+        <SimpleBar className="modal">
           {tunings &&
             tunings?.map((tuning) => {
               return (
-                <p key={tuning.name} className="tuning">
+                <p
+                  key={tuning.name}
+                  className="tuning"
+                  onClick={() => {
+                    changeTuning(tuning.name);
+                    setIsModalHidden(true);
+                  }}
+                >
                   <button
                     type="button"
                     className="name"
-                    onClick={() => changeTuning(tuning.name)}
+                    onClick={() => {
+                      changeTuning(tuning.name);
+                      setIsModalHidden(true);
+                    }}
                   >
                     {tuning.name}
                   </button>
@@ -63,18 +75,19 @@ function Modal({ tunings, scales }: Props) {
           {scales &&
             scales?.name.map((scale) => {
               return (
-                <p key={scale} className="scale">
-                  <button
-                    type="button"
-                    className="name"
-                    onClick={() => changeScale(scale)}
-                  >
-                    {scale}
-                  </button>
+                <p
+                  key={scale}
+                  className="scale"
+                  onClick={() => {
+                    changeScale(scale);
+                    setIsModalHidden(true);
+                  }}
+                >
+                  <p className="name">{scale}</p>
                 </p>
               );
             })}
-        </div>
+        </SimpleBar>
       )}
     </>
   );
