@@ -6,6 +6,12 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  @include smallLaptop() {
+    padding: $paddingSmall;
+  }
+  @include laptop() {
+    padding: $paddingMedium;
+  }
   .rootNoteContainer,
   .bottomRow {
     display: flex;
@@ -13,7 +19,11 @@
     width: 70%;
     margin: 0 auto;
     margin-top: 2rem;
+    @include smallLaptop() {
+      width: 100%;
+   }
   }
+  
   .button,
   .selected {
     flex: 1;
@@ -33,15 +43,17 @@
   }
   .tuningContainer {
     .button {
-      width: 195px;
+      width: fit-content;
+      padding: 10px;
     }
   }
   .scalesContainer {
     .button {
-      width: 260px;
+      min-width: fit-content;
       display: flex;
       justify-content: center;
       align-items: center;
+      padding: 10px;
 
     }
   }
@@ -87,7 +99,6 @@
     border-radius: 8px;
     
     &:hover {
-      background-color: #333333;
 
       .notes {
         .note {
@@ -130,9 +141,18 @@
   display: flex;
   align-items: center;
   padding: 0 5%;
+  @include smallLaptop() {
+    padding: $paddingSmall;
+  }
+  @include laptop() {
+    padding: $paddingMedium;
+  }
   .content {
    width: 70%;
    margin: 0 auto;
+   @include smallLaptop() {
+   width: 100%;
+  }
   }
   .left,
   .right {

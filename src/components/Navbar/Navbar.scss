@@ -1,11 +1,17 @@
 @import '../../scss/variables';
+@import '../../scss/breakpoints';
 
 .header {
  max-width: 100%;
  height: 81px;
- padding: 0 5%;
+ padding: $paddingLarge;
  position: relative;
- // border-bottom: 1px solid #454545;
+ @include smallLaptop() {
+  padding: $paddingSmall;
+}
+@include laptop() {
+ padding: $paddingMedium;
+}
  .navbar {
   width: 70%;
   height: 100%;
@@ -14,6 +20,9 @@
   gap: 28px;
   justify-content: space-between;
   margin: 0 auto;
+  @include smallLaptop() {
+  width: 100%;
+ }
   .logo {
    width: fit-content;
    padding-right: 28px;

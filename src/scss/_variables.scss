@@ -1,11 +1,20 @@
-$padding: 0 2rem;
+// colors
 $primaryDark: #262626;
-$transition: all 200ms ease-in-out;
-$low-strings-color: #808080;
-$high-strings-color: #5e5e5e;
-$fret-color: #454545;
+$accent: #3d5af1;
 $alice-blue: #262626;
-$fretboard: #242424;
+
+// fretboard
 $noteWidth: 25px;
 $noteHeight: 25px;
-$accent: #3d5af1;
+$fret-color: #454545;
+$fretboard: #242424;
+$low-strings-color: #808080;
+$high-strings-color: #5e5e5e;
+
+// padding
+$paddingSmall: 0 4rem;
+$paddingMedium: 0 6rem;
+$paddingLarge: 0 12rem;
+
+// transitions 
+$transition: all 200ms ease-in-out;

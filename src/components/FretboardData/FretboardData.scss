@@ -6,6 +6,16 @@
   display: flex;
   width: 63%;
   margin: 0 auto;
+  @include smallLaptop() {
+    padding: $paddingSmall;
+    padding-top: 2rem;
+    width: 100%;
+  }
+  @include laptop() {
+    padding: $paddingMedium;
+    width: 100%;
+
+  }
   .leftData {
     display: flex;
     flex-direction: column;

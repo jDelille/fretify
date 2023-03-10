@@ -2,12 +2,13 @@ import { createGlobalStyle, DefaultTheme } from 'styled-components';
 
 interface ITheme extends DefaultTheme {
   body: string;
-  text: string;
   button: string;
+  text: string;
+  modal: string;
+  hover: string;
   border: string;
   borderMedium: string;
   borderLarge: string;
-  modal: string;
 }
 
 export const GlobalStyles = createGlobalStyle`
@@ -24,6 +25,11 @@ export const GlobalStyles = createGlobalStyle`
   .modal {
     background: ${({ theme }: { theme: ITheme }) => theme.modal};
     color: ${({ theme }: { theme: ITheme }) => theme.text};
+  }
+
+  .tuning:hover,
+  .scale:hover {
+    background: ${({ theme }: { theme: ITheme }) => theme.hover};
   }
 
   
@@ -68,6 +74,7 @@ export const lightTheme: ITheme = {
   borderMedium: '2px solid #d3d3d3',
   borderLarge: '4px solid #d3d3d3',
   modal: '#E8E8E8',
+  hover: '#F2F2F2',
 };
 
 export const darkTheme: ITheme = {
@@ -78,4 +85,5 @@ export const darkTheme: ITheme = {
   borderMedium: '2px solid #5e5e5e',
   borderLarge: '4px solid #5e5e5e',
   modal: '#262626',
+  hover: '#333333',
 };
