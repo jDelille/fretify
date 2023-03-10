@@ -4,18 +4,18 @@ import '../Controls.scss';
 
 const rootNotes: string[] = [
   'A',
-  'Ab',
+  // 'Ab',
   'B',
-  'Bb',
+  // 'Bb',
   'C',
-  'Db',
+  // 'Db',
   'D',
   'E',
-  'Eb',
+  // 'Eb',
   'F',
-  'Fb',
+  // 'Fb',
   'G',
-  'Gb',
+  // 'Gb',
 ];
 
 export type RootNoteProps = {
@@ -28,19 +28,26 @@ const RootNote = observer(({ toggleRootNote }: RootNoteProps) => {
   };
   const currentRootNote = Store.rootNote;
   return (
-    <div className="rootNoteContainer">
-      {rootNotes.map((note) => {
-        return (
-          <button
-            key={note}
-            type="button"
-            className={note === currentRootNote ? 'selected' : 'button'}
-            onClick={() => changeRootNote(note)}
-          >
-            <p className="optionButton">{note}</p>
-          </button>
-        );
-      })}
+    <div className="content">
+      <div className="noteType">
+        <p>(N)</p>
+        <p>#</p>
+        <p>b</p>
+      </div>
+      <div className="notes">
+        {rootNotes.map((note) => {
+          return (
+            <button
+              key={note}
+              type="button"
+              className={note === currentRootNote ? 'selected' : 'noteButton'}
+              onClick={() => changeRootNote(note)}
+            >
+              <p className="optionButton">{note}</p>
+            </button>
+          );
+        })}
+      </div>
     </div>
   );
 });

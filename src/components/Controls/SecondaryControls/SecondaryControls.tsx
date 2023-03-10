@@ -13,7 +13,7 @@ const SecondaryControls = observer(() => {
   const activeScale = Store.scale;
   const activeTuning = Store.tuning;
   return (
-    <div className="secondaryControls">
+    <div className="controls">
       <div className="content">
         <div className="left">
           <div className="infoBox">

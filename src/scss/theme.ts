@@ -9,6 +9,7 @@ interface ITheme extends DefaultTheme {
   border: string;
   borderMedium: string;
   borderLarge: string;
+  container: string;
 }
 
 export const GlobalStyles = createGlobalStyle`
@@ -28,7 +29,10 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   .tuning:hover,
-  .scale:hover {
+  .scale:hover,
+  .bottomRow,
+  .content,
+  .controls {
     background: ${({ theme }: { theme: ITheme }) => theme.hover};
   }
 
@@ -38,9 +42,8 @@ export const GlobalStyles = createGlobalStyle`
     color: ${({ theme }: { theme: ITheme }) => theme.text};
   } 
  
-  .button {
-    background: ${({ theme }: { theme: ITheme }) => theme.body};
-    border: ${({ theme }: { theme: ITheme }) => theme.border};
+  .noteButton {
+    background: ${({ theme }: { theme: ITheme }) => theme.container};
     color: ${({ theme }: { theme: ITheme }) => theme.text};
 
   }
@@ -75,6 +78,7 @@ export const lightTheme: ITheme = {
   borderLarge: '4px solid #d3d3d3',
   modal: '#E8E8E8',
   hover: '#F2F2F2',
+  container: '#E8E8E8',
 };
 
 export const darkTheme: ITheme = {
@@ -86,4 +90,5 @@ export const darkTheme: ITheme = {
   borderLarge: '4px solid #5e5e5e',
   modal: '#262626',
   hover: '#333333',
+  container: '#5e5e5e',
 };

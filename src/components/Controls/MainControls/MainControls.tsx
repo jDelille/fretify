@@ -1,8 +1,15 @@
 import { useState } from 'react';
-import RootNote from './RootNote';
+import RootNotes from './RootNote';
 import Scales from './Scales';
 import Tuning from './Tuning';
 import '../Controls.scss';
+import SecondaryControls from '../SecondaryControls/SecondaryControls';
+import Triads from '../SecondaryControls/Triads';
+import Powerchord from '../SecondaryControls/Powerchord';
+import FlipFretboard from '../SecondaryControls/FlipFretboard';
+import FlipStrings from '../SecondaryControls/FlipStrings';
+import RootNote from '../SecondaryControls/RootNote';
+import NumberOfFrets from '../SecondaryControls/NumberOfFrets';
 
 function MainControls() {
   const [isRootNoteModal, setIsRootNoteModal] = useState(false);
@@ -27,13 +34,46 @@ function MainControls() {
 
   return (
     <div className="mainControls">
-      <RootNote toggleRootNote={toggleRootNote} />
-      <div className="bottomRow">
-        <Tuning isTuningModal={isTuningModal} toggleTuning={toggleTuning} />
-        <Scales isScaleModal={isScaleModal} toggleScales={toggleScales} />
+      <div className="container">
+        <p className="label">Note</p>
+        <RootNotes toggleRootNote={toggleRootNote} />
+      </div>
+      <div className="middleContainer">
+        <div className="scales">
+          <p className="label">Scale / Mode</p>
+          <Scales isScaleModal={isScaleModal} toggleScales={toggleScales} />
+        </div>
+        <div className="tuning">
+          <p className="label">Tuning</p>
+          <Tuning isTuningModal={isTuningModal} toggleTuning={toggleTuning} />
+        </div>
+        <div className="guitarSound">
+          <p className="label">Guitar Sound</p>
+          <Tuning isTuningModal={isTuningModal} toggleTuning={toggleTuning} />
+        </div>
+      </div>
+      <div className="bottomContainer">
+        <p className="label">Fretboard Controls</p>
+        <div className="controls">
+          <Triads />
+          <RootNote />
+          <Powerchord />
+          <FlipFretboard />
+          <FlipStrings />
+        </div>
+      </div>
+      <div className="sliderContainer">
+        <p className="label"># of Frets</p>
+        <NumberOfFrets />
       </div>
     </div>
   );
 }
 
 export default MainControls;
+
+//
+// <div className="bottomRow">
+//   {/* > */}
+
+// </div>

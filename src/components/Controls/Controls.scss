@@ -2,61 +2,133 @@
 @import '../../scss/breakpoints';
 
 .mainControls {
-  padding: 0 5%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  @include smallLaptop() {
-    padding: $paddingSmall;
-  }
-  @include laptop() {
-    padding: $paddingMedium;
-  }
-  .rootNoteContainer,
-  .bottomRow {
-    display: flex;
-    gap: 5px;
-    width: 70%;
-    margin: 0 auto;
-    margin-top: 2rem;
-    @include smallLaptop() {
-      width: 100%;
-   }
-  }
-  
-  .button,
-  .selected {
-    flex: 1;
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: 500;
-  }
-  .selected {
-    background-color: $accent;
-    border: 1px solid $accent;
-    color: white;
-  }
-  .tuningContainer {
-    .button {
-      width: fit-content;
-      padding: 10px;
+  padding: $paddingMedium;
+  gap: 2rem;
+  .container {
+    .label {
+      color: gray;
+      font-weight: 600;
+      font-size: 14px;
+      padding-bottom: 10px;
     }
-  }
-  .scalesContainer {
-    .button {
-      min-width: fit-content;
+    .content {
       display: flex;
-      justify-content: center;
+      padding: 5px 10px;
+      border-radius: 6px;
+      height: 40px;
+      .notes {
+        width: 100%;
+        display: flex;
+        gap: 5px;
+        .noteButton,
+        .selected {
+          border: none;
+          flex: 1;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 4px;
+          cursor: pointer;
+          font-size: 16px;
+        }
+        .selected {
+          background-color: $accent;
+          // border: 1px solid $accent;
+          color: white;
+        }
+      }
+     
+      .noteType {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        width: 225px;
+        justify-content: space-between;
+        padding: 0 10px;
+        margin-right: 1rem;
+      }
+    }
+    
+   
+  }
+  .middleContainer {
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+    .scales,
+    .tuning,
+    .guitarSound {
+      width: 33%;
+      .label {
+        color: gray;
+        font-weight: 600;
+        font-size: 14px;
+        padding-bottom: 10px;
+      }
+      .content {
+        display: flex;
+        padding: 10px;
+        border-radius: 6px;
+        height: 30px;
+         .button {
+           all: unset;
+         }
+       }
+    }
+   
+   
+   
+  }
+  .bottomContainer {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    .label {
+      color: gray;
+      font-weight: 600;
+      font-size: 14px;
+      padding-bottom: 10px;
+    }
+    .controls {
+      display: flex;
+      gap: 1rem;
       align-items: center;
-      padding: 10px;
-
+      height: 40px;
+      padding: 5px 10px;
+      border-radius: 6px;
+      .checkbox {
+        display: flex;
+        gap: 10px;
+        
+        svg {
+          max-width: 14px;
+          display: flex;
+          align-items: center;
+        }
+        p {
+          font-size: 14px;
+          display: flex;
+          align-items: center;
+          position: relative;
+          bottom: 1px;
+       
+        }
+      }
     }
   }
+  .sliderContainer {
+    .label {
+      color: gray;
+      font-weight: 600;
+      font-size: 14px;
+      padding-bottom: 10px;
+    }
+  }
+
+
 }
 
 .overlay {
@@ -136,60 +208,4 @@
 
 
 
-.secondaryControls {
-  height: 125px;
-  display: flex;
-  align-items: center;
-  padding: 0 5%;
-  @include smallLaptop() {
-    padding: $paddingSmall;
-  }
-  @include laptop() {
-    padding: $paddingMedium;
-  }
-  .content {
-   width: 70%;
-   margin: 0 auto;
-   @include smallLaptop() {
-   width: 100%;
-  }
-  }
-  .left,
-  .right {
-    display: flex;
-    gap: 28px;
-    .infoBox {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      .label {
-        color: #b1b6b8;
-        font-weight: 500;
-        font-size: 14px;
-      }
-      .info {
-        font-size: 16px;
-        font-weight: 500;
-      }
-    }
-    .checkbox {
-      display: flex;
-      gap: 10px;
-      align-items: center;
-      .info {
-        font-size: 15px;
-        font-weight: 500;
-        color: #b1b6b8;
-      }
-      svg {
-        width: 15px;
-        height: 15px;
-        cursor: pointer;
-      }
-    }
-  }
 
-  .right {
-    display: none;
-  }
-}

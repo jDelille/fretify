@@ -5,7 +5,7 @@ function Triads() {
   return (
     <div className="checkbox">
       <Checkbox />
-      <h1 className="info">Triads</h1>
+      <p className="info">Triads</p>
     </div>
   );
 }

@@ -24,8 +24,8 @@ function Home() {
           <SimpleBar className="fretboardWrapper">
             <Fretboard />
           </SimpleBar>
-          <SecondaryControls />
-          <FretboardData />
+          {/* <SecondaryControls />
+          <FretboardData /> */}
         </div>
       </>
     </ThemeProvider>

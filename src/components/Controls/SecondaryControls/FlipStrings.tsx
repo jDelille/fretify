@@ -5,7 +5,7 @@ function FlipStrings() {
   return (
     <div className="checkbox">
       <Checkbox />
-      <h1 className="info">Flip strings</h1>
+      <p className="info">Flip strings</p>
     </div>
   );
 }

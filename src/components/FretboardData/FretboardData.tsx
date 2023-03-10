@@ -44,7 +44,7 @@ const FretboardData = observer(() => {
           </div>
         )}
       </div>
-      <div className="rightData">
+      {/* <div className="rightData">
         <p>Listen to the scale</p>
         <div className="scaleNotesWrapper">
           {scaleNotes.map((note) => {
@@ -63,7 +63,7 @@ const FretboardData = observer(() => {
             Pause
           </button>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 });

@@ -2,6 +2,7 @@ import { observer } from 'mobx-react';
 import Modal from './Modal';
 import '../Controls.scss';
 import Store from '../../../mobx/Store';
+import DownArrow from '../../../assets/DownArrow';
 
 const tunings = [
   {
@@ -34,12 +35,10 @@ export type TuningProps = {
 const Tuning = observer(({ isTuningModal, toggleTuning }: TuningProps) => {
   const activeTuning = Store.tuning;
   return (
-    <div className="tuningContainer">
-      <div className="option">
-        <button type="button" className="button" onClick={toggleTuning}>
-          {activeTuning} Tuning
-        </button>
-      </div>
+    <div className="content">
+      <button type="button" className="button" onClick={toggleTuning}>
+        {activeTuning} Tuning
+      </button>
       {isTuningModal && <Modal tunings={tunings} />}
     </div>
   );

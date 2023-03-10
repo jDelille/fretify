@@ -5,7 +5,7 @@ function FlipFretboard() {
   return (
     <div className="checkbox">
       <Checkbox />
-      <h1 className="info">Flip fretboard</h1>
+      <p className="info">Flip fretboard</p>
     </div>
   );
 }

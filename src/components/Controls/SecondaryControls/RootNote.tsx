@@ -6,7 +6,7 @@ const RootNote = observer(() => {
   return (
     <div className="checkbox">
       <Checkbox />
-      <h1 className="info">Root note</h1>
+      <p className="info">Root note</p>
     </div>
   );
 });
