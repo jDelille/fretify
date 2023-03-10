@@ -16,12 +16,17 @@ export type Scales = {
   name: string[];
 };
 
+export type Sounds = {
+  name: string[];
+};
+
 type Props = {
   tunings?: TuningProps[];
   scales?: Scales;
+  sounds?: Sounds;
 };
 
-function Modal({ tunings, scales }: Props) {
+function Modal({ tunings, scales, sounds }: Props) {
   const [isModalHidden, setIsModalHidden] = useState(false);
 
   const changeScale = (scale: string) => {
@@ -30,6 +35,10 @@ function Modal({ tunings, scales }: Props) {
 
   const changeTuning = (tuning: string) => {
     Store.setTuning(tuning);
+  };
+
+  const changeSound = (sound: string) => {
+    Store.setSound(sound);
   };
   return (
     <>
@@ -84,6 +93,21 @@ function Modal({ tunings, scales }: Props) {
                   }}
                 >
                   <p className="name">{scale}</p>
+                </p>
+              );
+            })}
+          {sounds &&
+            sounds?.name.map((sound) => {
+              return (
+                <p
+                  key={sound}
+                  className="scale"
+                  onClick={() => {
+                    changeSound(sound);
+                    setIsModalHidden(true);
+                  }}
+                >
+                  <p className="name">{sound}</p>
                 </p>
               );
             })}

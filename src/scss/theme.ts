@@ -28,7 +28,6 @@ export const GlobalStyles = createGlobalStyle`
     color: ${({ theme }: { theme: ITheme }) => theme.text};
   }
 
-  .tuning:hover,
   .scale:hover,
   .bottomRow,
   .content,

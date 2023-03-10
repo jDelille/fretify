@@ -17,6 +17,8 @@ class MobxStore {
 
   tuningIndex: number;
 
+  sound: string;
+
   constructor() {
     makeAutoObservable(this);
     this.rootNote = 'Ab';
@@ -26,6 +28,7 @@ class MobxStore {
     this.isRootNoteVisible = true;
     this.isPowerchordVisible = false;
     this.tuningIndex = 0;
+    this.sound = 'acoustic_guitar_nylon';
   }
 
   get areNotesFlat() {
@@ -42,6 +45,11 @@ class MobxStore {
   setScale = (scale: string) => {
     this.scale = scale;
     localStorage.setItem('scale', scale);
+  };
+
+  setSound = (sound: string) => {
+    this.sound = sound;
+    localStorage.setItem('sound', sound);
   };
 
   setTuning = (tuning: string) => {

@@ -3,21 +3,20 @@
 @import './breakpoints';
 
 * {
- margin: 0;
- padding: 0;
- box-sizing: 0;
- font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: 0;
+  font-family: 'Inter', sans-serif;
 }
 
 .page {
- max-width: 100%;
- .fretboardWrapper {
-  
-  padding-top: 3rem;
-  padding-bottom: 15px;
-   @include smallLaptop() {
+  max-width: 100%;
+  .fretboardWrapper {
+    padding-top: 3rem;
+    padding-bottom: 15px;
+    @include smallLaptop() {
       padding-top: 1rem;
     }
   
- }
+  }
 }

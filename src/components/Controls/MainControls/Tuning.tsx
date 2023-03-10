@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import { observer } from 'mobx-react';
 import Modal from './Modal';
 import '../Controls.scss';
@@ -35,8 +37,8 @@ export type TuningProps = {
 const Tuning = observer(({ isTuningModal, toggleTuning }: TuningProps) => {
   const activeTuning = Store.tuning;
   return (
-    <div className="content">
-      <button type="button" className="button" onClick={toggleTuning}>
+    <div className="content" onClick={toggleTuning}>
+      <button type="button" className="button">
         {activeTuning} Tuning
       </button>
       {isTuningModal && <Modal tunings={tunings} />}

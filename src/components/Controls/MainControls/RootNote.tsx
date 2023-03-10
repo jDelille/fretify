@@ -30,9 +30,18 @@ const RootNote = observer(({ toggleRootNote }: RootNoteProps) => {
   return (
     <div className="content">
       <div className="noteType">
-        <p>(N)</p>
-        <p>#</p>
-        <p>b</p>
+        <div className="natural">
+          <div className="toggled" />
+          <p>(N)</p>
+        </div>
+        <div className="sharp">
+          <div className="toggle" />
+          <p>#</p>
+        </div>
+        <div className="flat">
+          <div className="toggle" />
+          <p>b</p>
+        </div>
       </div>
       <div className="notes">
         {rootNotes.map((note) => {

@@ -6,7 +6,12 @@
  height: 81px;
  padding: $paddingMedium;
  position: relative;
- 
+ @include smallLaptop() {
+  padding: $paddingSmall;
+}
+@include tablet() {
+ padding: 0 1rem;
+}
  .navbar {
   width: 100%;
   height: 100%;

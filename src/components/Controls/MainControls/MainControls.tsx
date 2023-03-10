@@ -10,11 +10,13 @@ import FlipFretboard from '../SecondaryControls/FlipFretboard';
 import FlipStrings from '../SecondaryControls/FlipStrings';
 import RootNote from '../SecondaryControls/RootNote';
 import NumberOfFrets from '../SecondaryControls/NumberOfFrets';
+import GuitarSounds from './GuitarSounds';
 
 function MainControls() {
   const [isRootNoteModal, setIsRootNoteModal] = useState(false);
   const [isTuningModal, setIsTuningModal] = useState(false);
   const [isScaleModal, setIsScaleModal] = useState(false);
+  const [isGuitarSoundsModal, setIsGuitarSoundsModal] = useState(false);
 
   const toggleTuning = () => {
     setIsTuningModal((prevState) => !prevState);
@@ -30,6 +32,13 @@ function MainControls() {
     setIsRootNoteModal((prevState) => !prevState);
     setIsScaleModal(false);
     setIsTuningModal(false);
+  };
+
+  const toggleGuitarSounds = () => {
+    setIsGuitarSoundsModal((prevState) => !prevState);
+    setIsScaleModal(false);
+    setIsTuningModal(false);
+    setIsRootNoteModal(false);
   };
 
   return (
@@ -49,7 +58,10 @@ function MainControls() {
         </div>
         <div className="guitarSound">
           <p className="label">Guitar Sound</p>
-          <Tuning isTuningModal={isTuningModal} toggleTuning={toggleTuning} />
+          <GuitarSounds
+            isGuitarSoundsModal={isGuitarSoundsModal}
+            toggleGuitarSounds={toggleGuitarSounds}
+          />
         </div>
       </div>
       <div className="bottomContainer">

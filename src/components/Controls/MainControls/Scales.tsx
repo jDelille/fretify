@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 import { observer } from 'mobx-react';
 
 import { Scale } from 'tonal';
@@ -16,8 +18,8 @@ const Scales = observer(({ isScaleModal, toggleScales }: ScaleProps) => {
   const activeScale = Store.scale;
   const activeRootNote = Store.rootNote;
   return (
-    <div className="content">
-      <button type="button" onClick={toggleScales} className="button">
+    <div className="content" onClick={toggleScales}>
+      <button type="button" className="button">
         <div>
           {activeRootNote} {Store.getScaleName(activeScale)} Scale
         </div>

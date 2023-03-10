@@ -6,6 +6,15 @@
   flex-direction: column;
   justify-content: center;
   padding: $paddingMedium;
+  @include smallLaptop() {
+    padding: $paddingSmall;
+  }
+  @include tablet() {
+    padding: 0 1rem;
+  }
+  @include mobile() {
+    display: none;
+  }
   gap: 2rem;
   .container {
     .label {
@@ -44,11 +53,40 @@
       .noteType {
         display: flex;
         align-items: center;
-        gap: 1rem;
         width: 225px;
         justify-content: space-between;
         padding: 0 10px;
-        margin-right: 1rem;
+        margin-right: 10px;
+        .natural,
+        .sharp,
+        .flat {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          height: 100%;
+          width: 100%;
+          justify-content: center;
+          border-radius: 6px;
+          &:hover {
+            cursor: pointer;
+            background-color: #454545;
+            height: 100%;
+            width: 100%;
+          }
+          .toggle {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            outline: 1px solid white;
+          }
+          .toggled {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: $accent;
+            outline: 1px solid $accent;
+          }
+        }
       }
     }
     
@@ -73,6 +111,7 @@
         padding: 10px;
         border-radius: 6px;
         height: 30px;
+        cursor: pointer;
          .button {
            all: unset;
          }
@@ -125,6 +164,9 @@
       font-weight: 600;
       font-size: 14px;
       padding-bottom: 10px;
+    }
+    input {
+      width: 32%;
     }
   }
 
