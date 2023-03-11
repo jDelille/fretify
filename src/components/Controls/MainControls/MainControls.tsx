@@ -3,7 +3,6 @@ import RootNotes from './RootNote';
 import Scales from './Scales';
 import Tuning from './Tuning';
 import '../Controls.scss';
-import SecondaryControls from '../SecondaryControls/SecondaryControls';
 import Triads from '../SecondaryControls/Triads';
 import Powerchord from '../SecondaryControls/Powerchord';
 import FlipFretboard from '../SecondaryControls/FlipFretboard';
@@ -13,7 +12,6 @@ import NumberOfFrets from '../SecondaryControls/NumberOfFrets';
 import GuitarSounds from './GuitarSounds';
 
 function MainControls() {
-  const [isRootNoteModal, setIsRootNoteModal] = useState(false);
   const [isTuningModal, setIsTuningModal] = useState(false);
   const [isScaleModal, setIsScaleModal] = useState(false);
   const [isGuitarSoundsModal, setIsGuitarSoundsModal] = useState(false);
@@ -21,16 +19,9 @@ function MainControls() {
   const toggleTuning = () => {
     setIsTuningModal((prevState) => !prevState);
     setIsScaleModal(false);
-    setIsRootNoteModal(false);
   };
   const toggleScales = () => {
     setIsScaleModal((prevState) => !prevState);
-    setIsRootNoteModal(false);
-    setIsTuningModal(false);
-  };
-  const toggleRootNote = () => {
-    setIsRootNoteModal((prevState) => !prevState);
-    setIsScaleModal(false);
     setIsTuningModal(false);
   };
 
@@ -38,14 +29,13 @@ function MainControls() {
     setIsGuitarSoundsModal((prevState) => !prevState);
     setIsScaleModal(false);
     setIsTuningModal(false);
-    setIsRootNoteModal(false);
   };
 
   return (
     <div className="mainControls">
       <div className="container">
         <p className="label">Note</p>
-        <RootNotes toggleRootNote={toggleRootNote} />
+        <RootNotes />
       </div>
       <div className="middleContainer">
         <div className="scales">

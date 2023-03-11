@@ -28,6 +28,7 @@
       padding: 5px 10px;
       border-radius: 6px;
       height: 40px;
+      
       .notes {
         width: 100%;
         display: flex;
@@ -45,8 +46,8 @@
         }
         .selected {
           background-color: $accent;
-          // border: 1px solid $accent;
           color: white;
+         
         }
       }
      
@@ -57,9 +58,7 @@
         justify-content: space-between;
         padding: 0 10px;
         margin-right: 10px;
-        .natural,
-        .sharp,
-        .flat {
+        .noteTypeContainer {
           display: flex;
           align-items: center;
           gap: 10px;
@@ -69,7 +68,6 @@
           border-radius: 6px;
           &:hover {
             cursor: pointer;
-            background-color: #454545;
             height: 100%;
             width: 100%;
           }
@@ -77,14 +75,13 @@
             width: 10px;
             height: 10px;
             border-radius: 50%;
-            outline: 1px solid white;
           }
           .toggled {
             width: 10px;
             height: 10px;
             border-radius: 50%;
             background-color: $accent;
-            outline: 1px solid $accent;
+            border: 2px solid $accent;
           }
         }
       }

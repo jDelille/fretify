@@ -42,7 +42,7 @@ export const GlobalStyles = createGlobalStyle`
   } 
  
   .noteButton {
-    background: ${({ theme }: { theme: ITheme }) => theme.container};
+    background: ${({ theme }: { theme: ITheme }) => theme.button};
     color: ${({ theme }: { theme: ITheme }) => theme.text};
 
   }
@@ -50,6 +50,18 @@ export const GlobalStyles = createGlobalStyle`
     border-right: ${({ theme }: { theme: ITheme }) => theme.borderMedium};
     color: ${({ theme }: { theme: ITheme }) => theme.text};
   }
+
+  .toggle {
+    border: ${({ theme }: { theme: ITheme }) => theme.borderMedium};
+  }
+
+  .natural:hover,
+  .sharp:hover,
+  .flat:hover {
+    background: ${({ theme }: { theme: ITheme }) => theme.button};
+
+  }
+  
 
   .fret:nth-child(1)
     {
@@ -69,15 +81,15 @@ export const GlobalStyles = createGlobalStyle`
 `;
 
 export const lightTheme: ITheme = {
-  body: '#f1f1f1',
+  body: '#E8E8E8',
   text: '#262626',
-  button: '#d3d3d3',
+  button: '#ffffff',
   border: '1px solid #d3d3d3',
   borderMedium: '2px solid #d3d3d3',
   borderLarge: '4px solid #d3d3d3',
   modal: '#E8E8E8',
   hover: '#F2F2F2',
-  container: '#E8E8E8',
+  container: '#F2F2F2',
 };
 
 export const darkTheme: ITheme = {

@@ -21,7 +21,7 @@ class MobxStore {
 
   constructor() {
     makeAutoObservable(this);
-    this.rootNote = 'Ab';
+    this.rootNote = 'A';
     this.scale = 'major pentatonic';
     this.tuning = 'Standard';
     this.isTriadVisible = true;

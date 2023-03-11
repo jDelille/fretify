@@ -1,51 +1,54 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import { observer } from 'mobx-react';
+import { useState } from 'react';
 import Store from '../../../mobx/Store';
 import '../Controls.scss';
 
-const rootNotes: string[] = [
-  'A',
-  // 'Ab',
-  'B',
-  // 'Bb',
-  'C',
-  // 'Db',
-  'D',
-  'E',
-  // 'Eb',
-  'F',
-  // 'Fb',
-  'G',
-  // 'Gb',
+const noteTypes = [
+  { id: 'natural', label: '(N)', notes: ['A', 'B', 'C', 'D', 'E', 'F', 'G'] },
+  {
+    id: 'sharps',
+    label: '#',
+    notes: ['A#', 'B#', 'C#', 'D#', 'E#', 'F#', 'G#'],
+  },
+  {
+    id: 'flats',
+    label: 'b',
+    notes: ['Ab', 'Bb', 'Cb', 'Db', 'Eb', 'Fb', 'Gb'],
+  },
 ];
 
-export type RootNoteProps = {
-  toggleRootNote: () => void;
-};
+const RootNote = observer(() => {
+  const [selectedNoteType, setSelectedNoteType] = useState('natural');
 
-const RootNote = observer(({ toggleRootNote }: RootNoteProps) => {
   const changeRootNote = (note: string) => {
     Store.setRootNote(note);
   };
+
   const currentRootNote = Store.rootNote;
+
+  const selectedNoteTypeObj = noteTypes.find(
+    ({ id }) => id === selectedNoteType
+  );
+
   return (
     <div className="content">
       <div className="noteType">
-        <div className="natural">
-          <div className="toggled" />
-          <p>(N)</p>
-        </div>
-        <div className="sharp">
-          <div className="toggle" />
-          <p>#</p>
-        </div>
-        <div className="flat">
-          <div className="toggle" />
-          <p>b</p>
-        </div>
+        {noteTypes.map(({ id, label }) => (
+          <div
+            key={id}
+            className="noteTypeContainer"
+            onClick={() => setSelectedNoteType(id)}
+          >
+            <div className={id === selectedNoteType ? 'toggled' : 'toggle'} />
+            <p>{label}</p>
+          </div>
+        ))}
       </div>
       <div className="notes">
-        {rootNotes.map((note) => {
-          return (
+        {selectedNoteTypeObj &&
+          selectedNoteTypeObj.notes.map((note) => (
             <button
               key={note}
               type="button"
@@ -54,8 +57,7 @@ const RootNote = observer(({ toggleRootNote }: RootNoteProps) => {
             >
               <p className="optionButton">{note}</p>
             </button>
-          );
-        })}
+          ))}
       </div>
     </div>
   );
