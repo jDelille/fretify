@@ -2,7 +2,8 @@
 @import '../../scss/mixins';
 @import '../../scss/breakpoints';
 
-.fretboard {
+.fretboard,
+.fretboardFlipped {
   max-width: 98%;
   overflow-x: hidden;
   overflow-y: hidden;
@@ -19,7 +20,8 @@
     min-width: 1500px;
     margin-left: 1rem;
  }
-  .string {
+  .string,
+  .stringsFlipped {
     width: 100%;
     height: 100%;
     display: flex;
@@ -99,6 +101,16 @@
     }
   }
 }
+
+.fretboardFlipped {
+  flex-direction: column-reverse;
+}
+
+.stringsFlipped {
+  flex-direction: row-reverse;
+}
+
+
 
 .fretNumbers {
   display: flex;

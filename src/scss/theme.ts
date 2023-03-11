@@ -17,6 +17,7 @@ export const GlobalStyles = createGlobalStyle`
   .page,
   .navbar,
   .fretboard,
+  .fretboardFlipped,
   .noteBackground,
   .inactiveNote {
     background: ${({ theme }: { theme: ITheme }) => theme.body};

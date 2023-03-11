@@ -19,6 +19,10 @@ class MobxStore {
 
   sound: string;
 
+  isFretboardFlipped: boolean;
+
+  isStringsFlipped: boolean;
+
   constructor() {
     makeAutoObservable(this);
     this.rootNote = 'A';
@@ -29,6 +33,8 @@ class MobxStore {
     this.isPowerchordVisible = false;
     this.tuningIndex = 0;
     this.sound = 'acoustic_guitar_nylon';
+    this.isFretboardFlipped = false;
+    this.isStringsFlipped = false;
   }
 
   get areNotesFlat() {
@@ -91,6 +97,14 @@ class MobxStore {
       .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
       .join(' ');
     return capitalizedType;
+  };
+
+  setFlippedFretboard = (boolean: boolean) => {
+    this.isFretboardFlipped = !boolean;
+  };
+
+  setFlippedStrings = (boolean: boolean) => {
+    this.isStringsFlipped = !boolean;
   };
 }
 
