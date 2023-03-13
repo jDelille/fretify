@@ -10,6 +10,7 @@ import FlipStrings from '../SecondaryControls/FlipStrings';
 import RootNote from '../SecondaryControls/RootNote';
 import NumberOfFrets from '../SecondaryControls/NumberOfFrets';
 import GuitarSounds from './GuitarSounds';
+import Positions from '../SecondaryControls/Positions';
 
 function MainControls() {
   const [isTuningModal, setIsTuningModal] = useState(false);
@@ -64,9 +65,15 @@ function MainControls() {
           <FlipStrings />
         </div>
       </div>
-      <div className="sliderContainer">
-        <p className="label"># of Frets</p>
-        <NumberOfFrets />
+      <div className="wrapper">
+        <div className="sliderContainer">
+          <p className="label"># of Frets</p>
+          <NumberOfFrets />
+        </div>
+        <div className="positionContainer">
+          <p className="label">Position</p>
+          <Positions />
+        </div>
       </div>
     </div>
   );

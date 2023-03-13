@@ -8,11 +8,6 @@ import '../Controls.scss';
 const noteTypes = [
   { id: 'natural', label: '(N)', notes: ['A', 'B', 'C', 'D', 'E', 'F', 'G'] },
   {
-    id: 'sharps',
-    label: '#',
-    notes: ['A#', 'B#', 'C#', 'D#', 'E#', 'F#', 'G#'],
-  },
-  {
     id: 'flats',
     label: 'b',
     notes: ['Ab', 'Bb', 'Cb', 'Db', 'Eb', 'Fb', 'Gb'],

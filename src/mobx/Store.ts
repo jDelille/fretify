@@ -23,6 +23,8 @@ class MobxStore {
 
   isStringsFlipped: boolean;
 
+  position: number;
+
   constructor() {
     makeAutoObservable(this);
     this.rootNote = 'A';
@@ -35,12 +37,17 @@ class MobxStore {
     this.sound = 'acoustic_guitar_nylon';
     this.isFretboardFlipped = false;
     this.isStringsFlipped = false;
+    this.position = 6;
   }
 
   get areNotesFlat() {
     const { notes } = Scale.get(`${this.rootNote} ${this.scale}`);
     const flatSymbol = 'b';
     return notes.some((note) => note.includes(flatSymbol));
+  }
+
+  get isPositionActive() {
+    return this.position !== 6;
   }
 
   setRootNote = (note: string) => {
@@ -105,6 +112,11 @@ class MobxStore {
 
   setFlippedStrings = (boolean: boolean) => {
     this.isStringsFlipped = !boolean;
+  };
+
+  setPosition = (position: number) => {
+    this.position = position;
+    localStorage.setItem('position', position.toString());
   };
 }
 

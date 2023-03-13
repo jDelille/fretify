@@ -28,7 +28,7 @@
       padding: 5px 10px;
       border-radius: 6px;
       height: 40px;
-      
+
       .notes {
         width: 100%;
         display: flex;
@@ -47,10 +47,9 @@
         .selected {
           background-color: $accent;
           color: white;
-         
         }
       }
-     
+
       .noteType {
         display: flex;
         align-items: center;
@@ -86,8 +85,6 @@
         }
       }
     }
-    
-   
   }
   .middleContainer {
     display: flex;
@@ -109,14 +106,11 @@
         border-radius: 6px;
         height: 30px;
         cursor: pointer;
-         .button {
-           all: unset;
-         }
-       }
+        .button {
+          all: unset;
+        }
+      }
     }
-   
-   
-   
   }
   .bottomContainer {
     display: flex;
@@ -138,7 +132,7 @@
       .checkbox {
         display: flex;
         gap: 10px;
-        
+
         svg {
           max-width: 14px;
           display: flex;
@@ -150,54 +144,85 @@
           align-items: center;
           position: relative;
           bottom: 1px;
-       
         }
       }
     }
   }
-  .sliderContainer {
-    .label {
-      color: gray;
-      font-weight: 600;
-      font-size: 14px;
-      padding-bottom: 10px;
-    }
-    input {
-      width: 32%;
+  .wrapper {
+    display: flex;
+    width: 100%;
+    gap: 3rem;
+    .sliderContainer,
+    .positionContainer {
+      width: 31%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      .label {
+        color: gray;
+        font-weight: 600;
+        font-size: 14px;
+        padding-bottom: 10px;
+        width: 100%;
+      }
+      input {
+        width: 100%;
+        position: relative;
+        top: 2px;
+      }
+      .positions {
+        display: flex;
+        gap: 1.25rem;
+        .position,
+        .activePosition {
+          width: 25px;
+          height: 25px;
+          font-size: 14px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 50%;
+          cursor: pointer;
+        }
+        .activePosition {
+          background-color: $accent;
+          color: white;
+          border: 2px solid $accent;
+          font-weight: 600;
+        }
+      }
     }
   }
-
-
 }
 
 .overlay {
- background-color: #000;
- width: 100vw;
- height: 100vh;
- position: fixed;
- top: 0;
- left: 0;
- z-index: 999;
- opacity: 0.8;
+  background-color: #000;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  opacity: 0.8;
 }
 .modal {
- box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
- padding: 10px;
- position: fixed; 
- z-index: 9999;
- min-width: fit-content;
- border-radius: 10px;
- width: 518px;
- display: flex;
- flex-direction: column;
- gap: 10px;
- flex-wrap: wrap;
- overflow-x: hidden;
- top: 50%; 
- left: 50%; 
- transform: translate(-50%, -50%); 
- padding: 20px;
- max-height: 500px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 10px;
+  position: fixed;
+  z-index: 9999;
+  min-width: fit-content;
+  border-radius: 10px;
+  width: 518px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex-wrap: wrap;
+  overflow-x: hidden;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  max-height: 500px;
   .tuning,
   .scale,
   .rootNote {
@@ -208,9 +233,8 @@
     padding: 10px;
     cursor: pointer;
     border-radius: 8px;
-    
-    &:hover {
 
+    &:hover {
       .notes {
         .note {
         }
@@ -244,7 +268,3 @@
     }
   }
 }
-
-
-
-

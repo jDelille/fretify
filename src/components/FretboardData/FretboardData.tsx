@@ -14,7 +14,19 @@ const FretboardData = observer(() => {
     .map((note) => ` ${note}`);
   const supersetScales = Scale.extended(Store.scale);
   const subsetScales = Scale.reduced(Store.scale);
+  const convertNoteName = (note: string) => {
+    if (note.includes('bb')) {
+      console.log(true);
+      const noteIndex =
+        (notes.indexOf(note.charAt(0)) - 1 + notes.length) % notes.length;
+      return notes[noteIndex];
+    }
+    return note;
+  };
 
+  triadNotes.map((s) => {
+    return console.log(convertNoteName(s));
+  });
   return (
     <div className="fretboardData">
       <div className="leftData">

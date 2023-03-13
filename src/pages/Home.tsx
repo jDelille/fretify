@@ -8,6 +8,7 @@ import MainControls from '../components/Controls/MainControls/MainControls';
 import Fretboard from '../components/Fretboard/Fretboard';
 import SecondaryControls from '../components/Controls/SecondaryControls/SecondaryControls';
 import FretboardData from '../components/FretboardData/FretboardData';
+import Footer from '../components/Footer/Footer';
 
 function Home() {
   const [theme, setTheme] = useState('light');
@@ -24,8 +25,8 @@ function Home() {
           <SimpleBar className="fretboardWrapper">
             <Fretboard />
           </SimpleBar>
-          {/* <SecondaryControls />
-          <FretboardData /> */}
+          <FretboardData />
+          <Footer />
         </div>
       </>
     </ThemeProvider>

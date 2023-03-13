@@ -10,6 +10,7 @@ interface ITheme extends DefaultTheme {
   borderMedium: string;
   borderLarge: string;
   container: string;
+  footer: string;
 }
 
 export const GlobalStyles = createGlobalStyle`
@@ -52,13 +53,15 @@ export const GlobalStyles = createGlobalStyle`
     color: ${({ theme }: { theme: ITheme }) => theme.text};
   }
 
-  .toggle {
+  .toggle,
+  .position {
     border: ${({ theme }: { theme: ITheme }) => theme.borderMedium};
   }
 
   .natural:hover,
   .sharp:hover,
-  .flat:hover {
+  .flat:hover,
+  .position {
     background: ${({ theme }: { theme: ITheme }) => theme.button};
 
   }
@@ -79,6 +82,10 @@ export const GlobalStyles = createGlobalStyle`
     border-bottom: ${({ theme }: { theme: ITheme }) => theme.borderMedium};
     }
  
+  footer {
+    background: ${({ theme }: { theme: ITheme }) => theme.footer};
+
+  }
 `;
 
 export const lightTheme: ITheme = {
@@ -91,6 +98,7 @@ export const lightTheme: ITheme = {
   modal: '#E8E8E8',
   hover: '#F2F2F2',
   container: '#F2F2F2',
+  footer: '#fff',
 };
 
 export const darkTheme: ITheme = {
@@ -103,4 +111,5 @@ export const darkTheme: ITheme = {
   modal: '#262626',
   hover: '#333333',
   container: '#5e5e5e',
+  footer: '#222',
 };

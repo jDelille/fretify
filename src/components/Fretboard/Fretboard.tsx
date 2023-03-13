@@ -1,6 +1,7 @@
 import { observer } from 'mobx-react';
 import { Scale } from 'tonal';
 import { GuitarConstants } from '../../constants/@GuitarConstants';
+import { GuitarScales } from '../../constants/@Scales';
 import Store from '../../mobx/Store';
 
 import './Fretboard.scss';
@@ -17,57 +18,74 @@ const Fretboard = observer(() => {
       <FretNumbers totalFrets={numberOfFrets} startFret={0} endFret={10} />
       <div className={!isStringsFlipped ? 'fretboard' : 'fretboardFlipped'}>
         {Array.from({ length: 6 }, (_, string) => {
-          const fretComponents = Array.from(
-            { length: numberOfFrets },
-            (f, fret) => {
-              const noteIndex = (fret + tuning[Store.tuningIndex][string]) % 12;
-              const note = notes[noteIndex];
-              const {
-                rootNote,
-                isRootNoteVisible,
-                isPowerchordVisible,
-                isTriadVisible,
-              } = Store;
-              const scale = `${rootNote} ${Store.scale}`;
-              const isNoteInScale = Scale.get(scale).notes.includes(note);
-              const isTriad = [1, 3, 5].map(Scale.degrees(scale));
-              const isPowerchord = [1, 5].map(Scale.degrees(scale));
-
-              return (
-                <div className="fret" key={fret}>
-                  {isNoteInScale ? (
-                    <div className="noteBackground">
-                      <p
-                        className={(() => {
-                          switch (true) {
-                            case note === rootNote && isRootNoteVisible:
-                              return 'rootNote';
-                            case isTriad.includes(note) && isTriadVisible:
-                              return 'triadNote';
-                            case isPowerchord.includes(note) &&
-                              isPowerchordVisible:
-                              return 'powerchordNote';
-                            default:
-                              return 'note';
-                          }
-                        })()}
-                      >
-                        {notes[noteIndex]}
-                      </p>
-                    </div>
-                  ) : (
-                    <p className="inactiveNote">{notes[noteIndex]}</p>
-                  )}
-                </div>
-              );
+          const convertNoteName = (note: string) => {
+            if (note.includes('bb')) {
+              const noteIndex =
+                (notes.indexOf(note.charAt(0)) - 1 + notes.length) %
+                notes.length;
+              return notes[noteIndex];
             }
-          );
+            return note;
+          };
+          // eslint-disable-next-line @typescript-eslint/no-shadow
+          const frets = Array.from({ length: numberOfFrets }, (_, fret) => {
+            const noteIndex = (fret + tuning[Store.tuningIndex][string]) % 12;
+            const note = convertNoteName(notes[noteIndex]);
+            const scale = `${Store.rootNote} ${Store.scale}`;
+            const isNoteInScale = Scale.get(scale).notes.includes(note);
+            const scaleData = GuitarScales.scales.filter(
+              (scaleName) => scaleName.key === Scale.get(scale).tonic
+            );
+            const position = Store.position - 1;
+            const startFret = scaleData[0]?.positions[position].start;
+            const endFret = scaleData[0]?.positions[position].end;
+            const triadNotes = [1, 3, 5].map(Scale.degrees(scale));
+            const powerchordNotes = [1, 5].map(Scale.degrees(scale));
+            const isNoteInPosition = fret >= startFret && fret <= endFret;
+            const isNoteInSecondPosition =
+              fret >= startFret + 12 && fret <= endFret + 12;
+            const isNoteInThirdPosition =
+              fret >= startFret - 12 && fret <= endFret - 12;
+            const noteClassName = isNoteInScale
+              ? (() => {
+                  if (note === Store.rootNote && Store.isRootNoteVisible) {
+                    return 'rootNote';
+                  }
+                  if (triadNotes.includes(note) && Store.isTriadVisible) {
+                    return 'triadNote';
+                  }
+                  if (
+                    powerchordNotes.includes(note) &&
+                    Store.isPowerchordVisible
+                  ) {
+                    return 'powerchordNote';
+                  }
+                  return 'note';
+                })()
+              : 'inactiveNote';
+
+            return (
+              <div className="fret" key={fret}>
+                {isNoteInScale &&
+                (isNoteInPosition ||
+                  isNoteInSecondPosition ||
+                  isNoteInThirdPosition) ? (
+                  <div className="noteBackground">
+                    <p className={noteClassName}>{notes[noteIndex]}</p>
+                  </div>
+                ) : (
+                  <p className="inactiveNote">{notes[noteIndex]}</p>
+                )}
+              </div>
+            );
+          });
+
           return (
             <div
               className={!isFretboardFlipped ? 'string' : 'stringsFlipped'}
               key={string + 1}
             >
-              {fretComponents}
+              {frets}
             </div>
           );
         })}

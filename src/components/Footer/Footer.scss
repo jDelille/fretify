@@ -1,0 +1,23 @@
+@import '../../scss/variables';
+@import '../../scss/breakpoints';
+
+footer {
+ max-width: 100%;
+
+ height: 50px;
+ margin-top: 2rem;
+ padding: $paddingMedium;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ @include smallLaptop() {
+   padding: $paddingSmall;
+ }
+ @include tablet() {
+   padding: 0 1rem;
+ }
+ @include mobile() {
+   display: none;
+ }
+
+}
