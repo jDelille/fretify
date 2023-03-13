@@ -80,9 +80,3 @@ function MainControls() {
 }
 
 export default MainControls;
-
-//
-// <div className="bottomRow">
-//   {/* > */}
-
-// </div>

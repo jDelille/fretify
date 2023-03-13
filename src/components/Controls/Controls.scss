@@ -157,7 +157,7 @@
       width: 31%;
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: space-between;
       .label {
         color: gray;
         font-weight: 600;
@@ -168,7 +168,7 @@
       input {
         width: 100%;
         position: relative;
-        top: 2px;
+        top: -1px;
       }
       .positions {
         display: flex;
@@ -223,6 +223,11 @@
   transform: translate(-50%, -50%);
   padding: 20px;
   max-height: 500px;
+  @include mobile() {
+    padding: 0;
+    top: unset;
+    width: 95%
+  }
   .tuning,
   .scale,
   .rootNote {

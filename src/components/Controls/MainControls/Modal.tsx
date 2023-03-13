@@ -20,13 +20,18 @@ export type Sounds = {
   name: string[];
 };
 
+type RootNotes = {
+  bool: boolean;
+};
+
 type Props = {
   tunings?: TuningProps[];
   scales?: Scales;
   sounds?: Sounds;
+  rootNotes?: boolean;
 };
 
-function Modal({ tunings, scales, sounds }: Props) {
+function Modal({ tunings, scales, sounds, rootNotes }: Props) {
   const [isModalHidden, setIsModalHidden] = useState(false);
 
   const changeScale = (scale: string) => {
@@ -40,6 +45,25 @@ function Modal({ tunings, scales, sounds }: Props) {
   const changeSound = (sound: string) => {
     Store.setSound(sound);
   };
+
+  const changeRootNote = (note: string) => {
+    Store.setRootNote(note);
+  };
+
+  const noteTypes = [
+    { id: 'natural', label: '(N)', notes: ['A', 'B', 'C', 'D', 'E', 'F', 'G'] },
+    {
+      id: 'flats',
+      label: 'b',
+      notes: ['Ab', 'Bb', 'Cb', 'Db', 'Eb', 'Fb', 'Gb'],
+    },
+  ];
+  const currentRootNote = Store.rootNote;
+  const [selectedNoteType, setSelectedNoteType] = useState('natural');
+
+  const selectedNoteTypeObj = noteTypes.find(
+    ({ id }) => id === selectedNoteType
+  );
   return (
     <>
       {!isModalHidden && (
@@ -111,6 +135,31 @@ function Modal({ tunings, scales, sounds }: Props) {
                 </p>
               );
             })}
+
+          {rootNotes &&
+            noteTypes.map(({ id, label }) => (
+              <div
+                key={id}
+                className="noteTypeContainer"
+                onClick={() => setSelectedNoteType(id)}
+              >
+                <div
+                  className={id === selectedNoteType ? 'toggled' : 'toggle'}
+                />
+                <p>{label}</p>
+              </div>
+            ))}
+          {selectedNoteTypeObj &&
+            selectedNoteTypeObj.notes.map((note) => (
+              <button
+                key={note}
+                type="button"
+                className={note === currentRootNote ? 'selected' : 'noteButton'}
+                onClick={() => changeRootNote(note)}
+              >
+                <p className="optionButton">{note}</p>
+              </button>
+            ))}
         </SimpleBar>
       )}
     </>

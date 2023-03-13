@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import { observer } from 'mobx-react';
-import GuitarConstants from '../../../constants/@GuitarConstants';
+import { GuitarConstants } from '../../../constants/@GuitarConstants';
 import Store from '../../../mobx/Store';
 import Modal from './Modal';
 

@@ -33,17 +33,23 @@ export const GlobalStyles = createGlobalStyle`
   .scale:hover,
   .bottomRow,
   .content,
-  .controls {
+  .controls
+   {
     background: ${({ theme }: { theme: ITheme }) => theme.hover};
   }
 
+  .pill {
+    background: ${({ theme }: { theme: ITheme }) => theme.button};
+    color: ${({ theme }: { theme: ITheme }) => theme.text};
+  }
   
   .rootNoteModal {
     background: ${({ theme }: { theme: ITheme }) => theme.button};
     color: ${({ theme }: { theme: ITheme }) => theme.text};
   } 
  
-  .noteButton {
+  .noteButton
+   {
     background: ${({ theme }: { theme: ITheme }) => theme.button};
     color: ${({ theme }: { theme: ITheme }) => theme.text};
 

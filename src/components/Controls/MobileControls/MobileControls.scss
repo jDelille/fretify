@@ -1,0 +1,27 @@
+@import '../../../scss/variables';
+@import '../../../scss/breakpoints';
+
+.mobileControls {
+display: none;
+@include mobile() {
+ display: flex;
+ gap: 1rem;
+ flex-wrap: wrap;
+ margin-top: 2rem;
+ padding-left: 1rem;
+}
+.pill {
+ border-radius: 20px;
+ min-width: 120px;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ font-size: 14px;
+ min-height: 25px;
+ border: none;
+ padding: 8px 10px;
+ &:hover {
+  background-color: none;
+ }
+}
+}
