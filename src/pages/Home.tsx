@@ -21,7 +21,7 @@ function Home() {
       <>
         <GlobalStyles />
         <div className="page">
-          <Navbar toggleTheme={toggleTheme} />
+          <Navbar toggleTheme={toggleTheme} theme={theme} />
           <MainControls />
           <SimpleBar className="fretboardWrapper">
             <Fretboard />

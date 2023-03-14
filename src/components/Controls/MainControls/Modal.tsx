@@ -20,10 +20,6 @@ export type Sounds = {
   name: string[];
 };
 
-type RootNotes = {
-  bool: boolean;
-};
-
 type Props = {
   tunings?: TuningProps[];
   scales?: Scales;
@@ -136,7 +132,7 @@ function Modal({ tunings, scales, sounds, rootNotes }: Props) {
               );
             })}
 
-          {rootNotes &&
+          {/* {rootNotes &&
             noteTypes.map(({ id, label }) => (
               <div
                 key={id}
@@ -159,7 +155,7 @@ function Modal({ tunings, scales, sounds, rootNotes }: Props) {
               >
                 <p className="optionButton">{note}</p>
               </button>
-            ))}
+            ))} */}
         </SimpleBar>
       )}
     </>

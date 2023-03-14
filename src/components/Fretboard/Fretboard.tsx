@@ -8,7 +8,7 @@ import './Fretboard.scss';
 import FretNumbers from './FretNumbers';
 
 const Fretboard = observer(() => {
-  const numberOfFrets = 20;
+  const { numberOfFrets } = Store;
   const { tuning } = GuitarConstants;
   const isFlat = Store.areNotesFlat;
   const notes = isFlat ? GuitarConstants.notesFlat : GuitarConstants.notesSharp;

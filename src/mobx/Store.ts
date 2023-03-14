@@ -25,6 +25,8 @@ class MobxStore {
 
   position: number;
 
+  numberOfFrets: number;
+
   constructor() {
     makeAutoObservable(this);
     this.rootNote = 'A';
@@ -38,6 +40,7 @@ class MobxStore {
     this.isFretboardFlipped = false;
     this.isStringsFlipped = false;
     this.position = 6;
+    this.numberOfFrets = 21;
   }
 
   get areNotesFlat() {
@@ -63,6 +66,10 @@ class MobxStore {
   setSound = (sound: string) => {
     this.sound = sound;
     localStorage.setItem('sound', sound);
+  };
+
+  setNumberOfFrets = (numberOfFrets: number) => {
+    this.numberOfFrets = numberOfFrets;
   };
 
   setTuning = (tuning: string) => {

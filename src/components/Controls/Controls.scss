@@ -225,21 +225,21 @@
   max-height: 500px;
   @include mobile() {
     padding: 0;
-    top: unset;
+    top: 50%;
     width: 95%
   }
   .tuning,
   .scale,
   .rootNote {
-    max-width: 100%;
+    min-width: 100%;
     display: flex;
     gap: 5px;
     height: 40px;
-    padding: 10px;
+    padding: 8px 10px;
     cursor: pointer;
-    border-radius: 8px;
-
     &:hover {
+      background-color: $accent;
+      color: white;
       .notes {
         .note {
         }
@@ -247,7 +247,6 @@
     }
     .name {
       all: unset;
-      width: 140px;
       display: flex;
       align-items: center;
       margin-right: 1rem;

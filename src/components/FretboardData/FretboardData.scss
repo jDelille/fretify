@@ -50,9 +50,15 @@
       gap: 1rem;
       .set {
         display: flex;
-        gap: 1rem;
+        margin-right: 1rem;
+        
+        
         width: 100%;
         flex-wrap: wrap;
+        span {
+          margin-right: 1rem;
+          margin-bottom: 5px;
+        }
       }
     }
   }
@@ -61,7 +67,6 @@
     flex-direction: column;
     gap: 1rem;
     max-width: 30%;
-    background-color: red;
     // margin-left: auto;
     justify-content: center;
     @include smallLaptop() {

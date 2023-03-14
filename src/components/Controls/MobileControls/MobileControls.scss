@@ -5,23 +5,42 @@
 display: none;
 @include mobile() {
  display: flex;
- gap: 1rem;
  flex-wrap: wrap;
  margin-top: 2rem;
  padding-left: 1rem;
+ 
 }
 .pill {
  border-radius: 20px;
- min-width: 120px;
+ min-width: 110px;
  display: flex;
  align-items: center;
  justify-content: center;
  font-size: 14px;
  min-height: 25px;
  border: none;
- padding: 8px 10px;
+ padding: 5px 10px;
+ margin-right: 10px;
+ margin-bottom: 10px;
  &:hover {
   background-color: none;
+ }
+ p {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  svg {
+   width: 18px;
+   display: flex;
+   align-items: center;
+  }
+ }
+ .longName {
+  span {
+   position: relative;
+   bottom: 0.5px;
+  }
  }
 }
 }
