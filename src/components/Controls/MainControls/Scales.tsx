@@ -3,10 +3,10 @@
 import { observer } from 'mobx-react';
 
 import { Scale } from 'tonal';
-import Modal from './Modal';
-import '../Controls.scss';
 import Store from '../../../mobx/Store';
 import DownArrow from '../../../assets/DownArrow';
+import ScaleModal from '../../Modals/ScaleModal';
+import '../Controls.scss';
 
 export type ScaleProps = {
   isScaleModal: boolean;
@@ -24,7 +24,7 @@ const Scales = observer(({ isScaleModal, toggleScales }: ScaleProps) => {
           {activeRootNote} {Store.getScaleName(activeScale)} Scale
         </div>
       </button>
-      {isScaleModal && <Modal scales={{ name: scaleNames }} />}
+      {isScaleModal && <ScaleModal scales={{ name: scaleNames }} />}
     </div>
   );
 });

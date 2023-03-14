@@ -5,6 +5,7 @@ import Modal from './Modal';
 import '../Controls.scss';
 import Store from '../../../mobx/Store';
 import DownArrow from '../../../assets/DownArrow';
+import TuningModal from '../../Modals/TuningModal';
 
 const tunings = [
   {
@@ -41,7 +42,7 @@ const Tuning = observer(({ isTuningModal, toggleTuning }: TuningProps) => {
       <button type="button" className="button">
         {activeTuning} Tuning
       </button>
-      {isTuningModal && <Modal tunings={tunings} />}
+      {isTuningModal && <TuningModal tunings={tunings} />}
     </div>
   );
 });

@@ -3,7 +3,7 @@
 import { observer } from 'mobx-react';
 import { GuitarConstants } from '../../../constants/@GuitarConstants';
 import Store from '../../../mobx/Store';
-import Modal from './Modal';
+import SoundModal from '../../Modals/SoundModal';
 
 export type GuitarSoundsProps = {
   isGuitarSoundsModal: boolean;
@@ -19,7 +19,7 @@ const GuitarSounds = observer(
         <button type="button" className="button">
           {activeSound}
         </button>
-        {isGuitarSoundsModal && <Modal sounds={{ name: guitarNames }} />}
+        {isGuitarSoundsModal && <SoundModal sounds={{ name: guitarNames }} />}
       </div>
     );
   }
