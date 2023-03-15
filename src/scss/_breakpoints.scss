@@ -29,11 +29,21 @@ $breakpoint-laptop: 1370px;
 }
 
 // Breakpoint for smaller laptops
-$breakpoint-small-laptop: 1350px;
+$breakpoint-small-laptop: 1309px;
 
 // Mixin for targeting laptops and desktops and up
 @mixin smallLaptop {
    @media (max-width: #{$breakpoint-small-laptop}) {
+      @content;
+   }
+}
+
+// Breakpoint for smaller laptops
+$breakpoint-medium-laptop: 1649px;
+
+// Mixin for targeting laptops and desktops and up
+@mixin mediumLaptop {
+   @media (max-width: #{$breakpoint-medium-laptop}) {
       @content;
    }
 }
