@@ -20,6 +20,9 @@
   @include smallLaptop() {
     width: 880px;;
   }
+  @include mobile() {
+    width: 100%;
+  }
   .logo {
    width: fit-content;
    padding-right: 28px;

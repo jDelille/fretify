@@ -99,8 +99,7 @@ function MobileControls() {
             <span>More Controls</span>
           </p>
         </button>
-        {/* {isControlsModal && <MoreControlsModal />} */}
-        <MoreControlsModal />
+        {isControlsModal && <MoreControlsModal />}
       </div>
     </div>
   );

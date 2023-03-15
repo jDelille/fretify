@@ -20,63 +20,98 @@
   gap: 1rem;
   height: 50px;
   align-items: center;
-  padding: 0 6rem;
+  padding: 0 2rem;
   border-radius: 6px;
+  padding-left: 1rem;
+  justify-content: space-between;
   p {
    display: flex;
    justify-content: center;
    height: 100%;
    align-items: center;
   }
+
   #theme-switch {
    margin-left: auto;
   }
-  .positions {
-   display: flex;
-   margin-left: auto;
-   .position,
-   .activePosition {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-   }
-   
   }
- }
- .wrapper {
-  display: flex;
-  flex-direction: column;
-  margin: 1rem 0;
-  padding-bottom: 25px;
-  .label {
-   margin-bottom: 10px;
-  }
-  .options {
+  .wrapper {
    display: flex;
    flex-direction: column;
-   gap: 10px;
-   
-   .unselected,
-   .selected {
-    padding: 0;
-    border: none;
-    flex: 1;
-    padding: 15px;
+   margin: 1rem 0;
+   padding-bottom: 25px;
+   .label {
+    margin-bottom: 10px;
+   }
+   .options {
     display: flex;
-    justify-content: space-between;
-    border-radius: 5px;
-    cursor: pointer;
+    flex-direction: column;
+    gap: 10px;
+    .unselected,
+    .selected {
 
-    .notes {
+     padding: 0;
+     border: none;
+     flex: 1;
+     padding: 15px;
      display: flex;
-     gap: 5px;
-     font-size: 12px;
+     justify-content: space-between;
+     border-radius: 5px;
+     cursor: pointer;
+     
+     .notes {
+      display: flex;
+      gap: 5px;
+      font-size: 12px;
+     }
+    }
+    .selected {
+     background-color: $accent;
+     color: white;
     }
    }
-   .selected {
-    background-color: $accent;
-    color: white;
-   }
   }
+  .displayOption {
+   display: flex;
+   flex-direction: column;
+   height: fit-content;
+   justify-content: center;
+   gap: 1rem;
+   border-radius: 6px;
+   height: fit-content;
+   padding: 10px 1rem;
+   p {
+    width: 100%;
+    display: flex;
+   }
+   .inputContainer {
+    display: flex;
+    justify-content: center;
+    input {
+     width: calc(100% - 2rem);
+    }
+   }
+  
+   .positions {
+    display: flex;
+    flex-direction: column;
+    .position,
+    .activePosition {
+     background-color: unset;
+     border: none;
+     height: 40px;
+     display: flex;
+     align-items: center;
+     border-radius: 6px;
+     padding: 0 5px;
+    }
+ 
+    .activePosition {
+     background-color: $accent;
+     color: white;
+    }
+  }
+
  }
-}
+ }
+ 

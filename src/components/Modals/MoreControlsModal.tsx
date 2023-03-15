@@ -1,8 +1,6 @@
-/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable react/require-default-props */
-import React, { useState } from 'react';
+/* eslint-disable jsx-a11y/control-has-associated-label */
+
+import { useState } from 'react';
 import Store from '../../mobx/Store';
 import NumberOfFrets from '../Controls/SecondaryControls/NumberOfFrets';
 import Positions from '../Controls/SecondaryControls/Positions';
@@ -17,7 +15,11 @@ function MoreControlsModal() {
 
   return !isModalHidden ? (
     <>
-      <div className="overlay" onClick={() => setIsModalHidden(true)} />
+      <button
+        type="button"
+        className="overlay"
+        onClick={() => setIsModalHidden(true)}
+      />
       <div className="modal">
         <div className="option">
           <p>Root note</p>
@@ -46,11 +48,11 @@ function MoreControlsModal() {
             onChange={toggleRootNote}
           />
         </div>
-        <div className="option">
+        <div className="displayOption">
           <p>Number of frets</p>
           <NumberOfFrets />
         </div>
-        <div className="option">
+        <div className="displayOption">
           <p>Position</p>
           <Positions />
         </div>

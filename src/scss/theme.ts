@@ -79,8 +79,8 @@ export const GlobalStyles = createGlobalStyle`
 }
 
 .unselected,
-.option
-
+.option,
+.displayOption
 
 {
   background: ${({ theme }: { theme: ITheme }) => theme.unselected};
