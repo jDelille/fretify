@@ -35,8 +35,8 @@ export const GlobalStyles = createGlobalStyle`
   .scale:hover,
   .bottomRow,
   .content,
-  .controls,
-
+  .controls
+  
    {
     background: ${({ theme }: { theme: ITheme }) => theme.hover};
   }
@@ -80,6 +80,8 @@ export const GlobalStyles = createGlobalStyle`
 
 .unselected,
 .option
+
+
 {
   background: ${({ theme }: { theme: ITheme }) => theme.unselected};
   color: ${({ theme }: { theme: ITheme }) => theme.text};
@@ -87,6 +89,7 @@ export const GlobalStyles = createGlobalStyle`
 }
 
 .unselected:hover,
+.checkbox:hover,
 .position:hover {
   background: ${({ theme }: { theme: ITheme }) => theme.hover};
 }
@@ -100,8 +103,10 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   .content,
-  .controls {
+  .controls,
+  .checkbox {
     background: ${({ theme }: { theme: ITheme }) => theme.button};
+    color: ${({ theme }: { theme: ITheme }) => theme.text};
 
   }
   

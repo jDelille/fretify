@@ -1,9 +1,6 @@
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
 import { observer } from 'mobx-react';
 import Checkbox from '../../assets/Checkbox';
 import Checked from '../../assets/Checked';
-
 import '../Controls/Controls.scss';
 
 export type ToggleProps = {
@@ -13,10 +10,14 @@ export type ToggleProps = {
 };
 
 const Toggle = observer(({ isToggled, onToggle, label }: ToggleProps) => (
-  <div className="checkbox" onClick={() => onToggle(!isToggled)}>
+  <button
+    type="button"
+    className="checkbox"
+    onClick={() => onToggle(!isToggled)}
+  >
     {isToggled ? <Checked /> : <Checkbox />}
     <p className="info">{label}</p>
-  </div>
+  </button>
 ));
 
 export default Toggle;

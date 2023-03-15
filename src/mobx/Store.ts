@@ -1,4 +1,4 @@
-import { action, makeAutoObservable, computed } from 'mobx';
+import { makeAutoObservable } from 'mobx';
 import { Scale } from 'tonal';
 import { GuitarConstants } from '../constants/@GuitarConstants';
 
