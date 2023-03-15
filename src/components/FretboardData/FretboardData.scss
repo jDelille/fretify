@@ -51,10 +51,16 @@
       .set {
         display: flex;
         margin-right: 1rem;
-        
-        
         width: 100%;
         flex-wrap: wrap;
+        button {
+          all: unset;
+          margin-right: 1rem;
+          &:hover {
+            cursor: pointer;
+            text-decoration: underline;
+          }
+        }
         span {
           margin-right: 1rem;
           margin-bottom: 5px;

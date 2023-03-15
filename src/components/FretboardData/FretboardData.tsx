@@ -4,7 +4,7 @@ import Store from '../../mobx/Store';
 import './FretboardData.scss';
 
 const FretboardData = observer(() => {
-  const { rootNote, scale } = Store;
+  const { rootNote } = Store;
   const scaleName = `${rootNote} ${Store.scale}`;
   const name = Store.getScaleName(scaleName);
   const scaleNotes = Scale.get(scaleName).notes;
@@ -16,7 +16,6 @@ const FretboardData = observer(() => {
   const subsetScales = Scale.reduced(Store.scale);
   const convertNoteName = (note: string) => {
     if (note.includes('bb')) {
-      console.log(true);
       const noteIndex =
         (notes.indexOf(note.charAt(0)) - 1 + notes.length) % notes.length;
       return notes[noteIndex];
@@ -24,9 +23,10 @@ const FretboardData = observer(() => {
     return note;
   };
 
-  triadNotes.map((s) => {
-    return console.log(convertNoteName(s));
-  });
+  const changeScale = (scale: string) => {
+    Store.setScale(scale);
+  };
+
   return (
     <div className="fretboardData">
       <div className="leftData">
@@ -41,7 +41,13 @@ const FretboardData = observer(() => {
           <h2>Superset Scales</h2>
           <div className="set">
             {supersetScales.map((supersetScale) => (
-              <span key={supersetScale}>{supersetScale}</span>
+              <button
+                type="button"
+                key={supersetScale}
+                onClick={() => changeScale(supersetScale)}
+              >
+                {supersetScale}
+              </button>
             ))}
           </div>
         </div>
@@ -50,32 +56,18 @@ const FretboardData = observer(() => {
             <h2>Subset Scales</h2>
             <div className="set">
               {subsetScales.map((subsetScale) => (
-                <span key={subsetScale}>{subsetScale}</span>
+                <button
+                  type="button"
+                  key={subsetScale}
+                  onClick={() => changeScale(subsetScale)}
+                >
+                  {subsetScale}
+                </button>
               ))}
             </div>
           </div>
         )}
       </div>
-      {/* <div className="rightData">
-        <p>Listen to the scale</p>
-        <div className="scaleNotesWrapper">
-          {scaleNotes.map((note) => {
-            return (
-              <div className="note" key={note}>
-                {note}
-              </div>
-            );
-          })}
-        </div>
-        <div className="buttonWrapper">
-          <button type="button" className="playButton">
-            Play
-          </button>
-          <button type="button" className="pauseButton">
-            Pause
-          </button>
-        </div>
-      </div> */}
     </div>
   );
 });

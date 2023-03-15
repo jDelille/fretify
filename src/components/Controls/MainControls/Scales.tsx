@@ -1,10 +1,8 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import { observer } from 'mobx-react';
-
 import { Scale } from 'tonal';
 import Store from '../../../mobx/Store';
-import DownArrow from '../../../assets/DownArrow';
 import ScaleModal from '../../Modals/ScaleModal';
 import '../Controls.scss';
 
