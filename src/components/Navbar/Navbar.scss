@@ -4,10 +4,7 @@
 .header {
  max-width: 100%;
  height: 81px;
-//  padding: $paddingMedium;
  position: relative;
- @include smallLaptop() {
-}
 @include tablet() {
  padding: 0 1rem;
 }

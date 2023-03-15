@@ -13,9 +13,9 @@ function Navbar({ toggleTheme, theme }: NavbarProps) {
         <div className="logo">
           <h1>Fretify</h1>
         </div>
-        <div className="links">
+        {/* <div className="links">
           <p>About</p>
-        </div>
+        </div> */}
         <div className="settings">
           <Switch
             id="theme-switch"
