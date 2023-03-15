@@ -3,6 +3,7 @@
 @mixin note {
  width: $noteWidth;
  height: $noteHeight;
+ border: none;
  border-radius: 50%;
  display: flex;
  align-items: center;

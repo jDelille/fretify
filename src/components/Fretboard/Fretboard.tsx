@@ -1,5 +1,6 @@
 import { observer } from 'mobx-react';
 import { Scale } from 'tonal';
+import { instrument, InstrumentName } from 'soundfont-player';
 import { GuitarConstants } from '../../constants/@GuitarConstants';
 import { GuitarScales } from '../../constants/@Scales';
 import Store from '../../mobx/Store';
@@ -13,6 +14,16 @@ const Fretboard = observer(() => {
   const isFlat = Store.areNotesFlat;
   const notes = isFlat ? GuitarConstants.notesFlat : GuitarConstants.notesSharp;
   const { isFretboardFlipped, isStringsFlipped } = Store;
+
+  function playSound(note: string, fret: number, string: number) {
+    const octave = Math.floor(fret / 12) + 5 - (string - 1);
+    instrument(new AudioContext(), Store.sound as InstrumentName).then(
+      (guitar) => {
+        guitar.play(note + octave);
+      }
+    );
+  }
+
   return (
     <>
       <FretNumbers totalFrets={numberOfFrets} startFret={0} endFret={10} />
@@ -71,7 +82,13 @@ const Fretboard = observer(() => {
                   isNoteInSecondPosition ||
                   isNoteInThirdPosition) ? (
                   <div className="noteBackground">
-                    <p className={noteClassName}>{notes[noteIndex]}</p>
+                    <button
+                      type="button"
+                      className={noteClassName}
+                      onClick={() => playSound(notes[noteIndex], fret, string)}
+                    >
+                      {notes[noteIndex]}
+                    </button>
                   </div>
                 ) : (
                   <p className="inactiveNote">{notes[noteIndex]}</p>
