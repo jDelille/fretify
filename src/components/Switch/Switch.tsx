@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import { observer } from 'mobx-react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './Switch.scss';
 
 export type SwitchProps = {
@@ -12,6 +12,10 @@ export type SwitchProps = {
 
 const Switch = observer(({ id, label, checked, onChange }: SwitchProps) => {
   const [isChecked, setIsChecked] = useState(checked);
+
+  useEffect(() => {
+    setIsChecked(checked);
+  }, [checked]);
 
   const handleClick = () => {
     const newChecked = !isChecked;

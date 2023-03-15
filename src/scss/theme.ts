@@ -78,7 +78,8 @@ export const GlobalStyles = createGlobalStyle`
 
 }
 
-.unselected
+.unselected,
+.option
 {
   background: ${({ theme }: { theme: ITheme }) => theme.unselected};
   color: ${({ theme }: { theme: ITheme }) => theme.text};

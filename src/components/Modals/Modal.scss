@@ -1,4 +1,5 @@
 @import '../../scss/variables';
+@import '../../scss/breakpoints';
 
 .modal {
  display: flex;
@@ -6,9 +7,42 @@
  max-width: 85%;
  gap: 1rem;
  padding: 10px;
- background-color: red;
  max-height: 50%;
  margin-bottom: 10px;
+ position: fixed;
+ z-index: 9999;
+ @include mobile() {
+  min-height: 80vh;
+  max-height: 80vh;
+ }
+ .option {
+  display: flex;
+  gap: 1rem;
+  height: 50px;
+  align-items: center;
+  padding: 0 6rem;
+  border-radius: 6px;
+  p {
+   display: flex;
+   justify-content: center;
+   height: 100%;
+   align-items: center;
+  }
+  #theme-switch {
+   margin-left: auto;
+  }
+  .positions {
+   display: flex;
+   margin-left: auto;
+   .position,
+   .activePosition {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+   }
+   
+  }
+ }
  .wrapper {
   display: flex;
   flex-direction: column;
@@ -21,7 +55,7 @@
    display: flex;
    flex-direction: column;
    gap: 10px;
-
+   
    .unselected,
    .selected {
     padding: 0;

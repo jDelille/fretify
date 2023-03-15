@@ -13,7 +13,7 @@ import ScaleModal from '../../Modals/ScaleModal';
 import SoundModal from '../../Modals/SoundModal';
 import TuningModal from '../../Modals/TuningModal';
 import './MobileControls.scss';
-import MoreControlsModal from './MoreControlsModal';
+import MoreControlsModal from '../../Modals/MoreControlsModal';
 
 function MobileControls() {
   const [isTuningModal, setIsTuningModal] = useState(false);
@@ -99,7 +99,8 @@ function MobileControls() {
             <span>More Controls</span>
           </p>
         </button>
-        {isControlsModal && <MoreControlsModal />}
+        {/* {isControlsModal && <MoreControlsModal />} */}
+        <MoreControlsModal />
       </div>
     </div>
   );
