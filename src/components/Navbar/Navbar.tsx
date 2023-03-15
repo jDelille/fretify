@@ -1,5 +1,4 @@
-import MoonIcon from '../../assets/MoonIcon';
-import SunIcon from '../../assets/SunIcon';
+import Switch from '../Switch/Switch';
 import './Navbar.scss';
 
 export type NavbarProps = {
@@ -18,9 +17,12 @@ function Navbar({ toggleTheme, theme }: NavbarProps) {
           <p>About</p>
         </div>
         <div className="settings">
-          <button type="button" onClick={toggleTheme}>
-            {theme === 'dark' ? <SunIcon /> : <MoonIcon />}
-          </button>
+          <Switch
+            id="theme-switch"
+            label=""
+            checked={theme === 'dark'}
+            onChange={toggleTheme}
+          />
         </div>
       </nav>
     </header>
