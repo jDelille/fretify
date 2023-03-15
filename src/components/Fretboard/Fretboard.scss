@@ -80,15 +80,24 @@
       .note {
         @include note();
         background-color: #2f89fc;
+        color: white;
+
       }
       .rootNote {
         @include note();
-        background-color: #e29734;
       }
       .triadNote {
         @include note();
-        background-color: #e74c3c;
+        background-color: #e94e3d;
+        color: white;
+
      }
+     .powerchordNote {
+      @include note();
+        background-color: #25862a;
+        color: white;
+
+    }
       .activeNote {
         @include note();
         background-color: #2f89fc;

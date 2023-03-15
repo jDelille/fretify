@@ -19,6 +19,8 @@ export default function ScaleModal({ scales }: Props) {
     Store.setScale(scale);
   };
 
+  const currentScale = Store.scale;
+
   return !isModalHidden ? (
     <>
       <button
@@ -27,22 +29,29 @@ export default function ScaleModal({ scales }: Props) {
         onClick={() => setIsModalHidden(true)}
       />
       <SimpleBar className="modal">
-        {scales &&
-          scales?.name.map((scale) => {
-            return (
-              <button
-                type="button"
-                key={scale}
-                className="scale"
-                onClick={() => {
-                  changeScale(scale);
-                  setIsModalHidden(true);
-                }}
-              >
-                <p className="name">{scale}</p>
-              </button>
-            );
-          })}
+        <div className="wrapper">
+          <p className="label">Scales / Modes</p>
+          <div className="options">
+            {scales &&
+              scales?.name.map((scale) => {
+                return (
+                  <button
+                    type="button"
+                    key={scale}
+                    className={
+                      scale === currentScale ? 'selected' : 'unselected'
+                    }
+                    onClick={() => {
+                      changeScale(scale);
+                      setIsModalHidden(true);
+                    }}
+                  >
+                    <p className="name">{scale}</p>
+                  </button>
+                );
+              })}
+          </div>
+        </div>
       </SimpleBar>
     </>
   ) : null;

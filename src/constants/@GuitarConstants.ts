@@ -17,12 +17,12 @@ export const GuitarConstants = Object.freeze({
   scaleNames: Scale.names(),
   tuningNames: [
     'Standard',
-    'E Flat',
-    'Open E',
-    'Open C',
+    'Half-Step Down',
     'Open G',
-    'Open D',
-    'Drop D',
+    'DADGAD',
+    'Drop C',
+    'Double Drop D',
+    'Open D Minor',
   ],
   guitars: [
     'acoustic_guitar_nylon',
@@ -33,6 +33,36 @@ export const GuitarConstants = Object.freeze({
     'overdriven_guitar',
     'distortion_guitar',
     'guitar_harmonics',
+  ],
+  tunings: [
+    {
+      name: 'Standard',
+      notes: ['e', 'a', 'd', 'g', 'b', 'e'],
+    },
+    {
+      name: 'Half-Step Down',
+      notes: ['eb', 'ab', 'db', 'gb', 'bb', 'eb'],
+    },
+    {
+      name: 'Open G',
+      notes: ['d', 'g', 'd', 'g', 'b', 'd'],
+    },
+    {
+      name: 'DADGAD',
+      notes: ['d', 'a', 'd', 'g', 'a', 'd'],
+    },
+    {
+      name: 'Drop C',
+      notes: ['c', 'g', 'c', 'f', 'a', 'd'],
+    },
+    {
+      name: 'Double Drop D',
+      notes: ['d', 'a', 'd', 'g', 'b', 'd'],
+    },
+    {
+      name: 'Open D Minor',
+      notes: ['d', 'a', 'd', 'f', 'a', 'd'],
+    },
   ],
 });
 

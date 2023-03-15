@@ -65,7 +65,7 @@ function MainControls() {
           <FlipStrings />
         </div>
       </div>
-      <div className="wrapper">
+      <div className="bottomWrapper">
         <div className="sliderContainer">
           <p className="label"># of Frets</p>
           <NumberOfFrets />

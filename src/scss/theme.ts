@@ -11,6 +11,8 @@ interface ITheme extends DefaultTheme {
   borderLarge: string;
   container: string;
   footer: string;
+  unselected: string;
+  white: string;
 }
 
 export const GlobalStyles = createGlobalStyle`
@@ -33,7 +35,8 @@ export const GlobalStyles = createGlobalStyle`
   .scale:hover,
   .bottomRow,
   .content,
-  .controls
+  .controls,
+
    {
     background: ${({ theme }: { theme: ITheme }) => theme.hover};
   }
@@ -64,10 +67,39 @@ export const GlobalStyles = createGlobalStyle`
     border: ${({ theme }: { theme: ITheme }) => theme.borderMedium};
   }
 
+  .naturalNotes{
+    border-bottom: ${({ theme }: { theme: ITheme }) => theme.borderMedium};
+
+}
+
+.rootNote {
+  background: ${({ theme }: { theme: ITheme }) => theme.text};
+  color: ${({ theme }: { theme: ITheme }) => theme.body};
+
+}
+
+.unselected
+{
+  background: ${({ theme }: { theme: ITheme }) => theme.unselected};
+  color: ${({ theme }: { theme: ITheme }) => theme.text};
+
+}
+
+.unselected:hover,
+.position:hover {
+  background: ${({ theme }: { theme: ITheme }) => theme.hover};
+}
+
   .natural:hover,
   .sharp:hover,
   .flat:hover,
   .position {
+    background: ${({ theme }: { theme: ITheme }) => theme.button};
+
+  }
+
+  .content,
+  .controls {
     background: ${({ theme }: { theme: ITheme }) => theme.button};
 
   }
@@ -96,26 +128,30 @@ export const GlobalStyles = createGlobalStyle`
 
 export const lightTheme: ITheme = {
   body: '#E8E8E8',
+  white: '#fff',
   text: '#262626',
   button: '#ffffff',
   border: '1px solid #d3d3d3',
   borderMedium: '2px solid #d3d3d3',
   borderLarge: '4px solid #d3d3d3',
   modal: '#E8E8E8',
-  hover: '#F2F2F2',
-  container: '#F2F2F2',
+  unselected: '#F2F2F2',
+  hover: '#ffffff',
+  container: '#d3d3d3',
   footer: '#fff',
 };
 
 export const darkTheme: ITheme = {
   body: '#262626',
   text: '#f1f1f1',
-  button: '#454545',
+  white: '#fff',
+  button: '#333333',
   border: '1px solid #5e5e5e',
   borderMedium: '2px solid #5e5e5e',
   borderLarge: '4px solid #5e5e5e',
   modal: '#262626',
-  hover: '#333333',
+  unselected: '#4F4F4F',
+  hover: '#6B6B6B',
   container: '#5e5e5e',
   footer: '#222',
 };

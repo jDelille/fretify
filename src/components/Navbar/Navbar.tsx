@@ -14,6 +14,9 @@ function Navbar({ toggleTheme, theme }: NavbarProps) {
         <div className="logo">
           <h1>Fretify</h1>
         </div>
+        <div className="links">
+          <p>About</p>
+        </div>
         <div className="settings">
           <button type="button" onClick={toggleTheme}>
             {theme === 'dark' ? <SunIcon /> : <MoonIcon />}

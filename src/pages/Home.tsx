@@ -6,13 +6,12 @@ import { lightTheme, darkTheme, GlobalStyles } from '../scss/theme';
 import Navbar from '../components/Navbar/Navbar';
 import MainControls from '../components/Controls/MainControls/MainControls';
 import Fretboard from '../components/Fretboard/Fretboard';
-import SecondaryControls from '../components/Controls/SecondaryControls/SecondaryControls';
 import FretboardData from '../components/FretboardData/FretboardData';
 import Footer from '../components/Footer/Footer';
 import MobileControls from '../components/Controls/MobileControls/MobileControls';
 
 function Home() {
-  const [theme, setTheme] = useState('light');
+  const [theme, setTheme] = useState('dark');
   const isDarkTheme = theme === 'dark';
   const toggleTheme = () => setTheme(isDarkTheme ? 'light' : 'dark');
 

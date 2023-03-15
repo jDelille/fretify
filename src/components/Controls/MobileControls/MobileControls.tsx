@@ -8,7 +8,10 @@ import SettingsIcon from '../../../assets/SettingsIcon';
 import SoundIcon from '../../../assets/SoundIcon';
 import TuningIcon from '../../../assets/TuningIcon';
 import { GuitarConstants } from '../../../constants/@GuitarConstants';
-import Modal from '../MainControls/Modal';
+import RootNoteModal from '../../Modals/RootNoteModal';
+import ScaleModal from '../../Modals/ScaleModal';
+import SoundModal from '../../Modals/SoundModal';
+import TuningModal from '../../Modals/TuningModal';
 import './MobileControls.scss';
 import MoreControlsModal from './MoreControlsModal';
 
@@ -22,28 +25,7 @@ function MobileControls() {
   const scaleNames: string[] = Scale.names();
   const guitarNames: string[] = GuitarConstants.guitars;
 
-  const tunings = [
-    {
-      name: 'Standard',
-      notes: ['e', 'a', 'd', 'g', 'b', 'a'],
-    },
-    {
-      name: 'E Flat',
-      notes: ['f', 'a', 'd', 'g', 'b', 'a'],
-    },
-    {
-      name: 'Open E',
-      notes: ['g', 'a', 'd', 'g', 'b', 'a'],
-    },
-    {
-      name: 'Open D',
-      notes: ['h', 'a', 'd', 'g', 'b', 'a'],
-    },
-    {
-      name: 'E Flat',
-      notes: ['i', 'a', 'd', 'g', 'b', 'a'],
-    },
-  ];
+  const { tunings } = GuitarConstants;
   const toggleTuning = () => {
     setIsTuningModal((prevState) => !prevState);
     setIsScaleModal(false);
@@ -81,7 +63,7 @@ function MobileControls() {
             Root Note
           </p>
         </button>
-        {isRootNoteModal && <Modal rootNotes={isRootNoteModal} />}
+        {isRootNoteModal && <RootNoteModal rootNotes={isRootNoteModal} />}
       </div>
       <div className="scalePill" onClick={toggleScales}>
         <button type="button" className="pill">
@@ -90,7 +72,7 @@ function MobileControls() {
             Scale / Mode
           </p>
         </button>
-        {isScaleModal && <Modal scales={{ name: scaleNames }} />}
+        {isScaleModal && <ScaleModal scales={{ name: scaleNames }} />}
       </div>
       <div className="tuning" onClick={toggleTuning}>
         <button type="button" className="pill">
@@ -99,7 +81,7 @@ function MobileControls() {
             Tuning
           </p>
         </button>
-        {isTuningModal && <Modal tunings={tunings} />}
+        {isTuningModal && <TuningModal tunings={tunings} />}
       </div>
       <div className="sounds" onClick={toggleGuitarSounds}>
         <button type="button" className="pill">
@@ -108,7 +90,7 @@ function MobileControls() {
             <span>Fretboard Sound</span>
           </p>
         </button>
-        {isGuitarSoundsModal && <Modal sounds={{ name: guitarNames }} />}
+        {isGuitarSoundsModal && <SoundModal sounds={{ name: guitarNames }} />}
       </div>
       <div className="sounds" onClick={toggleControls}>
         <button type="button" className="pill">

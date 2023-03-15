@@ -20,6 +20,8 @@ export default function TuningModal({ tunings }: Props) {
     Store.setTuning(tuning);
   };
 
+  const currentTuning = Store.tuning;
+
   return !isModalHidden ? (
     <>
       <button
@@ -28,32 +30,39 @@ export default function TuningModal({ tunings }: Props) {
         onClick={() => setIsModalHidden(true)}
       />
       <SimpleBar className="modal">
-        {tunings &&
-          tunings?.map((tuning) => {
-            return (
-              <button
-                type="button"
-                key={tuning.name}
-                className="tuning"
-                onClick={() => {
-                  changeTuning(tuning.name);
-                  setIsModalHidden(true);
-                }}
-              >
-                <p> {tuning.name}</p>
+        <div className="wrapper">
+          <p className="label">Tuning</p>
+          <div className="options">
+            {tunings &&
+              tunings?.map((tuning) => {
+                return (
+                  <button
+                    type="button"
+                    key={tuning.name}
+                    className={
+                      tuning.name === currentTuning ? 'selected' : 'unselected'
+                    }
+                    onClick={() => {
+                      changeTuning(tuning.name);
+                      setIsModalHidden(true);
+                    }}
+                  >
+                    <p> {tuning.name}</p>
 
-                <div className="notes">
-                  {tuning.notes.map((note: string) => {
-                    return (
-                      <span key={note} className="note">
-                        {note}
-                      </span>
-                    );
-                  })}
-                </div>
-              </button>
-            );
-          })}
+                    <div className="notes">
+                      {tuning.notes.map((note: string) => {
+                        return (
+                          <span key={note} className="note">
+                            {note}
+                          </span>
+                        );
+                      })}
+                    </div>
+                  </button>
+                );
+              })}
+          </div>
+        </div>
       </SimpleBar>
     </>
   ) : null;

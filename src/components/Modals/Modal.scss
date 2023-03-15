@@ -1,0 +1,48 @@
+@import '../../scss/variables';
+
+.modal {
+ display: flex;
+ flex-direction: column;
+ max-width: 85%;
+ gap: 1rem;
+ padding: 10px;
+ background-color: red;
+ max-height: 50%;
+ margin-bottom: 10px;
+ .wrapper {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem 0;
+  padding-bottom: 25px;
+  .label {
+   margin-bottom: 10px;
+  }
+  .options {
+   display: flex;
+   flex-direction: column;
+   gap: 10px;
+
+   .unselected,
+   .selected {
+    padding: 0;
+    border: none;
+    flex: 1;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 5px;
+    cursor: pointer;
+
+    .notes {
+     display: flex;
+     gap: 5px;
+     font-size: 12px;
+    }
+   }
+   .selected {
+    background-color: $accent;
+    color: white;
+   }
+  }
+ }
+}

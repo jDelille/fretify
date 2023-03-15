@@ -13,7 +13,7 @@ const Positions = observer(() => {
   };
   return (
     <div className="positions">
-      {positions.map((position, i) => {
+      {positions.map((position) => {
         return (
           <div
             key={position}
