@@ -16,7 +16,7 @@ const Fretboard = observer(() => {
   const { isFretboardFlipped, isStringsFlipped } = Store;
 
   function playSound(note: string, fret: number, string: number) {
-    const octave = Math.floor(fret / 12) + 5 - (string - 1);
+    const octave = Math.floor(fret / 12) + 4 - (string - 1);
     instrument(new AudioContext(), Store.sound as InstrumentName).then(
       (guitar) => {
         guitar.play(note + octave);
