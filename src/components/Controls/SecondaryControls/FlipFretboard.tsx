@@ -1,21 +1,18 @@
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
 import { observer } from 'mobx-react';
-import Checkbox from '../../../assets/Checkbox';
-import Checked from '../../../assets/Checked';
 import Store from '../../../mobx/Store';
+import Toggle from '../../Toggle/Toggle';
 import '../Controls.scss';
 
 const FlipFretboard = observer(() => {
   const { isFretboardFlipped } = Store;
+  const toggleFretboardFlip = (isToggled: boolean) =>
+    Store.setFlippedFretboard(isToggled);
   return (
-    <div
-      className="checkbox"
-      onClick={() => Store.setFlippedFretboard(isFretboardFlipped)}
-    >
-      {isFretboardFlipped ? <Checked /> : <Checkbox />}
-      <p className="info">Flip fretboard</p>
-    </div>
+    <Toggle
+      isToggled={isFretboardFlipped}
+      onToggle={toggleFretboardFlip}
+      label="Flip fretboard"
+    />
   );
 });
 

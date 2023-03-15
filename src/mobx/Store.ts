@@ -114,7 +114,7 @@ class MobxStore {
   };
 
   setFlippedFretboard = (boolean: boolean) => {
-    this.isFretboardFlipped = !boolean;
+    this.isFretboardFlipped = boolean;
   };
 
   setFlippedStrings = (boolean: boolean) => {
