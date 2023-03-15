@@ -81,19 +81,19 @@ class MobxStore {
 
   toggleTriadVisibility = (boolean: boolean) => {
     // this.isPowerchordVisible = false;
-    this.isTriadVisible = !boolean;
-    localStorage.setItem('triads', JSON.stringify(!boolean));
+    this.isTriadVisible = boolean;
+    localStorage.setItem('triads', JSON.stringify(boolean));
   };
 
   toggleRootNoteVisibility = (boolean: boolean) => {
-    this.isRootNoteVisible = !boolean;
-    localStorage.setItem('storedRootNoteVisibility', JSON.stringify(!boolean));
+    this.isRootNoteVisible = boolean;
+    localStorage.setItem('storedRootNoteVisibility', JSON.stringify(boolean));
   };
 
   togglePowerchordVisibility = (boolean: boolean) => {
     // this.isTriadVisible = false;
-    this.isPowerchordVisible = !boolean;
-    localStorage.setItem('powerchord', JSON.stringify(!boolean));
+    this.isPowerchordVisible = boolean;
+    localStorage.setItem('powerchord', JSON.stringify(boolean));
   };
 
   getScaleName = (key: string, currentScale?: string) => {
@@ -118,7 +118,7 @@ class MobxStore {
   };
 
   setFlippedStrings = (boolean: boolean) => {
-    this.isStringsFlipped = !boolean;
+    this.isStringsFlipped = boolean;
   };
 
   setPosition = (position: number) => {

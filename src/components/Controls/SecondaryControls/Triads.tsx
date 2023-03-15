@@ -1,21 +1,15 @@
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
 import { observer } from 'mobx-react';
-import Checkbox from '../../../assets/Checkbox';
-import Checked from '../../../assets/Checked';
 import Store from '../../../mobx/Store';
+import Toggle from '../../Toggle/Toggle';
 import '../Controls.scss';
 
 const Triads = observer(() => {
   const { isTriadVisible } = Store;
+  const toggleTriads = (isToggled: boolean) =>
+    Store.toggleTriadVisibility(isToggled);
+
   return (
-    <div
-      className="checkbox"
-      onClick={() => Store.toggleTriadVisibility(isTriadVisible)}
-    >
-      {isTriadVisible ? <Checked /> : <Checkbox />}
-      <p className="info">Triads</p>
-    </div>
+    <Toggle isToggled={isTriadVisible} onToggle={toggleTriads} label="Traids" />
   );
 });
 
