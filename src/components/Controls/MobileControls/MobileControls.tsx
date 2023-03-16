@@ -1,105 +1,90 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Scale } from 'tonal';
-import RootNoteIcon from '../../../assets/RootNoteIcon';
-import ScalesIcon from '../../../assets/ScalesIcon';
-import SettingsIcon from '../../../assets/SettingsIcon';
-import SoundIcon from '../../../assets/SoundIcon';
-import TuningIcon from '../../../assets/TuningIcon';
 import { GuitarConstants } from '../../../constants/@GuitarConstants';
-import RootNoteModal from '../../Modals/RootNoteModal';
-import ScaleModal from '../../Modals/ScaleModal';
-import SoundModal from '../../Modals/SoundModal';
-import TuningModal from '../../Modals/TuningModal';
+import * as Asset from '../../../assets';
+import * as Modal from '../../Modals';
 import './MobileControls.scss';
-import MoreControlsModal from '../../Modals/MoreControlsModal';
+
+interface ModalState {
+  rootNoteModal: boolean;
+  scaleModal: boolean;
+  tuningModal: boolean;
+  soundModal: boolean;
+  moreControlsModal: boolean;
+  [key: string]: boolean;
+}
 
 function MobileControls() {
-  const [isTuningModal, setIsTuningModal] = useState(false);
-  const [isScaleModal, setIsScaleModal] = useState(false);
-  const [isGuitarSoundsModal, setIsGuitarSoundsModal] = useState(false);
-  const [isRootNoteModal, setIsRootNoteModal] = useState(false);
-  const [isControlsModal, setIsControlsModal] = useState(false);
-
+  const [isOpen, setIsOpen] = useState<ModalState>({
+    rootNoteModal: false,
+    scaleModal: false,
+    tuningModal: false,
+    soundModal: false,
+    moreControlsModal: false,
+  });
   const scaleNames: string[] = Scale.names();
   const guitarNames: string[] = GuitarConstants.guitars;
 
   const { tunings } = GuitarConstants;
-  const toggleTuning = () => {
-    setIsTuningModal((prevState) => !prevState);
-    setIsScaleModal(false);
-  };
-  const toggleScales = () => {
-    setIsScaleModal((prevState) => !prevState);
-    setIsTuningModal(false);
-  };
 
-  const toggleGuitarSounds = () => {
-    setIsGuitarSoundsModal((prevState) => !prevState);
-    setIsScaleModal(false);
-    setIsTuningModal(false);
-  };
-
-  const toggleRootNotes = () => {
-    setIsRootNoteModal((prevState) => !prevState);
-    setIsScaleModal(false);
-    setIsTuningModal(false);
-    setIsGuitarSoundsModal(false);
-  };
-
-  const toggleControls = () => {
-    setIsControlsModal((prevState) => !prevState);
-    setIsScaleModal(false);
-    setIsTuningModal(false);
-    setIsGuitarSoundsModal(false);
+  const toggleModal = (modalName: string) => {
+    setIsOpen((prevState) => ({
+      ...prevState,
+      [modalName]: !prevState[modalName],
+    }));
   };
   return (
     <div className="mobileControls">
-      <div className="rootnote" onClick={toggleRootNotes}>
-        <button type="button" className="pill">
+      <div className="rootnote" onClick={() => toggleModal('rootNoteModal')}>
+        <span className="pill">
           <p>
-            <RootNoteIcon />
+            <Asset.RootNoteIcon />
             Root Note
           </p>
-        </button>
-        {isRootNoteModal && <RootNoteModal rootNotes={isRootNoteModal} />}
+        </span>
+        {isOpen.rootNoteModal && <Modal.RootNoteModal />}
       </div>
-      <div className="scalePill" onClick={toggleScales}>
-        <button type="button" className="pill">
+      <div className="scalePill" onClick={() => toggleModal('scaleModal')}>
+        <span className="pill">
           <p>
-            <ScalesIcon />
+            <Asset.ScalesIcon />
             Scale / Mode
           </p>
-        </button>
-        {isScaleModal && <ScaleModal scales={{ name: scaleNames }} />}
+        </span>
+        {isOpen.scaleModal && (
+          <Modal.ScaleModal scales={{ name: scaleNames }} />
+        )}
       </div>
-      <div className="tuning" onClick={toggleTuning}>
-        <button type="button" className="pill">
+      <div className="tuning" onClick={() => toggleModal('tuningModal')}>
+        <span className="pill">
           <p>
-            <TuningIcon />
+            <Asset.TuningIcon />
             Tuning
           </p>
-        </button>
-        {isTuningModal && <TuningModal tunings={tunings} />}
+        </span>
+        {isOpen.tuningModal && <Modal.TuningModal tunings={tunings} />}
       </div>
-      <div className="sounds" onClick={toggleGuitarSounds}>
-        <button type="button" className="pill">
+      <div className="sounds" onClick={() => toggleModal('soundModal')}>
+        <span className="pill">
           <p className="longName">
-            <SoundIcon />
+            <Asset.SoundIcon />
             <span>Fretboard Sound</span>
           </p>
-        </button>
-        {isGuitarSoundsModal && <SoundModal sounds={{ name: guitarNames }} />}
+        </span>
+        {isOpen.soundModal && (
+          <Modal.SoundModal sounds={{ name: guitarNames }} />
+        )}
       </div>
-      <div className="sounds" onClick={toggleControls}>
-        <button type="button" className="pill">
+      <div className="sounds" onClick={() => toggleModal('moreControlsModal')}>
+        <span className="pill">
           <p className="longName">
-            <SettingsIcon />
+            <Asset.SettingsIcon />
             <span>More Controls</span>
           </p>
-        </button>
-        {isControlsModal && <MoreControlsModal />}
+        </span>
+        {isOpen.moreControlsModal && <Modal.MoreControlsModal />}
       </div>
     </div>
   );

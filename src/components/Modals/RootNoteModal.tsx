@@ -4,11 +4,7 @@ import SimpleBar from 'simplebar-react';
 import Store from '../../mobx/Store';
 import './Modal.scss';
 
-type Props = {
-  rootNotes: boolean;
-};
-
-export default function RootNoteModal({ rootNotes }: Props) {
+export default function RootNoteModal() {
   const [isModalHidden, setIsModalHidden] = useState(false);
 
   const changeRootNote = (note: string) => {
