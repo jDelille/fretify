@@ -2,15 +2,9 @@ import { useState } from 'react';
 import RootNotes from './RootNote';
 import Scales from './Scales';
 import Tuning from './Tuning';
-import '../Controls.scss';
-import Triads from '../SecondaryControls/Triads';
-import Powerchord from '../SecondaryControls/Powerchord';
-import FlipFretboard from '../SecondaryControls/FlipFretboard';
-import FlipStrings from '../SecondaryControls/FlipStrings';
-import RootNote from '../SecondaryControls/RootNote';
-import NumberOfFrets from '../SecondaryControls/NumberOfFrets';
+import * as Controls from '../SecondaryControls';
 import GuitarSounds from './GuitarSounds';
-import Positions from '../SecondaryControls/Positions';
+import '../Controls.scss';
 
 function MainControls() {
   const [isTuningModal, setIsTuningModal] = useState(false);
@@ -58,21 +52,21 @@ function MainControls() {
       <div className="bottomContainer">
         <p className="label">Fretboard Controls</p>
         <div className="controls">
-          <Triads />
-          <RootNote />
-          <Powerchord />
-          <FlipFretboard />
-          <FlipStrings />
+          <Controls.Triads />
+          <Controls.RootNote />
+          <Controls.Powerchord />
+          <Controls.FlipFretboard />
+          <Controls.FlipStrings />
         </div>
       </div>
       <div className="bottomWrapper">
         <div className="sliderContainer">
           <p className="label"># of Frets</p>
-          <NumberOfFrets />
+          <Controls.NumberOfFrets />
         </div>
         <div className="positionContainer">
           <p className="label">Position</p>
-          <Positions />
+          <Controls.Positions />
         </div>
       </div>
     </div>
