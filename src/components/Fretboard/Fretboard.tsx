@@ -4,9 +4,9 @@ import { instrument, InstrumentName } from 'soundfont-player';
 import { GuitarConstants } from '../../constants/@GuitarConstants';
 import { GuitarScales } from '../../constants/@Scales';
 import Store from '../../mobx/Store';
+import FretNumbers from './FretNumbers';
 
 import './Fretboard.scss';
-import FretNumbers from './FretNumbers';
 
 const Fretboard = observer(() => {
   const { numberOfFrets } = Store;

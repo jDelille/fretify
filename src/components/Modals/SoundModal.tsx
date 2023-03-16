@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
-import { ReactNode, useState } from 'react';
+import { useState } from 'react';
 import SimpleBar from 'simplebar-react';
 import Store from '../../mobx/Store';
 import '../Controls/Controls.scss';

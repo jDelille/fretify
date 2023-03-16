@@ -35,71 +35,48 @@ export const GlobalStyles = createGlobalStyle`
   .scale:hover,
   .bottomRow,
   .content,
-  .controls
-  
-   {
+  .controls {
     background: ${({ theme }: { theme: ITheme }) => theme.hover};
   }
 
-  .pill {
+  .pill,
+  .rootNoteModal,
+  .noteButton {
     background: ${({ theme }: { theme: ITheme }) => theme.button};
     color: ${({ theme }: { theme: ITheme }) => theme.text};
   }
   
-  .rootNoteModal {
-    background: ${({ theme }: { theme: ITheme }) => theme.button};
-    color: ${({ theme }: { theme: ITheme }) => theme.text};
-  } 
- 
-  .noteButton
-   {
-    background: ${({ theme }: { theme: ITheme }) => theme.button};
-    color: ${({ theme }: { theme: ITheme }) => theme.text};
-
-  }
   .fret {
     border-right: ${({ theme }: { theme: ITheme }) => theme.borderMedium};
     color: ${({ theme }: { theme: ITheme }) => theme.text};
   }
 
   .toggle,
-  .position {
+  .position,
+  .naturalNotes {
     border: ${({ theme }: { theme: ITheme }) => theme.borderMedium};
   }
 
-  .naturalNotes{
-    border-bottom: ${({ theme }: { theme: ITheme }) => theme.borderMedium};
+  .rootNote {
+    background: ${({ theme }: { theme: ITheme }) => theme.text};
+    color: ${({ theme }: { theme: ITheme }) => theme.body};
+  }
 
-}
+  .unselected,
+  .option,
+  .displayOption,
+  .checkbox:hover,
+  .position:hover {
+    background: ${({ theme }: { theme: ITheme }) => theme.unselected};
+    color: ${({ theme }: { theme: ITheme }) => theme.text};
+  }
 
-.rootNote {
-  background: ${({ theme }: { theme: ITheme }) => theme.text};
-  color: ${({ theme }: { theme: ITheme }) => theme.body};
-
-}
-
-.unselected,
-.option,
-.displayOption
-
-{
-  background: ${({ theme }: { theme: ITheme }) => theme.unselected};
-  color: ${({ theme }: { theme: ITheme }) => theme.text};
-
-}
-
-.unselected:hover,
-.checkbox:hover,
-.position:hover {
-  background: ${({ theme }: { theme: ITheme }) => theme.hover};
-}
-
+  .unselected:hover,
   .natural:hover,
   .sharp:hover,
   .flat:hover,
   .position {
     background: ${({ theme }: { theme: ITheme }) => theme.button};
-
   }
 
   .content,
@@ -107,28 +84,25 @@ export const GlobalStyles = createGlobalStyle`
   .checkbox {
     background: ${({ theme }: { theme: ITheme }) => theme.button};
     color: ${({ theme }: { theme: ITheme }) => theme.text};
-
   }
-  
 
-  .fret:nth-child(1)
-    {
+  .fret:nth-child(1) {
     color: ${({ theme }: { theme: ITheme }) => theme.text};
     border-right: ${({ theme }: { theme: ITheme }) => theme.borderLarge};
     border-left: ${({ theme }: { theme: ITheme }) => theme.borderLarge};
     background: ${({ theme }: { theme: ITheme }) => theme.body};
   }
+
   .noteBackground {
     background: ${({ theme }: { theme: ITheme }) => theme.body};
   }
 
   .secondaryControls {
     border-bottom: ${({ theme }: { theme: ITheme }) => theme.borderMedium};
-    }
+  }
  
   footer {
     background: ${({ theme }: { theme: ITheme }) => theme.footer};
-
   }
 `;
 
