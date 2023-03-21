@@ -1,5 +1,3 @@
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
 import { observer } from 'mobx-react';
 import Store from '../../../mobx/Store';
 import '../Controls.scss';
@@ -15,7 +13,8 @@ const Positions = observer(() => {
     <div className="positions">
       {positions.map((position) => {
         return (
-          <div
+          <button
+            type="button"
             key={position}
             onClick={() => handleClick(position)}
             className={
@@ -25,15 +24,16 @@ const Positions = observer(() => {
             }
           >
             <p>{position}</p>
-          </div>
+          </button>
         );
       })}
-      <div
+      <button
+        type="button"
         onClick={() => handleClick(6)}
         className={currentPosition === 6 ? 'activePosition' : 'position'}
       >
         <p>all</p>
-      </div>
+      </button>
     </div>
   );
 });

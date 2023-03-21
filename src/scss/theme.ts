@@ -71,6 +71,9 @@ export const GlobalStyles = createGlobalStyle`
     color: ${({ theme }: { theme: ITheme }) => theme.text};
   }
 
+  .position {
+    color: ${({ theme }: { theme: ITheme }) => theme.text};
+  }
  
   .natural:hover,
   .sharp:hover,
