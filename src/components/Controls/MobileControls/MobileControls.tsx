@@ -1,5 +1,3 @@
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
 import { useState } from 'react';
 import { Scale } from 'tonal';
 import { GuitarConstants } from '../../../constants/@GuitarConstants';
@@ -37,7 +35,11 @@ function MobileControls() {
   };
   return (
     <div className="mobileControls">
-      <div className="rootnote" onClick={() => toggleModal('rootNoteModal')}>
+      <button
+        type="button"
+        className="pillButton"
+        onClick={() => toggleModal('rootNoteModal')}
+      >
         <span className="pill">
           <p>
             <Asset.RootNoteIcon />
@@ -45,8 +47,12 @@ function MobileControls() {
           </p>
         </span>
         {isOpen.rootNoteModal && <Modal.RootNoteModal />}
-      </div>
-      <div className="scalePill" onClick={() => toggleModal('scaleModal')}>
+      </button>
+      <button
+        type="button"
+        className="pillButton"
+        onClick={() => toggleModal('scaleModal')}
+      >
         <span className="pill">
           <p>
             <Asset.ScalesIcon />
@@ -56,8 +62,12 @@ function MobileControls() {
         {isOpen.scaleModal && (
           <Modal.ScaleModal scales={{ name: scaleNames }} />
         )}
-      </div>
-      <div className="tuning" onClick={() => toggleModal('tuningModal')}>
+      </button>
+      <button
+        type="button"
+        className="pillButton"
+        onClick={() => toggleModal('tuningModal')}
+      >
         <span className="pill">
           <p>
             <Asset.TuningIcon />
@@ -65,8 +75,12 @@ function MobileControls() {
           </p>
         </span>
         {isOpen.tuningModal && <Modal.TuningModal tunings={tunings} />}
-      </div>
-      <div className="sounds" onClick={() => toggleModal('soundModal')}>
+      </button>
+      <button
+        type="button"
+        className="pillButton"
+        onClick={() => toggleModal('soundModal')}
+      >
         <span className="pill">
           <p className="longName">
             <Asset.SoundIcon />
@@ -76,8 +90,12 @@ function MobileControls() {
         {isOpen.soundModal && (
           <Modal.SoundModal sounds={{ name: guitarNames }} />
         )}
-      </div>
-      <div className="sounds" onClick={() => toggleModal('moreControlsModal')}>
+      </button>
+      <button
+        type="button"
+        className="pillButton"
+        onClick={() => toggleModal('moreControlsModal')}
+      >
         <span className="pill">
           <p className="longName">
             <Asset.SettingsIcon />
@@ -85,7 +103,7 @@ function MobileControls() {
           </p>
         </span>
         {isOpen.moreControlsModal && <Modal.MoreControlsModal />}
-      </div>
+      </button>
     </div>
   );
 }

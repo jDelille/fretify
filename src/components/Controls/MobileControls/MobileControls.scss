@@ -2,40 +2,44 @@
 @import '../../../scss/breakpoints';
 
 .mobileControls {
-display: none;
-@include mobile() {
- display: flex;
- flex-wrap: wrap;
- margin-top: 2rem;
- padding-left: 1rem;
-}
-.pill {
- border-radius: 20px;
- display: flex;
- align-items: center;
- justify-content: center;
- font-size: 14px;
- min-height: 25px;
- border: none;
- padding: 2px 10px;
- margin-right: 10px;
- margin-bottom: 10px;
- p {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 12px;
-  svg {
-   width: 18px;
-   display: flex;
-   align-items: center;
+  display: none;
+  @include mobile() {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+    padding-left: 1rem;
   }
- }
- .longName {
-  span {
-   position: relative;
-   bottom: 0.5px;
+  .pillButton {
+    all: unset;
+    .pill {
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      min-height: 25px;
+      border: none;
+      padding: 2px 10px;
+      margin-right: 10px;
+      margin-bottom: 10px;
+      cursor: pointer;
+      p {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 12px;
+        svg {
+          width: 18px;
+          display: flex;
+          align-items: center;
+        }
+      }
+      .longName {
+        span {
+          position: relative;
+          bottom: 0.5px;
+        }
+      }
+    }
   }
- }
-}
 }
