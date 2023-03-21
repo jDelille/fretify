@@ -10,7 +10,7 @@ export type GuitarSoundsProps = {
   toggleGuitarSounds: () => void;
 };
 
-function formatString(str: string) {
+function formatString<T extends string>(str: T) {
   const words = str.split('_');
   const capitalizedWords = words.map((word) => {
     const firstLetter = word.charAt(0).toUpperCase();

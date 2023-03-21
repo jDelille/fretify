@@ -31,14 +31,15 @@ const RootNote = observer(() => {
     <div className="content">
       <div className="noteType">
         {noteTypes.map(({ id, label }) => (
-          <div
+          <button
+            type="button"
             key={id}
             className="noteTypeContainer"
             onClick={() => setSelectedNoteType(id)}
           >
             <div className={id === selectedNoteType ? 'toggled' : 'toggle'} />
             <p>{label}</p>
-          </div>
+          </button>
         ))}
       </div>
       <div className="notes">

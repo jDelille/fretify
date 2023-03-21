@@ -71,12 +71,16 @@ export const GlobalStyles = createGlobalStyle`
     color: ${({ theme }: { theme: ITheme }) => theme.text};
   }
 
-  .unselected:hover,
+ 
   .natural:hover,
   .sharp:hover,
   .flat:hover,
   .position {
     background: ${({ theme }: { theme: ITheme }) => theme.button};
+  }
+
+  .unselected:hover {
+    background: ${({ theme }: { theme: ITheme }) => theme.hover};
   }
 
   .content,
