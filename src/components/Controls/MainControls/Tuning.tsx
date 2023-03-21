@@ -1,8 +1,8 @@
 import { observer } from 'mobx-react';
 import Store from '../../../mobx/Store';
 import TuningModal from '../../Modals/TuningModal';
-import '../Controls.scss';
 import { GuitarConstants } from '../../../constants/@GuitarConstants';
+import '../Controls.scss';
 
 const { tunings } = GuitarConstants;
 
