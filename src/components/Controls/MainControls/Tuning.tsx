@@ -1,8 +1,5 @@
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
 import { observer } from 'mobx-react';
 import Store from '../../../mobx/Store';
-import DownArrow from '../../../assets/DownArrow';
 import TuningModal from '../../Modals/TuningModal';
 import '../Controls.scss';
 import { GuitarConstants } from '../../../constants/@GuitarConstants';
@@ -17,12 +14,10 @@ export type TuningProps = {
 const Tuning = observer(({ isTuningModal, toggleTuning }: TuningProps) => {
   const activeTuning = Store.tuning;
   return (
-    <div className="content" onClick={toggleTuning}>
-      <button type="button" className="button">
-        {activeTuning} Tuning
-      </button>
+    <button type="button" className="content" onClick={toggleTuning}>
+      <p>{activeTuning} Tuning</p>
       {isTuningModal && <TuningModal tunings={tunings} />}
-    </div>
+    </button>
   );
 });
 

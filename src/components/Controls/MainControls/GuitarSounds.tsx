@@ -1,5 +1,3 @@
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
 import { observer } from 'mobx-react';
 import { GuitarConstants } from '../../../constants/@GuitarConstants';
 import Store from '../../../mobx/Store';
@@ -26,12 +24,10 @@ const GuitarSounds = observer(
     const activeSound = Store.sound;
     const guitarNames: string[] = GuitarConstants.guitars;
     return (
-      <div className="content" onClick={toggleGuitarSounds}>
-        <button type="button" className="button">
-          {formatString(activeSound)}
-        </button>
+      <button type="button" className="content" onClick={toggleGuitarSounds}>
+        <p>{formatString(activeSound)}</p>
         {isGuitarSoundsModal && <SoundModal sounds={{ name: guitarNames }} />}
-      </div>
+      </button>
     );
   }
 );
