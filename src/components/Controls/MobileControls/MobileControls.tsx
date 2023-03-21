@@ -91,6 +91,7 @@ function MobileControls() {
           <Modal.SoundModal sounds={{ name: guitarNames }} />
         )}
       </button>
+
       <button
         type="button"
         className="pillButton"
@@ -102,8 +103,8 @@ function MobileControls() {
             <span>More Controls</span>
           </p>
         </span>
-        {isOpen.moreControlsModal && <Modal.MoreControlsModal />}
       </button>
+      {isOpen.moreControlsModal && <Modal.MoreControlsModal />}
     </div>
   );
 }

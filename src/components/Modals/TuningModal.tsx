@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
 import { useState } from 'react';
 import SimpleBar from 'simplebar-react';
+import { CloseIcon } from '../../assets';
 import Store from '../../mobx/Store';
 import '../Controls/Controls.scss';
 
@@ -30,8 +31,11 @@ export default function TuningModal({ tunings }: Props) {
         onClick={() => setIsModalHidden(true)}
       />
       <SimpleBar className="modal">
+        <header>
+          <h1>Tuning</h1>
+          <CloseIcon onClick={() => setIsModalHidden(true)} />
+        </header>
         <div className="wrapper">
-          <p className="label">Tuning</p>
           <div className="options">
             {tunings &&
               tunings?.map((tuning) => {

@@ -63,8 +63,7 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   .unselected,
-  .option,
-  .displayOption,
+  .group,
   .checkbox:hover,
   .position:hover {
     background: ${({ theme }: { theme: ITheme }) => theme.unselected};
@@ -73,6 +72,7 @@ export const GlobalStyles = createGlobalStyle`
 
   .position {
     color: ${({ theme }: { theme: ITheme }) => theme.text};
+
   }
  
   .natural:hover,

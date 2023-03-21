@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
 import { useState } from 'react';
 import SimpleBar from 'simplebar-react';
+import { CloseIcon } from '../../assets';
 import Store from '../../mobx/Store';
 import '../Controls/Controls.scss';
 
@@ -29,8 +30,11 @@ export default function ScaleModal({ scales }: Props) {
         onClick={() => setIsModalHidden(true)}
       />
       <SimpleBar className="modal">
+        <header>
+          <h1>Scales / Modes</h1>
+          <CloseIcon onClick={() => setIsModalHidden(true)} />
+        </header>
         <div className="wrapper">
-          <p className="label">Scales / Modes</p>
           <div className="options">
             {scales &&
               scales?.name.map((scale) => {

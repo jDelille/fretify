@@ -1,17 +1,23 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
 
+import { observer } from 'mobx-react';
 import { useState } from 'react';
+import { CloseIcon } from '../../assets';
 import Store from '../../mobx/Store';
-import NumberOfFrets from '../Controls/SecondaryControls/NumberOfFrets';
 import Positions from '../Controls/SecondaryControls/Positions';
 import Switch from '../Switch/Switch';
 
-function MoreControlsModal() {
+const MoreControlsModal = observer(() => {
   const [isModalHidden, setIsModalHidden] = useState(false);
-  const { isRootNoteVisible } = Store;
+  const { isRootNoteVisible, isTriadVisible, isPowerchordVisible } = Store;
 
   const toggleRootNote = () =>
-    Store.toggleRootNoteVisibility(isRootNoteVisible);
+    Store.toggleRootNoteVisibility(!isRootNoteVisible);
+
+  const toggleTraids = () => Store.toggleTriadVisibility(!isTriadVisible);
+
+  const togglePowerchord = () =>
+    Store.togglePowerchordVisibility(!isPowerchordVisible);
 
   return !isModalHidden ? (
     <>
@@ -21,36 +27,38 @@ function MoreControlsModal() {
         onClick={() => setIsModalHidden(true)}
       />
       <div className="modal">
+        <header>
+          <h1>More Controls</h1>
+          <CloseIcon onClick={() => setIsModalHidden(true)} />
+        </header>
         <div className="option">
-          <p>Root note</p>
-          <Switch
-            id="theme-switch"
-            label=""
-            checked={isRootNoteVisible === true}
-            onChange={toggleRootNote}
-          />
-        </div>
-        <div className="option">
-          <p>Triads</p>
-          <Switch
-            id="theme-switch"
-            label=""
-            checked={isRootNoteVisible === true}
-            onChange={toggleRootNote}
-          />
-        </div>
-        <div className="option">
-          <p>Powerchord</p>
-          <Switch
-            id="theme-switch"
-            label=""
-            checked={isRootNoteVisible === true}
-            onChange={toggleRootNote}
-          />
-        </div>
-        <div className="displayOption">
-          <p>Number of frets</p>
-          <NumberOfFrets />
+          <div className="group">
+            <p>Root note</p>
+            <Switch
+              id="theme-switch"
+              label=""
+              checked={isRootNoteVisible === true}
+              onChange={toggleRootNote}
+            />
+          </div>
+          <div className="group">
+            <p>Triads</p>
+            <Switch
+              id="theme-switch"
+              label=""
+              checked={isTriadVisible === true}
+              onChange={toggleTraids}
+            />
+          </div>
+          <div className="group">
+            <p>Powerchord</p>
+            <Switch
+              id="theme-switch"
+              label=""
+              checked={isPowerchordVisible === true}
+              onChange={togglePowerchord}
+            />
+          </div>
         </div>
         <div className="displayOption">
           <p>Position</p>
@@ -59,6 +67,6 @@ function MoreControlsModal() {
       </div>
     </>
   ) : null;
-}
+});
 
 export default MoreControlsModal;
