@@ -16,7 +16,17 @@ const RootNote = observer(() => {
   const [selectedNoteType, setSelectedNoteType] = useState('natural');
 
   const changeRootNote = (note: string) => {
-    Store.setRootNote(note);
+    let selectedNote = note; // Create a new variable to hold the selected note
+
+    if (note === 'Cb') {
+      // Convert Cb to B
+      selectedNote = 'B';
+    } else if (note === 'Fb') {
+      // Convert Fb to E
+      selectedNote = 'E';
+    }
+
+    Store.setRootNote(selectedNote);
   };
 
   const currentRootNote = Store.rootNote;
