@@ -3,7 +3,7 @@
 
 .fretboardData {
   display: flex;
-  
+  height: 50vh;
   @include tablet() {
     padding: 0 1rem;
   }

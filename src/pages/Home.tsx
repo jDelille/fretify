@@ -27,7 +27,7 @@ function Home() {
           </SimpleBar>
           <MobileControls />
           <FretboardData />
-          <Footer />
+          {/* <Footer /> */}
         </div>
       </>
     </ThemeProvider>

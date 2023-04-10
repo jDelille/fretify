@@ -11,6 +11,8 @@ function MainControls() {
   const [isScaleModal, setIsScaleModal] = useState(false);
   const [isGuitarSoundsModal, setIsGuitarSoundsModal] = useState(false);
 
+  const [isTraids, setIsTriads] = useState(true);
+
   const toggleTuning = () => {
     setIsTuningModal((prevState) => !prevState);
     setIsScaleModal(false);
@@ -54,7 +56,7 @@ function MainControls() {
         <div className="controls">
           <Controls.Triads />
           <Controls.RootNote />
-          <Controls.Powerchord />
+          {/* <Controls.Powerchord /> */}
           <Controls.FlipFretboard />
           <Controls.FlipStrings />
         </div>
