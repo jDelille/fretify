@@ -1,8 +1,11 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
 import { useState } from 'react';
 import SimpleBar from 'simplebar-react';
+import 'simplebar/dist/simplebar.min.css';
+
 import { CloseIcon } from '../../assets';
 import Store from '../../mobx/Store';
+
 import '../Controls/Controls.scss';
 
 export type Scales = {
@@ -29,12 +32,12 @@ export default function ScaleModal({ scales }: Props) {
         className="overlay"
         onClick={() => setIsModalHidden(true)}
       />
-      <SimpleBar className="modal">
+      <div className="modal">
         <header>
           <h1>Scales / Modes</h1>
           <CloseIcon onClick={() => setIsModalHidden(true)} />
         </header>
-        <div className="wrapper">
+        <SimpleBar className="wrapper">
           <div className="options">
             {scales &&
               scales?.name.map((scale) => {
@@ -55,8 +58,8 @@ export default function ScaleModal({ scales }: Props) {
                 );
               })}
           </div>
-        </div>
-      </SimpleBar>
+        </SimpleBar>
+      </div>
     </>
   ) : null;
 }

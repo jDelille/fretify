@@ -27,7 +27,8 @@ export const GlobalStyles = createGlobalStyle`
     color: ${({ theme }: { theme: ITheme }) => theme.text};
   }
 
-  .modal {
+  .modal,
+  .unselected {
     background: ${({ theme }: { theme: ITheme }) => theme.modal};
     color: ${({ theme }: { theme: ITheme }) => theme.text};
   }
@@ -35,7 +36,8 @@ export const GlobalStyles = createGlobalStyle`
   .scale:hover,
   .bottomRow,
   .content,
-  .controls {
+  .controls,
+   {
     background: ${({ theme }: { theme: ITheme }) => theme.hover};
   }
 
@@ -62,7 +64,6 @@ export const GlobalStyles = createGlobalStyle`
     color: ${({ theme }: { theme: ITheme }) => theme.body};
   }
 
-  .unselected,
   .group,
   .checkbox:hover,
   .position:hover {
@@ -70,9 +71,9 @@ export const GlobalStyles = createGlobalStyle`
     color: ${({ theme }: { theme: ITheme }) => theme.text};
   }
 
-  .position {
+  .position,
+  .unselected {
     color: ${({ theme }: { theme: ITheme }) => theme.text};
-
   }
  
   .natural:hover,
@@ -106,6 +107,11 @@ export const GlobalStyles = createGlobalStyle`
 
   .secondaryControls {
     border-bottom: ${({ theme }: { theme: ITheme }) => theme.borderMedium};
+  }
+
+  .unselected:hover {
+      background: ${({ theme }: { theme: ITheme }) => theme.container};
+
   }
  
   footer {

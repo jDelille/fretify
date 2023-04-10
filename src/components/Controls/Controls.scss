@@ -44,7 +44,6 @@
           border-radius: 4px;
           cursor: pointer;
           font-size: 16px;
-          
         }
         .selected {
           background-color: $accent;
@@ -195,7 +194,6 @@
           align-items: center;
           border-radius: 50%;
           cursor: pointer;
-
         }
         .activePosition {
           background-color: $accent;
@@ -230,7 +228,6 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
-  flex-wrap: wrap;
   overflow-x: hidden;
   top: 50%;
   left: 50%;
@@ -241,7 +238,7 @@
   @include mobile() {
     padding: 0;
     top: 50%;
-    width: 95%
+    width: 95%;
   }
   .tuning,
   .scale,
@@ -254,7 +251,6 @@
     &:hover {
       background-color: $accent;
       color: white;
-      
     }
     .name {
       all: unset;
