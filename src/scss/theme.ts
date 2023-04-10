@@ -28,17 +28,38 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   .modal,
-  .unselected {
+  .unselected,
+  .unselected-root {
     background: ${({ theme }: { theme: ITheme }) => theme.modal};
     color: ${({ theme }: { theme: ITheme }) => theme.text};
   }
 
+  .selected-root {
+  background: ${({ theme }: { theme: ITheme }) => theme.container};
+  }
+
+  .checked path:nth-of-type(1) {
+      fill: ${({ theme }: { theme: ITheme }) => theme.text};
+      stroke: ${({ theme }: { theme: ITheme }) => theme.text};
+  }
+
+  .checked g > path:nth-of-type(1) {
+      fill: ${({ theme }: { theme: ITheme }) => theme.container};
+      stroke: ${({ theme }: { theme: ITheme }) => theme.container};
+  }
+
   .scale:hover,
   .bottomRow,
-  .content,
   .controls,
    {
     background: ${({ theme }: { theme: ITheme }) => theme.hover};
+  }
+
+  .content,
+  .controls,
+  .checkbox {
+    background: ${({ theme }: { theme: ITheme }) => theme.container};
+    color: ${({ theme }: { theme: ITheme }) => theme.text};
   }
 
   .pill,
@@ -66,8 +87,10 @@ export const GlobalStyles = createGlobalStyle`
 
   .group,
   .checkbox:hover,
-  .position:hover {
-    background: ${({ theme }: { theme: ITheme }) => theme.unselected};
+  .position:hover,
+  .selected-root:hover,
+  .unselected-root:hover {
+    background: ${({ theme }: { theme: ITheme }) => theme.hover};
     color: ${({ theme }: { theme: ITheme }) => theme.text};
   }
 
@@ -87,9 +110,8 @@ export const GlobalStyles = createGlobalStyle`
     background: ${({ theme }: { theme: ITheme }) => theme.hover};
   }
 
-  .content,
-  .controls,
-  .checkbox {
+  
+   {
     background: ${({ theme }: { theme: ITheme }) => theme.button};
     color: ${({ theme }: { theme: ITheme }) => theme.text};
   }
@@ -110,8 +132,7 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   .unselected:hover {
-      background: ${({ theme }: { theme: ITheme }) => theme.container};
-
+    background: ${({ theme }: { theme: ITheme }) => theme.container};
   }
  
   footer {
@@ -130,7 +151,7 @@ export const lightTheme: ITheme = {
   modal: '#E8E8E8',
   unselected: '#F2F2F2',
   hover: '#ffffff',
-  container: '#d3d3d3',
+  container: '#F2F2F2',
   footer: '#fff',
 };
 
@@ -145,6 +166,6 @@ export const darkTheme: ITheme = {
   modal: '#262626',
   unselected: '#4F4F4F',
   hover: '#6B6B6B',
-  container: '#5e5e5e',
+  container: '#333333',
   footer: '#222',
 };

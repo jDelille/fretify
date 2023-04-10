@@ -56,7 +56,9 @@ const RootNote = observer(() => {
             <button
               key={note}
               type="button"
-              className={note === currentRootNote ? 'selected' : 'unselected'}
+              className={
+                note === currentRootNote ? 'selected-root' : 'unselected-root'
+              }
               onClick={() => changeRootNote(note)}
             >
               <p className="optionButton">{note}</p>

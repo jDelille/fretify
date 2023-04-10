@@ -34,8 +34,8 @@
         display: flex;
         gap: 5px;
         .noteButton,
-        .selected,
-        .unselected {
+        .selected-root,
+        .unselected-root {
           border: none;
           flex: 1;
           display: flex;
@@ -45,7 +45,7 @@
           cursor: pointer;
           font-size: 16px;
         }
-        .selected {
+        .selected-root {
           background-color: $accent;
           color: white;
         }
