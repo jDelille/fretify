@@ -85,7 +85,7 @@ export const GlobalStyles = createGlobalStyle`
     color: ${({ theme }: { theme: ITheme }) => theme.body};
   }
 
-  .group,
+  
   .checkbox:hover,
   .position:hover,
   .selected-root:hover,

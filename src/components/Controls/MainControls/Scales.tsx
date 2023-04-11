@@ -16,7 +16,7 @@ const Scales = observer(({ isScaleModal, toggleScales }: ScaleProps) => {
   return (
     <button type="button" className="content" onClick={toggleScales}>
       <p>
-        {activeRootNote} {Store.getScaleName(activeScale)} Scale
+        {activeRootNote} {Store.getScaleName(activeScale)}
       </p>
       {isScaleModal && <ScaleModal scales={{ name: scaleNames }} />}
     </button>

@@ -8,6 +8,7 @@ import '../Controls/Controls.scss';
 export type TuningProps = {
   name: string;
   notes: string[];
+  tuning: number[];
 };
 
 type Props = {
@@ -17,7 +18,11 @@ type Props = {
 export default function TuningModal({ tunings }: Props) {
   const [isModalHidden, setIsModalHidden] = useState(false);
 
-  const changeTuning = (tuning: string) => {
+  const changeTuning = (tuning: {
+    name: string;
+    notes: string[];
+    tuning: number[];
+  }) => {
     Store.setTuning(tuning);
   };
 
@@ -30,12 +35,12 @@ export default function TuningModal({ tunings }: Props) {
         className="overlay"
         onClick={() => setIsModalHidden(true)}
       />
-      <SimpleBar className="modal">
+      <div className="modal">
         <header>
           <h1>Tuning</h1>
           <CloseIcon onClick={() => setIsModalHidden(true)} />
         </header>
-        <div className="wrapper">
+        <SimpleBar className="wrapper">
           <div className="options">
             {tunings &&
               tunings?.map((tuning) => {
@@ -47,11 +52,11 @@ export default function TuningModal({ tunings }: Props) {
                       tuning.name === currentTuning ? 'selected' : 'unselected'
                     }
                     onClick={() => {
-                      changeTuning(tuning.name);
+                      changeTuning(tuning);
                       setIsModalHidden(true);
                     }}
                   >
-                    <p> {tuning.name}</p>
+                    <p> {tuning.name} </p>
 
                     <div className="notes">
                       {tuning.notes.map((note: string) => {
@@ -66,8 +71,8 @@ export default function TuningModal({ tunings }: Props) {
                 );
               })}
           </div>
-        </div>
-      </SimpleBar>
+        </SimpleBar>
+      </div>
     </>
   ) : null;
 }

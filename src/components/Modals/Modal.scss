@@ -11,16 +11,15 @@
   margin-bottom: 10px;
   position: fixed;
   z-index: 9999;
-  overflow-y: hidden;
   @include mobile() {
-    min-height: 80vh;
-    max-height: 80vh;
+    height: fit-content;
+    max-height: 70vh;
   }
   header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 1rem;
+    padding: 1rem 0;
     padding-bottom: 0;
     h1 {
       font-size: 20px;

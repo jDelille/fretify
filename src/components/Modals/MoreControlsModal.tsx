@@ -50,7 +50,7 @@ const MoreControlsModal = observer(() => {
               onChange={toggleTraids}
             />
           </div>
-          <div className="group">
+          {/* <div className="group">
             <p>Powerchord</p>
             <Switch
               id="theme-switch"
@@ -58,7 +58,7 @@ const MoreControlsModal = observer(() => {
               checked={isPowerchordVisible === true}
               onChange={togglePowerchord}
             />
-          </div>
+          </div> */}
         </div>
         <div className="displayOption">
           <p>Position</p>

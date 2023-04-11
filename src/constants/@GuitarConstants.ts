@@ -13,6 +13,13 @@ export const GuitarConstants = Object.freeze({
     [5, 14, 10, 5, 10, 5],
     [5, 12, 9, 5, 12, 5],
     [7, 14, 10, 5, 12, 5],
+    [2, 5, 9, 12, 16, 19],
+    [1, 5, 8, 12, 15, 19],
+    [7, 10, 7, 7, 10, 7],
+    [2, 5, 2, 5, 2, 5],
+    [5, 8, 5, 4, 3, 5],
+    [7, 10, 7, 10, 7, 10],
+    [0, 0, 0, 7, 7, 0],
   ],
   scaleNames: Scale.names(),
   tuningNames: [
@@ -23,6 +30,13 @@ export const GuitarConstants = Object.freeze({
     'Drop C',
     'Double Drop D',
     'Open D Minor',
+    'Drop D',
+    'Open C',
+    'All Fourths',
+    'New Standard',
+    'Dropped A',
+    'Open E',
+    'Open D',
   ],
   guitars: [
     'acoustic_guitar_nylon',
@@ -38,31 +52,78 @@ export const GuitarConstants = Object.freeze({
     {
       name: 'Standard',
       notes: ['e', 'a', 'd', 'g', 'b', 'e'],
+      tuning: [7, 14, 10, 5, 12, 7],
     },
     {
       name: 'Half-Step Down',
       notes: ['eb', 'ab', 'db', 'gb', 'bb', 'eb'],
-    },
-    {
-      name: 'Open G',
-      notes: ['d', 'g', 'd', 'g', 'b', 'd'],
+      tuning: [6, 13, 9, 4, 11, 6],
     },
     {
       name: 'DADGAD',
       notes: ['d', 'a', 'd', 'g', 'a', 'd'],
+      tuning: [5, 12, 10, 5, 12, 5],
+    },
+    {
+      name: 'Open G',
+      notes: ['d', 'g', 'd', 'g', 'b', 'd'],
+      tuning: [5, 14, 10, 5, 10, 5],
     },
     {
       name: 'Drop C',
       notes: ['c', 'g', 'c', 'f', 'a', 'd'],
+      tuning: [5, 12, 8, 3, 10, 3],
     },
     {
-      name: 'Double Drop D',
-      notes: ['d', 'a', 'd', 'g', 'b', 'd'],
+      name: 'Drop D',
+      notes: ['d', 'a', 'd', 'g', 'b', 'e'],
+      tuning: [5, 10, 7, 3, 12, 5],
     },
     {
-      name: 'Open D Minor',
-      notes: ['d', 'a', 'd', 'f', 'a', 'd'],
+      name: 'Open C',
+      notes: ['c', 'g', 'c', 'g', 'c', 'e'],
+      tuning: [8, 3, 8, 3, 8, 12],
     },
+    {
+      name: 'All Fourths',
+      notes: ['e', 'a', 'd', 'g', 'c', 'f'],
+      tuning: [7, 12, 7, 2, 9, 4],
+    },
+    {
+      name: 'New Standard',
+      notes: ['c', 'f', 'a#', 'd#', 'g', 'c'],
+      tuning: [8, 13, 10, 3, 8, 1],
+    },
+    // {
+    //   name: 'Open D',
+    //   notes: ['d', 'a', 'd', 'f#', 'a', 'd'],
+    //   tuning: [2, 14, 11, 6, 9, 2],
+    // },
+    // {
+    //   name: 'Open E',
+    //   notes: ['e', 'b', 'e', 'g#', 'b', 'e'],
+    //   tuning: [4, 11, 7, 2, 11, 4],
+    // },
+    // {
+    //   name: 'Dropped A',
+    //   notes: ['a', 'e', 'a', 'd', 'f#', 'b'],
+    //   tuning: [9, 14, 9, 4, 7, 11],
+    // },
+    // {
+    //   name: 'New Standard',
+    //   notes: ['c', 'f', 'a#', 'd#', 'g', 'c'],
+    //   tuning: [8, 13, 10, 3, 8, 1],
+    // },
+    // {
+    //   name: 'All Fourths',
+    //   notes: ['e', 'a', 'd', 'g', 'c', 'f'],
+    //   tuning: [7, 12, 7, 2, 9, 4],
+    // },
+    // {
+    //   name: 'Open C',
+    //   notes: ['c', 'g', 'c', 'g', 'c', 'e'],
+    //   tuning: [8, 3, 8, 3, 8, 12],
+    // },
   ],
 });
 

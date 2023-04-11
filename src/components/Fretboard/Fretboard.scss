@@ -19,7 +19,7 @@
   @include smallLaptop() {
     min-width: 1500px;
     margin-left: 1rem;
- }
+  }
   .string,
   .stringsFlipped {
     width: 100%;
@@ -81,7 +81,6 @@
         @include note();
         background-color: #2f89fc;
         color: white;
-
       }
       .rootNote {
         @include note();
@@ -90,14 +89,12 @@
         @include note();
         background-color: #e94e3d;
         color: white;
-
-     }
-     .powerchordNote {
-      @include note();
+      }
+      .powerchordNote {
+        @include note();
         background-color: #25862a;
         color: white;
-
-    }
+      }
       .activeNote {
         @include note();
         background-color: #2f89fc;
@@ -105,7 +102,10 @@
       .inactiveNote {
         @include note();
         color: $high-strings-color;
-        
+        &:hover {
+          transform: none;
+          cursor: default;
+        }
       }
     }
   }
@@ -119,8 +119,6 @@
   flex-direction: row-reverse;
 }
 
-
-
 .fretNumbers {
   display: flex;
   align-items: center;
@@ -131,7 +129,7 @@
   @include smallLaptop() {
     min-width: 1500px;
     margin-left: 1rem;
- }
+  }
   .fretNumber {
     flex: 1;
     display: flex;

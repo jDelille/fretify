@@ -72,11 +72,14 @@ class MobxStore {
     this.numberOfFrets = numberOfFrets;
   };
 
-  setTuning = (tuning: string) => {
-    const tuningIndex = GuitarConstants.tuningNames.indexOf(tuning);
-    this.tuningIndex = tuningIndex;
-    this.tuning = tuning;
-    localStorage.setItem('tuning', tuning);
+  setTuning = (tuning: { name: string; notes: string[] }) => {
+    this.tuning = tuning.name;
+    this.tuningIndex = GuitarConstants.tunings.findIndex(
+      (t) => t.name === tuning.name
+    );
+
+    console.log(this.tuningIndex);
+    localStorage.setItem('tuning', JSON.stringify(tuning));
   };
 
   toggleTriadVisibility = (boolean: boolean) => {

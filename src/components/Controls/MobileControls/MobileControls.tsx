@@ -76,7 +76,7 @@ function MobileControls() {
         </span>
         {isOpen.tuningModal && <Modal.TuningModal tunings={tunings} />}
       </button>
-      <button
+      {/* <button
         type="button"
         className="pillButton"
         onClick={() => toggleModal('soundModal')}
@@ -90,7 +90,7 @@ function MobileControls() {
         {isOpen.soundModal && (
           <Modal.SoundModal sounds={{ name: guitarNames }} />
         )}
-      </button>
+      </button> */}
 
       <button
         type="button"

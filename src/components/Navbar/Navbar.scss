@@ -2,34 +2,36 @@
 @import '../../scss/breakpoints';
 
 .header {
- max-width: 100%;
- height: 81px;
- position: relative;
-@include tablet() {
- padding: 0 1rem;
-}
- .navbar {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  gap: 28px;
-  justify-content: space-between;
-  margin: 0 auto;
-  width: 1100px;
-  @include smallLaptop() {
-    width: 880px;;
+  max-width: 100%;
+  height: 81px;
+  position: relative;
+  @include tablet() {
+    padding: 0 1rem;
   }
-  @include mobile() {
+  .navbar {
     width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    justify-content: space-between;
+    margin: 0 auto;
+    width: 1100px;
+    @include smallLaptop() {
+      width: 880px;
+    }
+    @include tablet() {
+      width: 820px;
+    }
+    @include mobile() {
+      width: 100%;
+    }
+    .logo {
+      width: fit-content;
+      padding-right: 28px;
+    }
+    .links {
+      margin-left: auto;
+    }
   }
-  .logo {
-   width: fit-content;
-   padding-right: 28px;
-  }
-  .links {
-    margin-left: auto;
-  }
- }
-
 }

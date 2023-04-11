@@ -1,5 +1,7 @@
 import { observer } from 'mobx-react';
-import { Scale } from 'tonal';
+import { InstrumentName, instrument } from 'soundfont-player';
+
+import { Note, Scale } from 'tonal';
 import Store from '../../mobx/Store';
 import './FretboardData.scss';
 
@@ -27,17 +29,36 @@ const FretboardData = observer(() => {
     Store.setScale(scale);
   };
 
+  function playScale(scale: string[]) {
+    const delay = 700;
+    const octave = 4; // starting octave
+    scale.forEach((note, index) => {
+      setTimeout(() => {
+        const midiNote = Note.midi(`${note}${octave}`);
+        if (midiNote !== undefined && midiNote !== null) {
+          const noteName = Note.fromMidi(midiNote);
+          instrument(new AudioContext(), 'acoustic_guitar_nylon').then(
+            (guitar) => {
+              guitar.play(noteName);
+            }
+          );
+        }
+      }, index * delay);
+    });
+  }
+
   return (
     <div className="fretboardData">
       <div className="leftData">
         <div className="scaleDescription">
-          <h1>{name}</h1>
-          <p>
+          <h1 className="scale-name">{name}</h1>
+
+          <p className="scale-bio">
             The {name} scale includes the notes {notes}. The triad notes for the
             scale known as the I IV V, are {triadNotes}
           </p>
         </div>
-        <div className="supersets">
+        {/* <div className="supersets">
           <h2>Superset Scales</h2>
           <div className="set">
             {supersetScales.map((supersetScale) => (
@@ -66,8 +87,20 @@ const FretboardData = observer(() => {
               ))}
             </div>
           </div>
-        )}
+        )} */}
       </div>
+      {/* <div className="right-data">
+        <div className="scale-wrapper">
+          {notes.map((note) => (
+            <div className="note" key={note}>
+              {note}
+            </div>
+          ))}
+        </div>
+        <button type="button" onClick={() => playScale(scaleNotes)}>
+          Play Scale
+        </button>
+      </div> */}
     </div>
   );
 });
