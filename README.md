@@ -19,7 +19,7 @@ Fretify is a free interactive guitar fretboard website where you can view over 5
 This website was made possible thanks to <a href="https://github.com/tonaljs/tonal">Tonal.js</a>  and <a href="https://github.com/Tonejs/Tone.js/">Tone.js</a>.
 
 ## Fretboard Controls
-- Highlight root notes, triad notes, and powerchord notes.
+- Highlight root notes, triad notes, and power chord notes.
 - Change the amount of frets shown.
 - View the CAGED system positions.
 - Change the fretboard tuning.
@@ -27,3 +27,9 @@ This website was made possible thanks to <a href="https://github.com/tonaljs/ton
 - Flip the string order.
 - Listen to the note sounds
 
+## Returning a year later, what's going to be added?
+#### Upcoming changes to the site include:
+- Refactored code
+- Updated styles
+- New tools such as chord viewer and guitar tabs.
+- User accounts and community boards where you can share posts, videos, etc.
