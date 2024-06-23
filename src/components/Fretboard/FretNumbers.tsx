@@ -1,4 +1,3 @@
-import React from 'react';
 import './Fretboard.scss';
 
 export type FretNumbersProps = {
