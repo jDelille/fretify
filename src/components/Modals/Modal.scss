@@ -3,7 +3,7 @@
 
 
 .overlay {
-  background-color: rgba(24, 24, 24, 0.9);
+  background-color: rgba(24, 24, 24, 0.8);
   backdrop-filter: blur(8px);
   position: fixed;
   height: 100vh;
@@ -17,145 +17,54 @@
   .modal {
     display: flex;
     flex-direction: column;
-    max-width: 85%;
     gap: 1rem;
-    padding: 10px;
-    max-height: fit-content;
     margin-bottom: 10px;
     position: fixed;
     z-index: 9999;
     background-color: $primaryDark;
+    height: 630px;
+    width: 456px;
+    overflow-y: auto;
+    border-radius: 22px;
     @include mobile() {
       height: fit-content;
       max-height: 70vh;
     }
-    header {
+
+    .modal-header {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      padding: 1rem 0;
-      padding-bottom: 0;
-      h1 {
-        font-size: 20px;
-      }
-      svg {
-        cursor: pointer;
-        &:hover {
-          transform: scale(1.2);
-        }
+      justify-content: center;
+      height: 30px;
+      padding: 10px;
+      font-size: 14px;
+      .close {
+        position: absolute;
+        right: 10px;
       }
     }
-  
-    .option {
-      display: flex;
-      height: fit-content;
-      align-items: center;
-      border-radius: 6px;
-      width: 95%;
-      margin: 0 auto;
-      flex-direction: column;
-      gap: 1rem;
-      .group {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        width: 100%;
-        padding: 10px;
-        border-radius: 6px;
-        p {
-          display: flex;
-          justify-content: center;
-          height: 100%;
-          align-items: center;
-        }
-  
-        #theme-switch {
-          margin-left: auto;
-        }
-      }
-    }
-    .wrapper {
+
+    .body {
+      list-style-type: none;
       display: flex;
       flex-direction: column;
-      margin: 1rem 0;
-      border: none;
-      max-height: 500px;
-      .label {
-        margin-bottom: 10px;
-      }
-      .options {
+      gap: 10px;
+      .section {
         display: flex;
         flex-direction: column;
-        gap: 10px;
-        .unselected,
-        .selected {
-          padding: 0;
-          border: none;
-          flex: 1;
-          padding: 15px;
+        padding: 15px;
+        gap: 20px;
+        h3 {
+          font-size: 14px;
+          font-weight: 500;
+        }
+        label {
           display: flex;
-          justify-content: space-between;
-          border-radius: 5px;
-          cursor: pointer;
-  
-          .notes {
-            display: flex;
-            gap: 5px;
-            font-size: 12px;
+          gap: 10px;
+          font-size: 14px;
+          input {
+           
           }
-        }
-        .selected {
-          background-color: $accent;
-          color: white;
-        }
-      }
-    }
-    .displayOption {
-      display: flex;
-      flex-direction: column;
-      height: fit-content;
-      justify-content: center;
-      gap: 1rem;
-      border-radius: 6px;
-      height: fit-content;
-      padding: 10px 1rem;
-      p {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-      }
-      .inputContainer {
-        display: flex;
-        justify-content: center;
-        input {
-          width: calc(100% - 2rem);
-        }
-      }
-  
-      .positions {
-        display: flex;
-        justify-content: center;
-        gap: 10px;
-        .position,
-        .activePosition {
-          border: none;
-          height: 30px;
-          width: 30px;
-          border-radius: 50%;
-          display: flex;
-          align-items: center;
-          padding: 0 5px;
-  
-          justify-content: center;
-          p {
-            display: flex;
-            justify-content: center;
-          }
-        }
-  
-        .activePosition {
-          background-color: $accent;
-          color: white;
         }
       }
     }

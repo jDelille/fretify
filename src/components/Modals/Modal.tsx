@@ -17,7 +17,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, body, onClose, title }) => {
   return (
     <div className="overlay">
       <div className="modal">
-        <div className="header">
+        <div className="modal-header">
           <h3>{title}</h3>
           <div className="close">
             <CloseIcon onClick={onClose} />

@@ -27,21 +27,25 @@ export default function ScaleModal({ scales }: Props) {
 
   const bodyContent = (
     <div>
-      {scales &&
-        scales?.name.map((scale) => {
-          return (
-            <button
-              type="button"
-              key={scale}
-              className={scale === currentScale ? 'selected' : 'unselected'}
-              onClick={() => {
-                changeScale(scale);
-              }}
-            >
-              <p className="name">{scale}</p>
-            </button>
-          );
-        })}
+      <ul className="modal-content">
+        {scales &&
+          scales?.name.map((scale) => {
+            return (
+              <li>
+                <button
+                  type="button"
+                  key={scale}
+                  className={scale === currentScale ? 'selected' : 'unselected'}
+                  onClick={() => {
+                    changeScale(scale);
+                  }}
+                >
+                  <p className="name">{scale}</p>
+                </button>
+              </li>
+            );
+          })}
+      </ul>
     </div>
   );
 
