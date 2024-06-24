@@ -22,3 +22,4 @@ const GuitarSounds: React.FC<GuitarSoundsProps> = observer(({ }) => {
 });
 
 export default GuitarSounds;
+

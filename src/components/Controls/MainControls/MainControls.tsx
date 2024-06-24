@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import RootNotes from './RootNote';
 import Scales from './Scales';
 import Tuning from './Tuning';
@@ -7,14 +6,6 @@ import GuitarSounds from './GuitarSounds';
 import '../Controls.scss';
 
 function MainControls() {
-  const [isTuningModal, setIsTuningModal] = useState(false);
-  const [isScaleModal, setIsScaleModal] = useState(false);
-
-  const toggleScales = () => {
-    setIsScaleModal((prevState) => !prevState);
-    setIsTuningModal(false);
-  };
-
   return (
     <div className="mainControls">
       <div className="container">
@@ -24,7 +15,7 @@ function MainControls() {
       <div className="middleContainer">
         <div className="scales">
           <p className="label">Scale / Mode</p>
-          <Scales isScaleModal={isScaleModal} toggleScales={toggleScales} />
+          <Scales  />
         </div>
         <div className="tuning">
           <p className="label">Tuning</p>

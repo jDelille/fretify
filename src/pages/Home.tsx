@@ -8,14 +8,17 @@ import MainControls from '../components/Controls/MainControls/MainControls';
 import Fretboard from '../components/Fretboard/Fretboard';
 import FretboardData from '../components/FretboardData/FretboardData';
 import MobileControls from '../components/Controls/MobileControls/MobileControls';
-import { SoundModal, TuningModal } from '../components/Modals';
+import { ScaleModal, SoundModal, TuningModal } from '../components/Modals';
 import GuitarConstants from '../constants/@GuitarConstants';
+import { Scale } from 'tonal';
 
 function Home() {
   const [theme, setTheme] = useState('dark');
   const isDarkTheme = theme === 'dark';
   const toggleTheme = () => setTheme(isDarkTheme ? 'light' : 'dark');
   const guitarNames: string[] = GuitarConstants.guitars;
+  const scaleNames: string[] = Scale.names();
+
   const { tunings } = GuitarConstants;
 
   return (
@@ -23,10 +26,11 @@ function Home() {
       <>
         <GlobalStyles />
         <div className="page">
-          
+
           {/* Modals */}
           <SoundModal sounds={{ name: guitarNames }} />
           <TuningModal tunings={tunings}/>
+          <ScaleModal scales={{ name: scaleNames }} />
 
           <Navbar toggleTheme={toggleTheme} theme={theme} />
           <MainControls />

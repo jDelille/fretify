@@ -1,11 +1,7 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
-import { useState } from 'react';
-import SimpleBar from 'simplebar-react';
-import 'simplebar/dist/simplebar.min.css';
-
-import { CloseIcon } from '../../assets';
 import Store from '../../mobx/Store';
-
+import Modal from './Modal';
+import useModalStore from '../../hooks/useModalStore';
 import '../Controls/Controls.scss';
 
 export type Scales = {
@@ -17,7 +13,7 @@ type Props = {
 };
 
 export default function ScaleModal({ scales }: Props) {
-  const [isModalHidden, setIsModalHidden] = useState(false);
+  const { modals, closeModal } = useModalStore();
 
   const changeScale = (scale: string) => {
     Store.setScale(scale);
@@ -25,41 +21,36 @@ export default function ScaleModal({ scales }: Props) {
 
   const currentScale = Store.scale;
 
-  return !isModalHidden ? (
-    <>
-      <button
-        type="button"
-        className="overlay"
-        onClick={() => setIsModalHidden(true)}
-      />
-      <div className="modal">
-        <header>
-          <h1>Scales / Modes</h1>
-          <CloseIcon onClick={() => setIsModalHidden(true)} />
-        </header>
-        <SimpleBar className="wrapper">
-          <div className="options">
-            {scales &&
-              scales?.name.map((scale) => {
-                return (
-                  <button
-                    type="button"
-                    key={scale}
-                    className={
-                      scale === currentScale ? 'selected' : 'unselected'
-                    }
-                    onClick={() => {
-                      changeScale(scale);
-                      setIsModalHidden(true);
-                    }}
-                  >
-                    <p className="name">{scale}</p>
-                  </button>
-                );
-              })}
-          </div>
-        </SimpleBar>
-      </div>
-    </>
-  ) : null;
+  const handleCloseModal = () => {
+    closeModal('scaleModal');
+  };
+
+  const bodyContent = (
+    <div>
+      {scales &&
+        scales?.name.map((scale) => {
+          return (
+            <button
+              type="button"
+              key={scale}
+              className={scale === currentScale ? 'selected' : 'unselected'}
+              onClick={() => {
+                changeScale(scale);
+              }}
+            >
+              <p className="name">{scale}</p>
+            </button>
+          );
+        })}
+    </div>
+  );
+
+  return (
+    <Modal
+      title="Scales"
+      onClose={handleCloseModal}
+      isOpen={modals.scaleModal}
+      body={bodyContent}
+    />
+  );
 }
