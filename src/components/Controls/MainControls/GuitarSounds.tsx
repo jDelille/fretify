@@ -1,26 +1,23 @@
 import React from 'react';
 import { observer } from 'mobx-react';
-import { GuitarConstants } from '../../../constants/@GuitarConstants';
 import Store from '../../../mobx/Store';
-import SoundModal from '../../Modals/SoundModal';
+import useModalStore from '../../../hooks/useModalStore';
 
 type GuitarSoundsProps = {
   isGuitarSoundsModal: boolean;
-  toggleGuitarSounds: () => void;
 };
 
-const GuitarSounds: React.FC<GuitarSoundsProps> = observer(({ isGuitarSoundsModal, toggleGuitarSounds }) => {
+const GuitarSounds: React.FC<GuitarSoundsProps> = observer(({ isGuitarSoundsModal }) => {
   const activeSound = Store.sound;
-  const guitarNames: string[] = GuitarConstants.guitars;
+  const { modals, openModal, closeModal } = useModalStore();
 
   function formatString(str: string): string {
     return str.split('_').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
   }
 
   return (
-    <button type="button" className="content" onClick={toggleGuitarSounds}>
+    <button type="button" className="content" onClick={() => openModal("soundModal")}>
       <p>{formatString(activeSound)}</p>
-      {isGuitarSoundsModal && <SoundModal sounds={{ name: guitarNames }} />}
     </button>
   );
 });

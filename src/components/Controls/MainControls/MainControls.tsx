@@ -45,7 +45,6 @@ function MainControls() {
           <p className="label">Guitar Sound</p>
           <GuitarSounds
             isGuitarSoundsModal={isGuitarSoundsModal}
-            toggleGuitarSounds={toggleGuitarSounds}
           />
         </div>
       </div>

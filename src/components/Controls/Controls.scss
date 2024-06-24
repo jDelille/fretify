@@ -209,17 +209,6 @@
   }
 }
 
-.overlay {
-  background-color: #000;
-  width: 100vw;
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 999;
-  opacity: 0.8;
-  border: none;
-}
 .modal {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   padding: 10px;
