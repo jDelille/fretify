@@ -9,20 +9,9 @@ import '../Controls.scss';
 function MainControls() {
   const [isTuningModal, setIsTuningModal] = useState(false);
   const [isScaleModal, setIsScaleModal] = useState(false);
-  const [isGuitarSoundsModal, setIsGuitarSoundsModal] = useState(false);
 
-  const toggleTuning = () => {
-    setIsTuningModal((prevState) => !prevState);
-    setIsScaleModal(false);
-  };
   const toggleScales = () => {
     setIsScaleModal((prevState) => !prevState);
-    setIsTuningModal(false);
-  };
-
-  const toggleGuitarSounds = () => {
-    setIsGuitarSoundsModal((prevState) => !prevState);
-    setIsScaleModal(false);
     setIsTuningModal(false);
   };
 
@@ -39,13 +28,11 @@ function MainControls() {
         </div>
         <div className="tuning">
           <p className="label">Tuning</p>
-          <Tuning isTuningModal={isTuningModal} toggleTuning={toggleTuning} />
+          <Tuning />
         </div>
         <div className="guitarSound">
           <p className="label">Guitar Sound</p>
-          <GuitarSounds
-            isGuitarSoundsModal={isGuitarSoundsModal}
-          />
+          <GuitarSounds />
         </div>
       </div>
       <div className="bottomContainer">

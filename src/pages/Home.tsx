@@ -7,10 +7,8 @@ import Navbar from '../components/Navbar/Navbar';
 import MainControls from '../components/Controls/MainControls/MainControls';
 import Fretboard from '../components/Fretboard/Fretboard';
 import FretboardData from '../components/FretboardData/FretboardData';
-import Footer from '../components/Footer/Footer';
 import MobileControls from '../components/Controls/MobileControls/MobileControls';
-import Modal from '../components/Modals/Modal';
-import { SoundModal } from '../components/Modals';
+import { SoundModal, TuningModal } from '../components/Modals';
 import GuitarConstants from '../constants/@GuitarConstants';
 
 function Home() {
@@ -18,14 +16,18 @@ function Home() {
   const isDarkTheme = theme === 'dark';
   const toggleTheme = () => setTheme(isDarkTheme ? 'light' : 'dark');
   const guitarNames: string[] = GuitarConstants.guitars;
+  const { tunings } = GuitarConstants;
 
   return (
     <ThemeProvider theme={isDarkTheme ? darkTheme : lightTheme}>
       <>
         <GlobalStyles />
         <div className="page">
+          
           {/* Modals */}
           <SoundModal sounds={{ name: guitarNames }} />
+          <TuningModal tunings={tunings}/>
+
           <Navbar toggleTheme={toggleTheme} theme={theme} />
           <MainControls />
           <SimpleBar className="fretboardWrapper">

@@ -13,7 +13,7 @@ type Props = {
 };
 
 export default function SoundModal({ sounds }: Props) {
-  const { modals, openModal, closeModal } = useModalStore();
+  const { modals, closeModal } = useModalStore();
 
   const changeSound = (sound: string) => {
     Store.setSound(sound);

@@ -1,9 +1,8 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
-import { useState } from 'react';
-import SimpleBar from 'simplebar-react';
-import { CloseIcon } from '../../assets';
 import Store from '../../mobx/Store';
+import Modal from './Modal';
 import '../Controls/Controls.scss';
+import useModalStore from '../../hooks/useModalStore';
 
 export type TuningProps = {
   name: string;
@@ -16,7 +15,7 @@ type Props = {
 };
 
 export default function TuningModal({ tunings }: Props) {
-  const [isModalHidden, setIsModalHidden] = useState(false);
+  const { modals, closeModal } = useModalStore();
 
   const changeTuning = (tuning: {
     name: string;
@@ -28,51 +27,48 @@ export default function TuningModal({ tunings }: Props) {
 
   const currentTuning = Store.tuning;
 
-  return !isModalHidden ? (
-    <>
-      <button
-        type="button"
-        className="overlay"
-        onClick={() => setIsModalHidden(true)}
-      />
-      <div className="modal">
-        <header>
-          <h1>Tuning</h1>
-          <CloseIcon onClick={() => setIsModalHidden(true)} />
-        </header>
-        <SimpleBar className="wrapper">
-          <div className="options">
-            {tunings &&
-              tunings?.map((tuning) => {
-                return (
-                  <button
-                    type="button"
-                    key={tuning.name}
-                    className={
-                      tuning.name === currentTuning ? 'selected' : 'unselected'
-                    }
-                    onClick={() => {
-                      changeTuning(tuning);
-                      setIsModalHidden(true);
-                    }}
-                  >
-                    <p> {tuning.name} </p>
+  const handleCloseModal = () => {
+    closeModal('tuningModal');
+  };
 
-                    <div className="notes">
-                      {tuning.notes.map((note: string) => {
-                        return (
-                          <span key={note} className="note">
-                            {note}
-                          </span>
-                        );
-                      })}
-                    </div>
-                  </button>
-                );
-              })}
-          </div>
-        </SimpleBar>
-      </div>
-    </>
-  ) : null;
+  const bodyContent = (
+    <div>
+      {tunings &&
+        tunings?.map((tuning) => {
+          return (
+            <button
+              type="button"
+              key={tuning.name}
+              className={
+                tuning.name === currentTuning ? 'selected' : 'unselected'
+              }
+              onClick={() => {
+                changeTuning(tuning);
+              }}
+            >
+              <p> {tuning.name} </p>
+
+              <div className="notes">
+                {tuning.notes.map((note: string) => {
+                  return (
+                    <span key={note} className="note">
+                      {note}
+                    </span>
+                  );
+                })}
+              </div>
+            </button>
+          );
+        })}
+    </div>
+  );
+
+  return (
+    <Modal
+      title="Tunings"
+      onClose={handleCloseModal}
+      isOpen={modals.tuningModal}
+      body={bodyContent}
+    />
+  );
 }

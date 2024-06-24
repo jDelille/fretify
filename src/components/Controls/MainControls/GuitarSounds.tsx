@@ -4,12 +4,11 @@ import Store from '../../../mobx/Store';
 import useModalStore from '../../../hooks/useModalStore';
 
 type GuitarSoundsProps = {
-  isGuitarSoundsModal: boolean;
 };
 
-const GuitarSounds: React.FC<GuitarSoundsProps> = observer(({ isGuitarSoundsModal }) => {
+const GuitarSounds: React.FC<GuitarSoundsProps> = observer(({ }) => {
   const activeSound = Store.sound;
-  const { modals, openModal, closeModal } = useModalStore();
+  const { openModal } = useModalStore();
 
   function formatString(str: string): string {
     return str.split('_').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');

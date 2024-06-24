@@ -1,22 +1,20 @@
-import { observer } from 'mobx-react';
+import React from 'react';
 import Store from '../../../mobx/Store';
-import TuningModal from '../../Modals/TuningModal';
-import { GuitarConstants } from '../../../constants/@GuitarConstants';
-import '../Controls.scss';
+import useModalStore from '../../../hooks/useModalStore';
+import { observer } from 'mobx-react';
 
-const { tunings } = GuitarConstants;
-
-export type TuningProps = {
-  isTuningModal: boolean;
-  toggleTuning: () => void;
-};
-
-const Tuning = observer(({ isTuningModal, toggleTuning }: TuningProps) => {
+type TuningProps = {};
+const Tuning: React.FC<TuningProps> = observer(() => {
   const activeTuning = Store.tuning;
+  const { openModal } = useModalStore();
+
   return (
-    <button type="button" className="content" onClick={toggleTuning}>
+    <button
+      type="button"
+      className="content"
+      onClick={() => openModal('tuningModal')}
+    >
       <p>{activeTuning} Tuning</p>
-      {isTuningModal && <TuningModal tunings={tunings} />}
     </button>
   );
 });
