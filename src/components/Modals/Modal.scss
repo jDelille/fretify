@@ -21,11 +21,13 @@
     margin-bottom: 10px;
     position: fixed;
     z-index: 9999;
-    background-color: $primaryDark;
     height: 630px;
-    width: 456px;
+    width: 556px;
     overflow-y: auto;
-    border-radius: 22px;
+    border-radius: 8px;
+    &::-webkit-scrollbar {
+      display: none;
+    }
     @include mobile() {
       height: fit-content;
       max-height: 70vh;
@@ -35,12 +37,15 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      height: 30px;
+      min-height: 30px;
       padding: 10px;
       font-size: 14px;
+      position: sticky;
+      top: 0;
+      
+
       .close {
-        position: absolute;
-        right: 10px;
+        margin-left: auto;
       }
     }
 
@@ -62,8 +67,8 @@
           display: flex;
           gap: 10px;
           font-size: 14px;
-          input {
-           
+          .preview-sound {
+            margin-left: auto;
           }
         }
       }

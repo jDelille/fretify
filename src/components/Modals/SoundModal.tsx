@@ -44,6 +44,8 @@ const SoundModal = observer(({ sounds }: Props) => {
               }}
             />
             {formatString(sound)}
+            {/* <span className='preview-sound'>Preview sound</span> */}
+
           </label>
         ))}
     </div>
@@ -75,6 +77,7 @@ const SoundModal = observer(({ sounds }: Props) => {
               }}
             />
             {formatString(sound)}
+            {/* <span className='preview-sound'>Preview sound</span> */}
           </label>
         ))}
       </div>

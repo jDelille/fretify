@@ -13,6 +13,8 @@ interface ITheme extends DefaultTheme {
   footer: string;
   unselected: string;
   white: string;
+  overlay: string;
+  modalBody: string;
 }
 
 export const GlobalStyles = createGlobalStyle`
@@ -27,7 +29,21 @@ export const GlobalStyles = createGlobalStyle`
     color: ${({ theme }: { theme: ITheme }) => theme.text};
   }
 
+  .overlay {
+    background: ${({ theme }: { theme: ITheme }) => theme.overlay};
+  }
+
   .modal,
+  .modal-header {
+    background: ${({ theme }: { theme: ITheme }) => theme.modalBody};
+    color: ${({ theme }: { theme: ITheme }) => theme.text};
+  
+  }
+
+  .modal-header {
+    border-bottom: ${({ theme }: { theme: ITheme }) => theme.border};
+  }
+  
   .unselected,
   .unselected-root {
     background: ${({ theme }: { theme: ITheme }) => theme.modal};
@@ -145,7 +161,7 @@ export const lightTheme: ITheme = {
   white: '#fff',
   text: '#262626',
   button: '#ffffff',
-  border: '1px solid #d3d3d3',
+  border: '1px solid lightgray',
   borderMedium: '2px solid #d3d3d3',
   borderLarge: '4px solid #d3d3d3',
   modal: '#E8E8E8',
@@ -153,6 +169,8 @@ export const lightTheme: ITheme = {
   hover: '#ffffff',
   container: '#F2F2F2',
   footer: '#fff',
+  overlay: 'rgba(255, 255, 255, 0.6)',
+  modalBody: 'white',
 };
 
 export const darkTheme: ITheme = {
@@ -168,4 +186,7 @@ export const darkTheme: ITheme = {
   hover: '#6B6B6B',
   container: '#333333',
   footer: '#222',
+  overlay: 'rgba(24, 24, 24, 0.8)',
+  modalBody: '#262626'
+
 };
