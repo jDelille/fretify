@@ -161,7 +161,7 @@ export const lightTheme: ITheme = {
   white: '#fff',
   text: '#262626',
   button: '#ffffff',
-  border: '1px solid lightgray',
+  border: '1px solid #ececf1',
   borderMedium: '2px solid #d3d3d3',
   borderLarge: '4px solid #d3d3d3',
   modal: '#E8E8E8',
