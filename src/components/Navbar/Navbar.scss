@@ -5,6 +5,7 @@
   max-width: 100%;
   height: 81px;
   position: relative;
+  padding-bottom: 2rem;
   @include tablet() {
     padding: 0 1rem;
   }
@@ -29,9 +30,30 @@
     .logo {
       width: fit-content;
       padding-right: 28px;
+      .home-link {
+        text-decoration: none;
+        font-size: 22px;
+        font-weight: 600;
+      }
     }
     .links {
-      margin-left: auto;
+      display: flex;
+      gap: 1rem;
+      font-size: 15px;
+      p {
+        font-weight: 600;
+        cursor: pointer;
+        
+        &:hover {
+          text-decoration: underline;
+          text-decoration-thickness: 2px;
+        }
+      }
+     
+      .inactive {
+        pointer-events: none;
+      }
+
     }
   }
 }

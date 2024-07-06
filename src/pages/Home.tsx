@@ -12,38 +12,40 @@ import { ScaleModal, SoundModal, TuningModal } from '../components/Modals';
 import GuitarConstants from '../constants/@GuitarConstants';
 import { Scale } from 'tonal';
 
-function Home() {
-  const [theme, setTheme] = useState('dark');
-  const isDarkTheme = theme === 'dark';
-  const toggleTheme = () => setTheme(isDarkTheme ? 'light' : 'dark');
+import React from 'react';
+
+type HomeProps = {
+  theme: string;
+ }
+const Home: React.FC<HomeProps> = ({theme}) => {
   const guitarNames: string[] = GuitarConstants.guitars;
   const scaleNames: string[] = Scale.names();
 
   const { tunings } = GuitarConstants;
 
   return (
-    <ThemeProvider theme={isDarkTheme ? darkTheme : lightTheme}>
-      <>
-        <GlobalStyles />
-        <div className="page">
+    <ThemeProvider theme={theme ? darkTheme : lightTheme}>
+    <>
+      <GlobalStyles />
+      <div className="page">
 
-          {/* Modals */}
-          <SoundModal sounds={{ name: guitarNames }} />
-          <TuningModal tunings={tunings}/>
-          <ScaleModal scales={{ name: scaleNames }} />
+        {/* Modals */}
+        <SoundModal sounds={{ name: guitarNames }} />
+        <TuningModal tunings={tunings}/>
+        <ScaleModal scales={{ name: scaleNames }} />
 
-          <Navbar toggleTheme={toggleTheme} theme={theme} />
-          <MainControls />
-          <SimpleBar className="fretboardWrapper">
-            <Fretboard />
-          </SimpleBar>
-          <MobileControls />
-          <FretboardData />
-          {/* <Footer /> */}
-        </div>
-      </>
-    </ThemeProvider>
+        <MainControls />
+        <SimpleBar className="fretboardWrapper">
+          <Fretboard />
+        </SimpleBar>
+        <MobileControls />
+        {/* <FretboardData /> */}
+        {/* <Footer /> */}
+      </div>
+    </>
+  </ThemeProvider>
   );
-}
+};
 
 export default Home;
+

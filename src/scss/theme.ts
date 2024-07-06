@@ -33,6 +33,11 @@ export const GlobalStyles = createGlobalStyle`
     background: ${({ theme }: { theme: ITheme }) => theme.overlay};
   }
 
+  .nav-link {
+    color: ${({ theme }: { theme: ITheme }) => theme.text};
+
+  }
+
   .modal,
   .modal-header {
     background: ${({ theme }: { theme: ITheme }) => theme.modalBody};
@@ -42,6 +47,12 @@ export const GlobalStyles = createGlobalStyle`
 
   .modal-header {
     border-bottom: ${({ theme }: { theme: ITheme }) => theme.border};
+  }
+  
+
+  .inactive {
+    color: ${({ theme }: { theme: ITheme }) => theme.unselected};
+
   }
   
   .unselected,
