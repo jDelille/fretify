@@ -34,9 +34,6 @@ const TuningModal = observer(({ tunings }: Props) => {
   const openTunings = tunings.filter(tuning => tuning.name.includes('Open'));
   const otherTunings = tunings.filter(tuning => !standardTunings.includes(tuning) && !dropTunings.includes(tuning) && !openTunings.includes(tuning));
 
-  console.log(currentTuning)
-
-
   const renderTuningSection = (sectionTitle: string, tuningList: TuningProps[]) => (
     <div className='section' key={sectionTitle}>
       <h3>{sectionTitle}</h3>

@@ -4,22 +4,25 @@ import './scss/global.scss';
 import ChordLibrary from './pages/ChordLibrary';
 import Navbar from './components/Navbar/Navbar';
 import { useState } from 'react';
+import { ThemeProvider } from 'styled-components';
+import { GlobalStyles, darkTheme, lightTheme } from './scss/theme';
 
 function App() {
-
-  const [theme, setTheme] = useState('dark');
+  const [theme, setTheme] = useState('light');
   const isDarkTheme = theme === 'dark';
   const toggleTheme = () => setTheme(isDarkTheme ? 'light' : 'dark');
 
   const Layout = () => {
     return (
-      <div className="layout">
-        <Navbar toggleTheme={toggleTheme} theme={theme} />
-
-        <div className="main-content">
-          <Outlet />
+      <ThemeProvider theme={isDarkTheme ? darkTheme : lightTheme}>
+        <GlobalStyles />
+        <div className="layout">
+          <Navbar toggleTheme={toggleTheme} theme={theme} />
+          <div className="main-content">
+            <Outlet />
+          </div>
         </div>
-      </div>
+      </ThemeProvider>
     );
   };
 

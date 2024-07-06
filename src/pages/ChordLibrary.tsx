@@ -9,16 +9,11 @@ type ChordLibraryProps = {
 };
 const ChordLibrary: React.FC<ChordLibraryProps> = ({ theme }) => {
   return (
-    <ThemeProvider theme={theme ? darkTheme : lightTheme}>
-      <>
-        <GlobalStyles />
-        <div className="page">
-        <SimpleBar className="fretboardWrapper">
-          <Fretboard />
-        </SimpleBar>
-        </div>
-      </>
-    </ThemeProvider>
+    <div className="page">
+      <SimpleBar className="fretboardWrapper">
+        <Fretboard />
+      </SimpleBar>
+    </div>
   );
 };
 

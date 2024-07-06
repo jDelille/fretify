@@ -40,9 +40,10 @@
       display: flex;
       gap: 1rem;
       font-size: 15px;
-      p {
+      a {
         font-weight: 600;
         cursor: pointer;
+        text-decoration: none;
         
         &:hover {
           text-decoration: underline;
