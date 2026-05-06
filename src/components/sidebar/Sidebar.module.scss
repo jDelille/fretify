@@ -1,0 +1,26 @@
+.sidebar {
+  width: 250px;
+  background-color: #1a1a1a;
+  border-right: 1px solid #333333;
+  height: 100vh;
+
+  .logo {
+    color: white;
+    padding: 1rem;
+    border-bottom: 1px solid #333333;
+
+    h1 {
+      font-size: 22px;
+      font-weight: 500;
+    }
+    p {
+      font-size: 12px;
+      margin-top: 5px;
+    }
+  }
+
+  .row {
+    padding: 1rem;
+    border-bottom: 1px solid #333333;
+  }
+}

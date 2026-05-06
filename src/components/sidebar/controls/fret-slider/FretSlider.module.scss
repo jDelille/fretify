@@ -1,0 +1,21 @@
+.control {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  .label {
+    color: lightgray;
+    font-size: 12px;
+  }
+
+  .sliderContainer {
+    width: 100%;
+
+      input {
+        width: 100%;
+        position: relative;
+        top: -1px;
+      }
+  }
+
+}

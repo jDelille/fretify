@@ -10,13 +10,11 @@
 }
 
 .page {
-  max-width: 100%;
-  .fretboardWrapper {
-    padding-top: 3rem;
-    padding-bottom: 15px;
-    @include smallLaptop() {
-      padding-top: 1rem;
-    }
+  width: 100vw;
+  display: flex;
   
+  .content {
+    width: 100%;
+    max-width: calc(100% - 250px);
   }
 }

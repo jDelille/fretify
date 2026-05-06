@@ -1,4 +1,4 @@
-import './Fretboard.scss';
+import styles from './Fretboard.module.scss';
 
 export type FretNumbersProps = {
   totalFrets: number;
@@ -8,20 +8,20 @@ export type FretNumbersProps = {
 
 function FretNumbers({ totalFrets, startFret, endFret }: FretNumbersProps) {
   return (
-    <div className="fretNumbers">
+    <div className={styles.fretNumbers}>
       {Array.from({ length: totalFrets }, (_, index) => {
         const fretNumber = index + 1;
 
         return (
-          <div className="fretNumber" key={index}>
+          <div className={styles.fretNumber} key={index}>
             {fretNumber - 1}
             {index === 12 ? (
-              <div className="doubleDot">
-                <div className="dot" />
-                <div className="dot" />
+              <div className={styles.doubleDot}>
+                <div className={styles.dot} />
+                <div className={styles.dot} />
               </div>
             ) : (
-              <div className="dot" />
+              <div className={styles.dot} />
             )}
           </div>
         );

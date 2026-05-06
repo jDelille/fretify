@@ -1,0 +1,48 @@
+.home {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  .topBar {
+    height: 55px;
+    flex-shrink: 0;
+    background-color: #1A1A1A;
+    border-bottom: 1px solid #333333;
+    display: flex;
+    align-items: center;
+    color: white;
+    font-size: 13px;
+    padding: 0 1rem;
+
+    p {
+      width: fit-content;
+      padding: 0 1rem;
+      border-right: 1px solid #333333;
+    }
+  }
+
+  .fretboardWrapper {
+    background-color: #1A1A1A;
+    flex-shrink: 0;
+    height: 352px;
+    border-bottom: 1px solid #333333;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 2rem;
+  }
+
+  .chords {
+    background-color: #1A1A1A;
+    flex-shrink: 0;
+    height: 275px;
+    border-bottom: 1px solid #333333;
+  }
+
+  .row {
+    background-color: #1A1A1A;
+    flex: 1;
+  }
+}

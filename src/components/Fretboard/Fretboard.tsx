@@ -1,4 +1,5 @@
-/* eslint-disable prettier/prettier */
+'use client';
+
 import { observer } from 'mobx-react';
 import { Scale, Interval } from 'tonal';
 import { instrument, InstrumentName } from 'soundfont-player';
@@ -7,7 +8,7 @@ import { GuitarScales } from '../../constants/@Scales';
 import Store from '../../mobx/Store';
 import FretNumbers from './FretNumbers';
 
-import './Fretboard.scss';
+import styles from './Fretboard.module.scss';
 
 const Fretboard = observer(() => {
   const { numberOfFrets } = Store;
@@ -28,8 +29,7 @@ const Fretboard = observer(() => {
   const convertNoteName = (note: string) => {
     if (note.includes('bb')) {
       const noteIndex =
-        (notes.indexOf(note.charAt(0)) - 1 + notes.length) %
-        notes.length;
+        (notes.indexOf(note.charAt(0)) - 1 + notes.length) % notes.length;
       return notes[noteIndex];
     }
     return note;
@@ -38,12 +38,16 @@ const Fretboard = observer(() => {
   return (
     <>
       <FretNumbers totalFrets={numberOfFrets} startFret={0} endFret={10} />
-      <div className={!isStringsFlipped ? 'fretboard' : 'fretboardFlipped'}>
+      <div
+        className={
+          !isStringsFlipped ? styles.fretboard : styles.fretboardFlipped
+        }
+      >
         {Array.from({ length: 6 }, (_, string) => {
-
           // eslint-disable-next-line @typescript-eslint/no-shadow
           const frets = Array.from({ length: numberOfFrets }, (_, fret) => {
-            const noteIndex = (fret + tunings[Store.tuningIndex].tuning[string]) % 12;
+            const noteIndex =
+              (fret + tunings[Store.tuningIndex].tuning[string]) % 12;
             const note = convertNoteName(notes[noteIndex]);
             const scale = `${Store.rootNote} ${Store.scale}`;
             const isNoteInScale = Scale.get(scale).notes.includes(note);
@@ -62,29 +66,29 @@ const Fretboard = observer(() => {
               fret >= startFret - 12 && fret <= endFret - 12;
             const noteClassName = isNoteInScale
               ? (() => {
-                if (note === Store.rootNote && Store.isRootNoteVisible) {
-                  return 'rootNote';
-                }
-                if (triadNotes.includes(note) && Store.isTriadVisible) {
-                  return 'triadNote';
-                }
-                if (
-                  powerchordNotes.includes(note) &&
-                  Store.isPowerchordVisible
-                ) {
-                  return 'powerchordNote';
-                }
-                return 'note';
-              })()
-              : 'inactiveNote';
+                  if (note === Store.rootNote && Store.isRootNoteVisible) {
+                    return styles.rootNote;
+                  }
+                  if (triadNotes.includes(note) && Store.isTriadVisible) {
+                    return styles.triadNote;
+                  }
+                  if (
+                    powerchordNotes.includes(note) &&
+                    Store.isPowerchordVisible
+                  ) {
+                    return styles.powerchordNote;
+                  }
+                  return styles.note;
+                })()
+              : styles.inactiveNote;
 
             return (
-              <div className="fret" key={fret}>
+              <div className={styles.fret} key={fret}>
                 {isNoteInScale &&
-                  (isNoteInPosition ||
-                    isNoteInSecondPosition ||
-                    isNoteInThirdPosition) ? (
-                  <div className="noteBackground">
+                (isNoteInPosition ||
+                  isNoteInSecondPosition ||
+                  isNoteInThirdPosition) ? (
+                  <div className={styles.noteBackground}>
                     <button
                       type="button"
                       className={noteClassName}
@@ -94,7 +98,7 @@ const Fretboard = observer(() => {
                     </button>
                   </div>
                 ) : (
-                  <p className="inactiveNote">{notes[noteIndex]}</p>
+                  <p className={styles.inactiveNote}>{notes[noteIndex]}</p>
                 )}
               </div>
             );
@@ -102,7 +106,9 @@ const Fretboard = observer(() => {
 
           return (
             <div
-              className={!isFretboardFlipped ? 'string' : 'stringsFlipped'}
+              className={
+                !isFretboardFlipped ? styles.string : styles.stringsFlipped
+              }
               key={string + 1}
             >
               {frets}

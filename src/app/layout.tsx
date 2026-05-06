@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import '../scss/global.scss';
 
 export const metadata: Metadata = {
   title: 'Fretify',

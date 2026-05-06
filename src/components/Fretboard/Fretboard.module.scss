@@ -1,10 +1,10 @@
-@import '../../scss/variables';
-@import '../../scss/mixins';
-@import '../../scss/breakpoints';
+@use '../../scss/variables' as *;
+@use '../../scss/mixins' as mix;
+@use '../../scss/breakpoints' as bp;
 
 .fretboard,
 .fretboardFlipped {
-  max-width: 98%;
+  width: 100%;
   overflow-x: hidden;
   overflow-y: hidden;
   display: flex;
@@ -13,13 +13,8 @@
   border-right: 0;
   border-left: 0;
   margin: 0 auto;
-  background-color: #fff;
+  background-color: #242424;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 20px;
-
-  @include smallLaptop() {
-    min-width: 1500px;
-    margin-left: 1rem;
-  }
   .string,
   .stringsFlipped {
     width: 100%;
@@ -78,29 +73,29 @@
         padding: 0 5px;
       }
       .note {
-        @include note();
+        @include mix.note();
         background-color: #2f89fc;
         color: white;
       }
       .rootNote {
-        @include note();
+        @include mix.note();
       }
       .triadNote {
-        @include note();
+        @include mix.note();
         background-color: #e94e3d;
         color: white;
       }
       .powerchordNote {
-        @include note();
+        @include mix.note();
         background-color: #25862a;
         color: white;
       }
       .activeNote {
-        @include note();
+        @include mix.note();
         background-color: #2f89fc;
       }
       .inactiveNote {
-        @include note();
+        @include mix.note();
         color: $high-strings-color;
         &:hover {
           transform: none;
@@ -123,10 +118,10 @@
   display: flex;
   align-items: center;
   height: 50px;
-  max-width: 98%;
+  width: 100%;
   margin: 0 auto;
   position: relative;
-  @include smallLaptop() {
+  @include bp.smallLaptop() {
     min-width: 1500px;
     margin-left: 1rem;
   }
@@ -141,12 +136,12 @@
     font-size: 14px;
     gap: 5px;
     position: relative;
-    left: 7Zpx;
+    left: -7px;
     &:nth-of-type(1) {
       max-width: 75px;
       min-width: 75px;
       position: relative;
-      left: 4px;
+      left: 0px;
       margin-right: 7px;
     }
     .doubleDot {

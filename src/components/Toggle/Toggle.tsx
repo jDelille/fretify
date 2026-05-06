@@ -1,7 +1,5 @@
 import { observer } from 'mobx-react';
-import Checkbox from '../../assets/Checkbox';
-import Checked from '../../assets/Checked';
-import '../Controls/Controls.scss';
+import styles from './Toggle.module.scss';
 
 export type ToggleProps = {
   isToggled: boolean;
@@ -12,11 +10,15 @@ export type ToggleProps = {
 const Toggle = observer(({ isToggled, onToggle, label }: ToggleProps) => (
   <button
     type="button"
-    className="checkbox"
+    className={styles.toggle}
     onClick={() => onToggle(!isToggled)}
   >
-    {isToggled ? <Checked /> : <Checkbox />}
-    <p className="info">{label}</p>
+    {isToggled ? (
+      <div className={styles.checked}>✓</div>
+    ) : (
+      <div className={styles.checkbox} />
+    )}
+    <p className={styles.label}>{label}</p>
   </button>
 ));
 

@@ -1,0 +1,11 @@
+.control {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  .label {
+    color: lightgray;
+    font-size: 12px;
+  }
+
+}

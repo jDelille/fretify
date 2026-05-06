@@ -1,0 +1,20 @@
+.control {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  .label {
+    color: lightgray;
+    font-size: 12px;
+  }
+  .notes {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px;
+    width: 100%;
+
+    button {
+        cursor: pointer;
+    }
+  }
+}
