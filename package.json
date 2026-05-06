@@ -1,34 +1,32 @@
 {
   "name": "fretify",
   "private": true,
-  "version": "0.0.0",
-  "type": "module",
+  "version": "1.0.0",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
   },
   "dependencies": {
     "@tonaljs/scale": "^4.12.0",
     "mobx": "^6.8.0",
     "mobx-react": "^7.6.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-router-dom": "^6.24.1",
+    "next": "^16.2.5",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "sass": "^1.58.3",
     "simplebar": "^6.2.1",
     "simplebar-react": "^3.2.1",
     "soundfont-player": "^0.12.0",
-    "styled-components": "^5.3.8",
     "tonal": "^4.14.0",
     "tone": "^14.7.77",
     "zustand": "^4.5.2"
   },
   "devDependencies": {
+    "@types/node": "25.6.0",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "@types/simplebar": "^5.3.3",
-    "@types/styled-components": "^5.1.26",
     "@typescript-eslint/eslint-plugin": "^5.54.0",
     "@typescript-eslint/parser": "^5.54.0",
     "@vitejs/plugin-react-swc": "^3.0.0",
